@@ -648,3 +648,50 @@ for (let i = 0; i < Math.min(maxIterations, htmlVids.length); i++) {
     const htmlVid = htmlVids[i];
     initializeVideoPlayer(htmlVid);
 }
+
+// Function to update the counter
+function updateCounter(newCounterValue) {
+    // Get the current date
+    var currentDate = new Date();
+    var currentMonth = currentDate.getMonth(); // Get the current month
+
+    // Encode the counter key and the current month value in Base64
+    var encodedCounterKey = btoa("flowplaycounter");
+    var encodedMonth = btoa(currentMonth.toString());
+
+    // Check if the counter cookie exists
+    var counterCookie = getCookie(encodedCounterKey);
+
+    // If the counter cookie doesn't exist or it's for a different month, update the counter
+    if (!counterCookie || counterCookie !== encodedMonth) {
+        //Send a POST request to update the counter
+        $.post('https://videsigns-staging.co.uk/flowplay-counter', function(data) {
+            console.log(data);
+            // Store the encoded month in a cookie to mark that the counter has been updated for this month
+            document.cookie = encodedCounterKey + "=" + encodedMonth;
+        }).fail(function(xhr, status, error) {
+            console.error('Failed to update counter:', error);
+        });
+    } else {
+        console.log("Counter already updated for this month.");
+    }
+}
+
+// Function to get a cookie by name
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// getLiveCounter();
+updateCounter();
