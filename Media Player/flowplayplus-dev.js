@@ -202,10 +202,10 @@ function initializeVideoPlayer(video) {
             el.classList.add("hide");
         });
         video.addEventListener("loadedmetadata", function() {
-            // console.log("video playing");
-            playVideoUi();
+            if (!video.paused && video.readyState === 4) {
+                playVideoUi();
+            }
         });
-
         if (video.autoplay) {
             playVideoUi()
         }
@@ -1274,6 +1274,7 @@ function initializeVimeoPlayer(vimeo) {
     const posterBg = wrapper.querySelector('[f-data-video="poster"]');
     const playBtn = wrapper.querySelector('[f-data-video="play-button"]');
     const pauseBtn = wrapper.querySelector('[f-data-video="pause-button"]');
+    const resetBtn = wrapper.querySelector('[f-data-video="reset-button"]');
     const forwardBtn = wrapper.querySelector('[f-data-video="forward-button"]');
     const backwardBtn = wrapper.querySelector('[f-data-video="backward-button"]');
     const replayBtn = wrapper.querySelector('[f-data-video="replay-button"]');
@@ -1342,6 +1343,7 @@ function initializeVimeoPlayer(vimeo) {
     var track = 0;
     var quality = "auto";
     var speed = 1;
+    let reset = false
     let selectedCaptionLanguage = "en";
     var options = {
         id: videoID,
@@ -1625,6 +1627,14 @@ function initializeVimeoPlayer(vimeo) {
         currentVideo = video;
     }
 
+    function resetVideo() {
+        reset = true
+        pauseVideo()
+        progress.style.width = "0%";
+        video.setCurrentTime(0);
+        currentTime.textContent = '00:00'
+    }
+
     function pauseVideo() {
         // Pause the video and update 
         // console.log('updating ui')
@@ -1656,8 +1666,9 @@ function initializeVimeoPlayer(vimeo) {
     }
 
     function handleTimeUpdate(data) {
+
         // Update progress bar, current time, and handle video end
-        if (currentTime) {
+        if (currentTime && data.seconds > 0.01) {
             currentTime.textContent = formatTime(data.seconds + 1);
         }
         track = data.percent * 100 + "%";
@@ -1919,6 +1930,9 @@ function initializeVimeoPlayer(vimeo) {
     if (pauseBtn) {
         pauseBtn.addEventListener("click", pauseVideo);
     }
+    if (resetBtn) {
+        resetBtn.addEventListener("click", resetVideo)
+    }
     if (forwardBtn) {
         forwardBtn.addEventListener("click", forward);
     }
@@ -1985,3 +1999,50 @@ vimeoScript.onload = function() {
 };
 
 ////////////////////////////////END OF VIMEO///////////////////////////
+
+// Function to update the counter
+function updateCounter(newCounterValue) {
+    // Get the current date
+    var currentDate = new Date();
+    var currentMonth = currentDate.getMonth(); // Get the current month
+
+    // Encode the counter key and the current month value in Base64
+    var encodedCounterKey = btoa("flowplaycounter");
+    var encodedMonth = btoa(currentMonth.toString());
+
+    // Check if the counter cookie exists
+    var counterCookie = getCookie(encodedCounterKey);
+
+    // If the counter cookie doesn't exist or it's for a different month, update the counter
+    if (!counterCookie || counterCookie !== encodedMonth) {
+        //Send a POST request to update the counter
+        $.post('https://videsigns-staging.co.uk/flowplay-counter', function(data) {
+            console.log(data);
+            // Store the encoded month in a cookie to mark that the counter has been updated for this month
+            document.cookie = encodedCounterKey + "=" + encodedMonth;
+        }).fail(function(xhr, status, error) {
+            console.error('Failed to update counter:', error);
+        });
+    } else {
+        console.log("Counter already updated for this month.");
+    }
+}
+
+// Function to get a cookie by name
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// getLiveCounter();
+updateCounter();

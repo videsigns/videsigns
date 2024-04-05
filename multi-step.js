@@ -1,3571 +1,2203 @@
-// Reverted script 18/3/24 --- 8 Mar 2024 --
-// Feature update testing
-// Add limit to recurring form and recurring input
+// 4 April 2024
+// Bug fix
+// 1. Updated counter tracking url endpoint
+// 2. Updated progressive target
 
-const _0x270fbf = _0x2393;
-(function (_0x101b39, _0x5f552b) {
-  const _0x424a1a = _0x2393,
-    _0x537fcf = _0x101b39();
-  while (!![]) {
-    try {
-      const _0x5f4da7 =
-        (-parseInt(_0x424a1a(0x171)) / 0x1) *
-          (-parseInt(_0x424a1a(0xdc)) / 0x2) +
-        -parseInt(_0x424a1a(0x15f)) / 0x3 +
-        -parseInt(_0x424a1a(0x22f)) / 0x4 +
-        parseInt(_0x424a1a(0x16e)) / 0x5 +
-        (-parseInt(_0x424a1a(0xf7)) / 0x6) *
-          (-parseInt(_0x424a1a(0xfe)) / 0x7) +
-        -parseInt(_0x424a1a(0x19a)) / 0x8 +
-        -parseInt(_0x424a1a(0xf4)) / 0x9;
-      if (_0x5f4da7 === _0x5f552b) break;
-      else _0x537fcf["push"](_0x537fcf["shift"]());
-    } catch (_0x1d37d8) {
-      _0x537fcf["push"](_0x537fcf["shift"]());
+const _0x29f161 = _0x4852;
+(function(_0x4ac766, _0x240b81) {
+    const _0x13f1c6 = _0x4852,
+        _0x4acd4f = _0x4ac766();
+    while (!![]) {
+        try {
+            const _0x5ca69c = parseInt(_0x13f1c6(0xac)) /
+                0x1 * (-parseInt(_0x13f1c6(0x163)) / 0x2) + -parseInt(_0x13f1c6(0x85)) / 0x3 * (-parseInt(
+                    _0x13f1c6(0xe9)) / 0x4) + parseInt(_0x13f1c6(0x11a)) / 0x5 * (parseInt(_0x13f1c6(
+                    0xe8)) / 0x6) + parseInt(_0x13f1c6(0x200)) / 0x7 + parseInt(_0x13f1c6(0x1de)) / 0x8 * (-
+                    parseInt(_0x13f1c6(0x147)) / 0x9) + parseInt(_0x13f1c6(0x7a)) / 0xa + -parseInt(
+                    _0x13f1c6(0xd0)) / 0xb;
+            if (_0x5ca69c === _0x240b81) break;
+            else _0x4acd4f['push'](_0x4acd4f['shift']());
+        } catch (_0x2a0adf) {
+            _0x4acd4f['push'](
+                _0x4acd4f['shift']());
+        }
     }
-  }
-})(_0x289b, 0xb92c9);
+}(_0x1d56, 0x99c99));
 let x = 0x0,
-  lastStep = 0x0,
-  curStep = 0x0,
-  countCard = !![],
-  fill = ![],
-  inputFilled = !![],
-  skip,
-  urlFilled = !![],
-  selectFilled = !![],
-  radioFilled = !![],
-  dateFilled = !![],
-  timeFilled = !![],
-  checkboxFilled = !![],
-  emailFilled = !![],
-  textareaFilled = !![],
-  telFilled = !![],
-  passwordFilled = !![],
-  fileFilled = !![],
-  numFilled = !![],
-  answer = "",
-  selections = [],
-  selection = [],
-  empReqInput = [],
-  empReqUrl = [],
-  empReqDate = [],
-  empReqTime = [],
-  empReqRadio = [],
-  empReqSelect = [],
-  empReqTextarea = [],
-  empReqFile = [],
-  empReqPassword = [],
-  empReqNum = [],
-  empReqTel = [],
-  textareaLength = 0x0,
-  textInputLength = 0x0,
-  emailInputLength = 0x0,
-  selectInputLength = 0x0,
-  checkboxInputLength = 0x0,
-  filledInput = [],
-  savedFilledInput = [],
-  progress = 0x0,
-  skipTo = 0x0,
-  next = ![],
-  back = ![],
-  selArr = [],
-  selString = [],
-  emptyInput = 0x0,
-  selTotal = 0x0,
-  searchQ = [],
-  domainAllowed = !![],
-  dom = [],
-  successCard = "",
-  redirectTo = "",
-  totalSteps = 0x0,
-  checkCount = 0x0,
-  newTab = !![],
-  unfilledArr = [],
-  notRobot = !![],
-  all_data = [];
+    lastStep = 0x0,
+    curStep = 0x0,
+    countCard = !![],
+    fill = ![],
+    inputFilled = !![],
+    skip, urlFilled = !![],
+    selectFilled = !![],
+    radioFilled = !![],
+    dateFilled = !![],
+    timeFilled = !![],
+    checkboxFilled = !![],
+    emailFilled = !![],
+    textareaFilled = !![],
+    telFilled = !![],
+    passwordFilled = !![],
+    fileFilled = !![],
+    numFilled = !![],
+    answer = '',
+    selections = [],
+    selection = [],
+    empReqInput = [],
+    empReqUrl = [],
+    empReqDate = [],
+    empReqTime = [],
+    empReqRadio = [],
+    empReqSelect = [],
+    empReqTextarea = [],
+    empReqFile = [],
+    empReqPassword = [],
+    empReqNum = [],
+    empReqTel = [],
+    textareaLength = 0x0,
+    textInputLength = 0x0,
+    emailInputLength = 0x0,
+    selectInputLength = 0x0,
+    checkboxInputLength = 0x0,
+    filledInput = [],
+    savedFilledInput = [],
+    progress = 0x0,
+    skipTo = 0x0,
+    next = ![],
+    back = ![],
+    selArr = [],
+    selString = [],
+    emptyInput = 0x0,
+    selTotal = 0x0,
+    searchQ = [],
+    domainAllowed = !![],
+    dom = [],
+    successCard = '',
+    redirectTo = '',
+    totalSteps = 0x0,
+    checkCount = 0x0,
+    maxCheckCount = 0x0,
+    newTab = !![],
+    unfilledArr = [],
+    notRobot = !![],
+    all_data = [];
 var ogCloneArr = [];
-let steps = $("[data-form=\x22step\x22]"),
-  progressbarClone = $(_0x270fbf(0x17e))[_0x270fbf(0x160)](),
-  progressbar,
-  weightedSelection = $("[data-weighted-selection]")[_0x270fbf(0x21e)](
-    "weighted-selection",
-  ),
-  weightedSelectionRange = $("[data-weighted-selection-range]")[
-    _0x270fbf(0x21e)
-  ](_0x270fbf(0x203)),
-  selectMultiple = $("[data-select-multiple]")["data"](_0x270fbf(0x13c)),
-  customError = $(_0x270fbf(0xd3))[_0x270fbf(0x21e)]("custom-error-message"),
-  reinitIX = $(_0x270fbf(0x138))[_0x270fbf(0x21e)](_0x270fbf(0x11b)),
-  memory = $(_0x270fbf(0x1fc))[_0x270fbf(0x21e)](_0x270fbf(0x182)),
-  quiz = $("[data-quiz]")[_0x270fbf(0x21e)](_0x270fbf(0x135));
-const urlFormly = new URL(window[_0x270fbf(0x18c)][_0x270fbf(0x1af)]);
-let _params = $(_0x270fbf(0x19f))[_0x270fbf(0x21e)](_0x270fbf(0x197)),
-  logicExtra = $(_0x270fbf(0x1d8))["data"](_0x270fbf(0x1cb)),
-  oldSubmitText = $(_0x270fbf(0x1f9))[_0x270fbf(0x16c)](),
-  oldResetText = $(_0x270fbf(0x148))[_0x270fbf(0x18b)](),
-  formReset = $(_0x270fbf(0x1d8))[_0x270fbf(0x21e)](_0x270fbf(0x11c)),
-  resetDelay = $(_0x270fbf(0x129))[_0x270fbf(0x21e)](_0x270fbf(0xca))
-    ? $(_0x270fbf(0x129))[_0x270fbf(0x21e)](_0x270fbf(0xca))
-    : 0x7d0,
-  redirectDelay = $(_0x270fbf(0xf1))[_0x270fbf(0x21e)](_0x270fbf(0x1ed))
-    ? $("[data-redirect-delay]")[_0x270fbf(0x21e)](_0x270fbf(0x1ed))
-    : 0x7d0,
-  phoneFormat = $(_0x270fbf(0x1d8))[_0x270fbf(0x21e)](_0x270fbf(0x1e2)),
-  scrollToTop = $(_0x270fbf(0x1d8))[_0x270fbf(0x21e)](_0x270fbf(0x1c5)),
-  trackLastStep = $(_0x270fbf(0x1a6))[_0x270fbf(0x21e)](_0x270fbf(0x1f4)),
-  conditionalResult =
-    $(_0x270fbf(0xc6))[_0x270fbf(0x21e)](_0x270fbf(0x236)) === _0x270fbf(0x1b0),
-  scrollTopOffset = parseInt(
-    $(_0x270fbf(0x1d8))[_0x270fbf(0x21e)](_0x270fbf(0x1e7)),
-  );
+let steps = $('[data-form=\x22step\x22]'),
+    progressbarClone = $('[data-form=\x22progress-indicator\x22]')['clone'](),
+    progressbar, weightedSelection = $(_0x29f161(0x133))[_0x29f161(0x1cb)](_0x29f161(0x6a)),
+    weightedSelectionRange = $(_0x29f161(0x1d3))[_0x29f161(0x1cb)]('weighted-selection-range'),
+    selectMultiple = $(_0x29f161(0x124))[_0x29f161(0x1cb)](_0x29f161(0x121)),
+    customError = $(_0x29f161(0x1d8))[_0x29f161(0x1cb)]('custom-error-message'),
+    reinitIX = $(_0x29f161(0xda))[_0x29f161(0x1cb)]('reinit'),
+    memory = $(_0x29f161(0x116))[_0x29f161(0x1cb)]('memory'),
+    quiz = $('[data-quiz]')[_0x29f161(0x1cb)](_0x29f161(0xc5));
+const urlFormly = new URL(window[_0x29f161(0x84)]['href']);
+let _params = $(_0x29f161(0x8e))['data'](_0x29f161(0x10b)),
+    logicExtra = $('[data-form=\x22multistep\x22]')[_0x29f161(0x1cb)]('logic-extra'),
+    oldSubmitText = $(_0x29f161(0x129))[_0x29f161(0x137)](),
+    oldResetText = $(_0x29f161(0x164))[_0x29f161(0x1b7)](),
+    formReset = $(_0x29f161(0x173))[_0x29f161(0x1cb)](_0x29f161(0x17f)),
+    resetDelay = $(_0x29f161(0x87))[_0x29f161(0x1cb)](_0x29f161(0x13c)) ? $('[data-reset-delay]')[
+        _0x29f161(0x1cb)](_0x29f161(0x13c)) : 0x7d0,
+    redirectDelay = $(_0x29f161(0x16e))[_0x29f161(0x1cb)](_0x29f161(0x8c)) ? $(_0x29f161(0x16e))[
+        _0x29f161(0x1cb)](_0x29f161(0x8c)) : 0x64,
+    phoneFormat = $('[data-form=\x22multistep\x22]')['data'](_0x29f161(0x8a)),
+    scrollToTop = $(_0x29f161(0x173))[_0x29f161(0x1cb)](_0x29f161(0xa9)),
+    trackLastStep = $(_0x29f161(0xf8))['data'](_0x29f161(0x1eb)),
+    conditionalResult = $('[data-conditional-result]')[_0x29f161(0x1cb)](_0x29f161(0x166)) ===
+    _0x29f161(0x12f),
+    scrollTopOffset = parseInt($(_0x29f161(0x173))[_0x29f161(0x1cb)](_0x29f161(0x1f8)));
 const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
-(savedFilledInput = JSON[_0x270fbf(0x19e)](
-  localStorage["getItem"]("filledInput"),
-)),
-  (formlyLastStep = JSON[_0x270fbf(0x19e)](
-    localStorage[_0x270fbf(0x224)](_0x270fbf(0x18f)),
-  )),
-  (formlyLastStepAnswer = JSON["parse"](
-    localStorage[_0x270fbf(0x224)](_0x270fbf(0x23c)),
-  ));
-trackLastStep &&
-  (formlyLastStep > x && (x = formlyLastStep),
-  formlyLastStepAnswer && (selections = formlyLastStepAnswer));
-$(_0x270fbf(0x200))[_0x270fbf(0x194)](function () {
-  const _0x46c76b = _0x270fbf;
-  ogCloneArr["push"]({
-    name: $(this)["data"](_0x46c76b(0x160)),
-    element: $(this)[_0x46c76b(0x160)](!![]),
-    display: $(_0x46c76b(0x206) + $(this)["data"]("clone") + "\x22]")
-      ["eq"](0x0)
-      ["clone"](!![]),
-  });
+savedFilledInput = JSON[_0x29f161(0x139)](localStorage[_0x29f161(0x6b)]('filledInput')),
+    formlyLastStep = JSON[_0x29f161(0x139)](localStorage[_0x29f161(0x6b)]('formlyLastStep')),
+    formlyLastStepAnswer = JSON[_0x29f161(0x139)](localStorage[_0x29f161(0x6b)](
+        'formlyLastStepAnswer'));
+let paramUrl = $('[data-form=\x22multistep\x22]')[_0x29f161(0x1cb)](_0x29f161(0x10c));
+const progressiveTarget = $(_0x29f161(0x173))[_0x29f161(0x95)](_0x29f161(0x1b0)),
+    progressiveInput = $(_0x29f161(0x173))[_0x29f161(0x95)](_0x29f161(0x76));
+trackLastStep && (formlyLastStep > x && (x = formlyLastStep), formlyLastStepAnswer && (selections =
+    formlyLastStepAnswer));
+$('[data-clone]')[_0x29f161(0x1c3)](function() {
+    const _0x5a710d = _0x29f161;
+    ogCloneArr[_0x5a710d(0xb5)]({
+        'name': $(this)['data'](_0x5a710d(0xc9)),
+        'element': $(this)[
+            _0x5a710d(0xc9)](!![]),
+        'display': $(_0x5a710d(0xd2) + $(this)[_0x5a710d(0x1cb)](
+            _0x5a710d(0xc9)) + '\x22]')['eq'](0x0)[_0x5a710d(0xc9)](!![])
+    });
 });
-$(_0x270fbf(0x112))[_0x270fbf(0x225)] > 0x0 && (notRobot = ![]);
+const setPageLoadTime = () => {
+    const _0x55c6c6 = _0x29f161;
+    localStorage['setItem'](_0x55c6c6(0x153), Date[_0x55c6c6(0x136)]()['toString']());
+};
+setPageLoadTime();
+$('div.g-recaptcha')[_0x29f161(0x1bf)] > 0x0 && (notRobot = ![]);
 
-function recaptcha(_0x592297) {
-  notRobot = !![];
+function _0x4852(_0x161ffc, _0xbd0f73) {
+    const _0x1d5622 = _0x1d56();
+    return _0x4852 = function(
+        _0x485297, _0x6b6123) {
+        _0x485297 = _0x485297 - 0x65;
+        let _0x55466a = _0x1d5622[
+            _0x485297];
+        return _0x55466a;
+    }, _0x4852(_0x161ffc, _0xbd0f73);
 }
-$(_0x270fbf(0x139))[_0x270fbf(0x225)] > 0x0 &&
-  (countCard = $(_0x270fbf(0x139))[_0x270fbf(0x21e)](_0x270fbf(0xfa)));
-$(_0x270fbf(0x216))[_0x270fbf(0x22a)](),
-  $(progressbarClone)[_0x270fbf(0x159)]("current"),
-  $("[data-form=\x22progress\x22]")[_0x270fbf(0x14f)]()["remove"](),
-  $(_0x270fbf(0x1f9))[_0x270fbf(0x22a)](),
-  $(_0x270fbf(0x1f1))[_0x270fbf(0x22a)](),
-  steps[_0x270fbf(0x194)](function () {
-    const _0x314520 = _0x270fbf;
-    $(_0x314520(0x1db))[_0x314520(0x12b)](
-      progressbarClone["clone"](!![], !![]),
-    );
-  }),
-  $(_0x270fbf(0x202))[_0x270fbf(0x22a)]();
-countCard
-  ? ((curStep = curStep + 0x1),
-    (totalSteps = steps["length"]),
-    $(_0x270fbf(0xf5))[_0x270fbf(0x18b)](totalSteps))
-  : ($(steps[x])["data"](_0x270fbf(0x19b))
-      ? (curStep = curStep + 0x0)
-      : (curStep = curStep + 0x1),
-    (totalSteps = $("[data-form=\x22step\x22]:not([data-card=\x22true\x22])")[
-      _0x270fbf(0x225)
-    ]),
-    $(_0x270fbf(0xf5))[_0x270fbf(0x18b)](totalSteps),
-    $(_0x270fbf(0xde))["each"](function () {
-      const _0x224e9d = _0x270fbf;
-      $($(_0x224e9d(0x17e))[$(this)[_0x224e9d(0x20f)]()])[_0x224e9d(0x22a)]();
+
+function recaptcha(_0x3b1c4d) { notRobot = !![]; }($(steps[x])[_0x29f161(0x1cb)](_0x29f161(0xdb)) ||
+    $(steps[x])['find'](_0x29f161(0xee))['data']('card')) && (next = !![]);
+$(_0x29f161(0xd8))[_0x29f161(0x1bf)] > 0x0 && (countCard = $('[data-count-card]')[_0x29f161(0x1cb)](
+    'count-card'));
+$(_0x29f161(0x151))['hide'](), $(progressbarClone)['removeClass'](_0x29f161(0x18e)), $(_0x29f161(
+    0x182))[_0x29f161(0x1b4)]()[_0x29f161(0x167)](), $(_0x29f161(0x129))[_0x29f161(0x104)](), $(
+    '[data-form-ms=\x22submit-btn\x22]')['hide'](), steps[_0x29f161(0x1c3)](function() {
+    const
+        _0x11d05a = _0x29f161;
+    $(_0x11d05a(0x182))['append'](progressbarClone[_0x11d05a(0xc9)](!![], !![]));
+}), $(_0x29f161(
+    0x19c))[_0x29f161(0x104)]();
+countCard ? (curStep = curStep + 0x1, totalSteps = steps['length'], $(_0x29f161(0x1c2))[_0x29f161(
+    0x1b7)](totalSteps)) : ($(steps[x])[_0x29f161(0x1cb)]('card') ? curStep = curStep + 0x0 :
+    curStep = curStep + 0x1, totalSteps = $(_0x29f161(0x19f))[_0x29f161(0x1bf)], $(_0x29f161(
+        0x1c2))[_0x29f161(0x1b7)](totalSteps), $(_0x29f161(0x1c1))[_0x29f161(0x1c3)](function() {
+        const
+            _0x16b404 = _0x29f161;
+        $($(_0x16b404(0xe6))[$(this)['index']()])[_0x16b404(0x104)]();
     }));
-(progressbar = $(_0x270fbf(0x1db))["children"]()),
-  $(_0x270fbf(0x17e))["on"]("click", clickableIndicator),
-  $(_0x270fbf(0x153))[_0x270fbf(0x18b)](curStep),
-  steps["hide"](),
-  $(_0x270fbf(0x222))[_0x270fbf(0x22a)](),
-  $("[data-form=\x22next-btn\x22][type=\x22submit\x22]")[_0x270fbf(0x194)](
-    function () {
-      const _0x4b67ed = _0x270fbf;
-      $(this)["attr"](_0x4b67ed(0x109), _0x4b67ed(0x242));
-    },
-  );
+progressbar = $('[data-form=\x22progress\x22]')[_0x29f161(0x1b4)](), $(
+    '[data-form=\x22progress-indicator\x22]')['on'](_0x29f161(0x145), clickableIndicator), $(
+    _0x29f161(0xe3))[_0x29f161(0x1b7)](curStep), steps[_0x29f161(0x104)](), $(_0x29f161(0x140))[
+    _0x29f161(0x104)](), $('[data-form=\x22next-btn\x22][type=\x22submit\x22]')[_0x29f161(0x1c3)](
+    function() {
+        const _0x52e77d = _0x29f161;
+        $(this)[_0x52e77d(0xb6)]('type', 'button');
+    });
 
 function getParams() {
-  const _0x2c2f28 = _0x270fbf;
-  urlFormly[_0x2c2f28(0x12a)][_0x2c2f28(0x143)](function (_0x2ffbab, _0x24321) {
-    const _0x4121a7 = _0x2c2f28;
-    searchQ[_0x4121a7(0x172)]({ val: _0x2ffbab, key: _0x24321 });
-  });
+    const _0x23abe6 = _0x29f161;
+    urlFormly[_0x23abe6(0x1e4)]['forEach'](function(_0x50f446, _0x5b261d) {
+        const _0x256aa6 =
+            _0x23abe6;
+        searchQ[_0x256aa6(0xb5)]({ 'val': _0x50f446, 'key': _0x5b261d });
+    });
 }
 
-function getSafe(_0x37dcda, _0x45c672) {
-  try {
-    return _0x37dcda();
-  } catch (_0x1c0c0a) {
-    return _0x45c672;
-  }
+function getSafe(_0x56f638, _0x213367) {
+    try { return _0x56f638(); } catch (
+        _0x4b5d41) { return _0x213367; }
 }
 
-function phoneAutoFormat(_0x4d1cae) {
-  var _0xe3ce59 = "";
-  return function (_0x44974f) {
-    const _0x5c1e09 = _0x2393;
-    var _0x107232 = "",
-      _0x4ca728 = _0x44974f[_0x5c1e09(0xff)](/\D/g, ""),
-      _0x17af18 = 0x0,
-      _0x532aea = 0x0;
-    while (
-      _0x17af18 < _0x4ca728[_0x5c1e09(0x225)] &&
-      _0x532aea < _0x4d1cae[_0x5c1e09(0x225)]
-    ) {
-      _0x4d1cae[_0x532aea] === "x"
-        ? ((_0x107232 += _0x4ca728[_0x17af18]), _0x17af18++)
-        : (_0x107232 += _0x4d1cae[_0x532aea]),
-        _0x532aea++;
-    }
-    if (_0x44974f["length"] < _0xe3ce59[_0x5c1e09(0x225)]) {
-      var _0x460aed = _0x4d1cae[_0x5c1e09(0x146)](_0x532aea);
-      _0x107232 += _0x460aed["replace"](/x/g, "");
-    }
-    return (_0xe3ce59 = _0x107232), _0x107232;
-  };
+function phoneAutoFormat(_0x3cf86) {
+    var _0x3bd8d5 = '';
+    return function(_0x5612e3) {
+        const
+            _0x454c1c = _0x4852;
+        var _0xe6fb19 = '',
+            _0x4a64d7 = _0x5612e3['replace'](/\D/g, ''),
+            _0x895ca6 = 0x0,
+            _0x5d86d1 = 0x0;
+        while (_0x895ca6 < _0x4a64d7[_0x454c1c(0x1bf)] && _0x5d86d1 < _0x3cf86[
+                _0x454c1c(0x1bf)]) {
+            _0x3cf86[_0x5d86d1] === 'x' ? (_0xe6fb19 += _0x4a64d7[_0x895ca6],
+                _0x895ca6++) : _0xe6fb19 += _0x3cf86[_0x5d86d1], _0x5d86d1++;
+        }
+        if (_0x5612e3[_0x454c1c(
+                0x1bf)] < _0x3bd8d5[_0x454c1c(0x1bf)]) {
+            var _0x194354 = _0x3cf86[_0x454c1c(0x194)](
+                _0x5d86d1);
+            _0xe6fb19 += _0x194354[_0x454c1c(0x12b)](/x/g, '');
+        }
+        return _0x3bd8d5 = _0xe6fb19,
+            _0xe6fb19;
+    };
 }
 
-function validateURL(_0x1e0b2c) {
-  return urlPattern["test"](_0x1e0b2c) ? !![] : ![];
+function validateURL(_0x50d560) {
+    const _0x468995 = _0x29f161;
+    return urlPattern[_0x468995(0x144)](
+        _0x50d560) ? !![] : ![];
 }
-quiz &&
-  steps[_0x270fbf(0x194)](function () {
-    const _0x475e2c = _0x270fbf;
-    $(this)[_0x475e2c(0x14f)]()["attr"](_0x475e2c(0x1ae), !![]),
-      $(this)[_0x475e2c(0x14f)]()["attr"](_0x475e2c(0x198), 0xfa);
-  });
+quiz && steps[_0x29f161(0x1c3)](function() {
+    const _0x345241 =
+        _0x29f161;
+    $(this)[_0x345241(0x1b4)]()['attr']('data-radio-skip', !![]), $(this)[_0x345241(0x1b4)]()[
+        _0x345241(0xb6)](_0x345241(0xeb), 0xfa);
+});
 
-function disableBtn(_0x502180) {
-  const _0x1193b8 = _0x270fbf;
-  (fill = ![]),
-    !customError &&
-      ($(_0x1193b8(0xe8))[_0x1193b8(0x17f)]({
-        opacity: _0x1193b8(0xf8),
-        "pointer-events": _0x1193b8(0x1ca),
-      }),
-      $(_0x1193b8(0xe8))[_0x1193b8(0xce)](_0x1193b8(0x122)),
-      $("[data-form=\x22submit-btn\x22]")[_0x1193b8(0x17f)]({
-        opacity: _0x1193b8(0xf8),
-        "pointer-events": _0x1193b8(0x1ca),
-      }),
-      $(_0x1193b8(0x1f9))[_0x1193b8(0xce)]("disabled"),
-      $(_0x1193b8(0x1f1))[_0x1193b8(0x17f)]({
-        opacity: _0x1193b8(0xf8),
-        "pointer-events": _0x1193b8(0x1ca),
-      }),
-      $("[data-form-ms=\x22submit-btn\x22]")[_0x1193b8(0xce)](
-        _0x1193b8(0x122),
-      ));
+function disableBtn(_0x15e305) {
+    const _0x446321 = _0x29f161;
+    fill = ![], !customError && ($(_0x446321(0x1da))['css']({
+        'opacity': _0x446321(
+            0x120),
+        'pointer-events': _0x446321(0x7f)
+    }), $('[data-form=\x22next-btn\x22]')['addClass'](
+        'disabled'), $(_0x446321(0x129))[_0x446321(0x1dd)]({
+        'opacity': _0x446321(
+            0x120),
+        'pointer-events': _0x446321(0x7f)
+    }), $('[data-form=\x22submit-btn\x22]')[_0x446321(
+        0x142)](_0x446321(0x1ea)), $(_0x446321(0x199))[_0x446321(0x1dd)]({
+        'opacity': _0x446321(
+            0x120),
+        'pointer-events': _0x446321(0x7f)
+    }), $('[data-form-ms=\x22submit-btn\x22]')[
+        _0x446321(0x142)]('disabled'));
 }
 
 function enableBtn() {
-  const _0x142378 = _0x270fbf;
-  (fill = !![]),
-    $(_0x142378(0xe8))[_0x142378(0x17f)]({
-      "pointer-events": _0x142378(0x157),
-      opacity: "1",
-    }),
-    $("[data-form=\x22next-btn\x22]")[_0x142378(0x159)](_0x142378(0x122)),
-    $(_0x142378(0x1f9))[_0x142378(0x17f)]({
-      "pointer-events": "auto",
-      opacity: "1",
-    }),
-    $(_0x142378(0x1f9))[_0x142378(0x159)](_0x142378(0x122)),
-    $(_0x142378(0x1f1))[_0x142378(0x17f)]({
-      "pointer-events": _0x142378(0x157),
-      opacity: "1",
-    }),
-    $(_0x142378(0x1f1))["removeClass"](_0x142378(0x122));
+    const _0x1feb7c = _0x29f161;
+    fill = !![], $(_0x1feb7c(0x1da))[_0x1feb7c(0x1dd)]({
+        'pointer-events': _0x1feb7c(
+            0x98),
+        'opacity': '1'
+    }), $(_0x1feb7c(0x1da))[_0x1feb7c(0x181)](_0x1feb7c(0x1ea)), $(
+        _0x1feb7c(0x129))[_0x1feb7c(0x1dd)]({ 'pointer-events': 'auto', 'opacity': '1' }), $(
+        '[data-form=\x22submit-btn\x22]')[_0x1feb7c(0x181)](_0x1feb7c(0x1ea)), $(_0x1feb7c(0x199))[
+        _0x1feb7c(0x1dd)]({ 'pointer-events': _0x1feb7c(0x98), 'opacity': '1' }), $(_0x1feb7c(0x199))[
+        _0x1feb7c(0x181)](_0x1feb7c(0x1ea));
 }
 
-function saveLastAnswer(_0x21319e) {
-  const _0x452fe1 = _0x270fbf;
-  localStorage["removeItem"](_0x452fe1(0x23c)),
-    localStorage[_0x452fe1(0x136)](
-      _0x452fe1(0x23c),
-      JSON[_0x452fe1(0x12d)](_0x21319e),
-    );
+function saveLastAnswer(_0x5bb1bf) {
+    const _0x42a915 = _0x29f161;
+    localStorage[_0x42a915(0x110)](_0x42a915(0x71)), localStorage[_0x42a915(0x123)](_0x42a915(0x71),
+        JSON[_0x42a915(0x17b)](_0x5bb1bf));
 }
 
 function saveFilledInput() {
-  const _0x276b87 = _0x270fbf;
-  $(_0x276b87(0x170))
-    ["not"](_0x276b87(0x149))
-    [_0x276b87(0x194)](function () {
-      const _0x45e4ca = _0x276b87;
-      $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x109)) === "checkbox" ||
-      $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x109)) === "radio"
-        ? $(this)[_0x45e4ca(0x1a9)](_0x45e4ca(0x1ad)) &&
-          (filledInput["some"](
-            (_0x2c896c) =>
-              _0x2c896c[_0x45e4ca(0x106)] === $(this)["attr"](_0x45e4ca(0x14b)),
-          )
-            ? ((filledInput = filledInput[_0x45e4ca(0x150)](
-                (_0x5098e9) =>
-                  _0x5098e9[_0x45e4ca(0x106)] !== $(this)["attr"]("name"),
-              )),
-              $(this)[_0x45e4ca(0x16c)]() !== "" &&
-                filledInput[_0x45e4ca(0x172)]({
-                  inputName: $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x14b)),
-                  value: $(this)[_0x45e4ca(0x16c)](),
-                }))
-            : $(this)[_0x45e4ca(0x16c)]() !== "" &&
-              filledInput[_0x45e4ca(0x172)]({
-                inputName: $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x14b)),
-                value: $(this)[_0x45e4ca(0x16c)](),
-              }))
-        : filledInput[_0x45e4ca(0x1e8)](
-              (_0x45b801) =>
-                _0x45b801[_0x45e4ca(0x106)] ===
-                $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x14b)),
-            )
-          ? ((filledInput = filledInput["filter"](
-              (_0x3e59fa) =>
-                _0x3e59fa[_0x45e4ca(0x106)] !==
-                $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x14b)),
-            )),
-            $(this)[_0x45e4ca(0x16c)]() !== "" &&
-              filledInput[_0x45e4ca(0x172)]({
-                inputName: $(this)[_0x45e4ca(0x164)](_0x45e4ca(0x14b)),
-                value: $(this)[_0x45e4ca(0x16c)](),
-              }))
-          : $(this)["val"]() !== "" &&
-            filledInput[_0x45e4ca(0x172)]({
-              inputName: $(this)["attr"](_0x45e4ca(0x14b)),
-              value: $(this)[_0x45e4ca(0x16c)](),
+    const _0x49baaf = _0x29f161;
+    $(_0x49baaf(0x77))[_0x49baaf(0xc8)]('[type=\x22submit\x22]')['each'](function() {
+        const
+            _0x395e0c = _0x49baaf;
+        $(this)[_0x395e0c(0xb6)](_0x395e0c(0x1d4)) === 'checkbox' || $(this)['attr'](_0x395e0c(
+                0x1d4)) === _0x395e0c(0xec) ? $(this)[_0x395e0c(0xb0)](_0x395e0c(0x15b)) && (
+                filledInput[_0x395e0c(0x201)](_0x36f177 => _0x36f177[_0x395e0c(0x165)] === $(this)[
+                    _0x395e0c(0xb6)](_0x395e0c(0x122))) ? (filledInput = filledInput['filter'](
+                        _0x2f5e5c => _0x2f5e5c['inputName'] !== $(this)[_0x395e0c(0xb6)](_0x395e0c(0x122))),
+                    $(this)['val']() !== '' && filledInput[_0x395e0c(0xb5)]({
+                        'inputName': $(this)['attr']
+                            ('name'),
+                        'value': $(this)['val']()
+                    })) : $(this)[_0x395e0c(0x137)]() !== '' &&
+                filledInput['push']({
+                    'inputName': $(this)[_0x395e0c(0xb6)]('name'),
+                    'value': $(this)[
+                        _0x395e0c(0x137)]()
+                })) : filledInput[_0x395e0c(0x201)](_0x5be238 => _0x5be238[
+                'inputName'] === $(this)[_0x395e0c(0xb6)](_0x395e0c(0x122))) ? (filledInput =
+                filledInput[_0x395e0c(0x11c)](_0x3312ac => _0x3312ac[_0x395e0c(0x165)] !== $(this)[
+                    _0x395e0c(0xb6)](_0x395e0c(0x122))), $(this)[_0x395e0c(0x137)]() !== '' &&
+                filledInput['push']({
+                    'inputName': $(this)[_0x395e0c(0xb6)](_0x395e0c(
+                        0x122)),
+                    'value': $(this)[_0x395e0c(0x137)]()
+                })) : $(this)[_0x395e0c(0x137)]() !==
+            '' && filledInput['push']({
+                'inputName': $(this)['attr'](_0x395e0c(0x122)),
+                'value': $(
+                    this)[_0x395e0c(0x137)]()
             });
-    }),
-    trackLastStep &&
-      (formlyLastStep > x ? (lastStep = formlyLastStep) : (lastStep = x),
-      localStorage["removeItem"]("formlyLastStep"),
-      localStorage[_0x276b87(0x136)](_0x276b87(0x18f), lastStep)),
-    localStorage[_0x276b87(0x1c0)](_0x276b87(0x187)),
-    localStorage[_0x276b87(0x136)](
-      _0x276b87(0x187),
-      JSON[_0x276b87(0x12d)](filledInput),
-    );
+    }), trackLastStep && (formlyLastStep > x ? lastStep =
+        formlyLastStep : lastStep = x, localStorage['removeItem'](_0x49baaf(0x69)), localStorage[
+            _0x49baaf(0x123)](_0x49baaf(0x69), lastStep)), localStorage[_0x49baaf(0x110)](_0x49baaf(
+        0x1f9)), localStorage[_0x49baaf(0x123)](_0x49baaf(0x1f9), JSON[_0x49baaf(0x17b)](
+        filledInput));
 }
 
 function scrollTop() {
-  const _0xc5a364 = _0x270fbf;
-  scrollToTop &&
-    $(_0xc5a364(0xfb))[_0xc5a364(0xd6)](
-      {
-        scrollTop:
-          $(_0xc5a364(0x1d8))[_0xc5a364(0x20c)]()["top"] - scrollTopOffset,
-      },
-      0x3e8,
-    );
+    const _0x13e7a6 = _0x29f161;
+    scrollToTop && $(_0x13e7a6(0x161))[_0x13e7a6(0x174)]({
+        'scrollTop': $(_0x13e7a6(0x173))[_0x13e7a6(
+            0x16b)]()['top'] - scrollTopOffset
+    }, 0x3e8);
+}
+
+function updateURL(_0x54f742) {
+    const _0x17af2c = _0x29f161;
+    var _0x17316c = window[_0x17af2c(0x84)]
+        [_0x17af2c(0x146)],
+        _0x17abd2 = new URLSearchParams(window[_0x17af2c(0x84)]['search']);
+    _0x17abd2[_0x17af2c(0x170)](_0x17af2c(0x132), _0x54f742);
+    var _0x3a6a3 = _0x17316c[_0x17af2c(
+        0x90)]('?')[0x0] + '?' + _0x17abd2[_0x17af2c(0x1c6)]();
+    window[_0x17af2c(0x179)]['pushState']({}, '', _0x3a6a3);
 }
 
 function updateStep() {
-  const _0x223afe = _0x270fbf;
-  scrollTop(),
-    (skip = ![]),
-    $("[data-form=\x22custom-progress-indicator\x22]")[_0x223afe(0x159)](
-      _0x223afe(0x122),
-    );
-  $("[data-clickable]")["data"](_0x223afe(0x11f)) &&
-    (steps["find"](_0x223afe(0xf6))["each"](function () {
-      const _0xd756f0 = _0x223afe;
-      $(
-        $(_0xd756f0(0x188))[
-          $(this)
-            [_0xd756f0(0x10d)]("[data-form=\x22step\x22]")
-            [_0xd756f0(0x20f)]()
-        ],
-      ),
-        $(this)[_0xd756f0(0x16c)]() === "" && emptyInput++;
-    }),
-    emptyInput > 0x0
-      ? $("input[type=\x22submit\x22]")[_0x223afe(0xce)](_0x223afe(0x122))
-      : $("input[type=\x22submit\x22]")[_0x223afe(0x159)](_0x223afe(0x122)));
-  $(_0x223afe(0x188))[_0x223afe(0x159)](_0x223afe(0x1f8)),
-    $("[data-form=\x22custom-progress-indicator\x22]")[_0x223afe(0xce)](
-      _0x223afe(0x122),
-    ),
-    $($(_0x223afe(0x188))[x])[_0x223afe(0xce)]("current"),
-    (selection = selections[_0x223afe(0x150)](
-      (_0x518f90) => _0x518f90[_0x223afe(0x21c)] === x - 0x1,
-    )),
-    console["log"](_0x223afe(0x125), x);
-  next &&
-    (x = getSafe(() => selection[0x0][_0x223afe(0x1cf)])
-      ? parseInt(getSafe(() => selection[0x0][_0x223afe(0x1cf)]))
-      : x);
-  $(_0x223afe(0x1f5))[_0x223afe(0x22a)](), steps[_0x223afe(0x22a)]();
-  reinitIX === !![] && window[_0x223afe(0x213)]["destroy"]();
-  $(progressbar)[_0x223afe(0x159)](_0x223afe(0x1f8));
-  for (i = 0x0; i <= x; i++) {
-    countCard
-      ? $(progressbar[i])[_0x223afe(0xce)](_0x223afe(0x1f8))
-      : !$(steps[i])["data"]("card") &&
-        $(progressbar[i])[_0x223afe(0xce)](_0x223afe(0x1f8));
-  }
-  reinitIX === !![]
-    ? (window[_0x223afe(0x213)] &&
-        window["Webflow"][_0x223afe(0x124)](_0x223afe(0x1b1))["init"](),
-      document[_0x223afe(0x1b5)](new Event(_0x223afe(0xe0))),
-      $(steps[x])[_0x223afe(0x180)]())
-    : $(steps[x])[_0x223afe(0x1da)](_0x223afe(0x1d3));
-  $(_0x223afe(0xe7))["removeClass"](_0x223afe(0x210));
-  x === 0x0 &&
-    !$(steps[x])[_0x223afe(0x21e)](_0x223afe(0x19b)) &&
-    ($(steps[x])[_0x223afe(0x1a4)](_0x223afe(0x1f5))[_0x223afe(0x180)](),
-    $(steps[x])
-      [_0x223afe(0x1a4)](_0x223afe(0x1f5))
-      [_0x223afe(0xce)]("active-answer-card"));
-  selection["length"] > 0x0
-    ? ($(steps[x])
-        [_0x223afe(0x1a4)](
-          _0x223afe(0x22c) + selection[0x0][_0x223afe(0x13f)] + "\x22]",
-        )
-        ["show"](),
-      $(steps[x])
-        [_0x223afe(0x1a4)](
-          _0x223afe(0x22c) + selection[0x0][_0x223afe(0x13f)] + "\x22]",
-        )
-        [_0x223afe(0xce)](_0x223afe(0x210)))
-    : ($(steps[x])
-        [_0x223afe(0x1a4)](_0x223afe(0x22c) + answer + "\x22]")
-        [_0x223afe(0x180)](),
-      $(steps[x])
-        ["find"]("[data-answer=\x22" + answer + "\x22]")
-        [_0x223afe(0xce)](_0x223afe(0x210)));
-  if (x === 0x0)
-    $("[data-form=\x22back-btn\x22]")[_0x223afe(0x22a)](),
-      $(_0x223afe(0xe8))[_0x223afe(0x180)](),
-      $(_0x223afe(0x1f9))[_0x223afe(0x22a)]();
-  else {
-    if (
-      x === steps[_0x223afe(0x225)] - 0x1 ||
-      $(steps[x])[_0x223afe(0x1a4)](_0x223afe(0xe4))["length"] > 0x0
-    ) {
-      $(_0x223afe(0xe8))[_0x223afe(0x22a)]();
-      if (
-        $(steps[x])
-          [_0x223afe(0x1a4)]("[data-form=\x22next-btn\x22][data-submit-show]")
-          ["data"](_0x223afe(0x158))
-      )
-        $(steps[x])[_0x223afe(0x1a4)](_0x223afe(0x21f))[_0x223afe(0x180)]();
-      else
-        $("[data-form=\x22next-btn\x22]")[_0x223afe(0x21e)](_0x223afe(0x158)) &&
-          $(_0x223afe(0xe8))[_0x223afe(0x180)]();
-      $(_0x223afe(0x1f9))[_0x223afe(0x180)](),
-        $("[data-form-ms=\x22submit-btn\x22]")[_0x223afe(0x180)](),
-        $(_0x223afe(0x147))[_0x223afe(0x180)]();
-    } else
-      $("[data-form=\x22next-btn\x22]")[_0x223afe(0x180)](),
-        $(_0x223afe(0x147))[_0x223afe(0x180)](),
-        $("[data-form=\x22submit-btn\x22]")["hide"](),
-        $(_0x223afe(0x1f1))[_0x223afe(0x22a)]();
-  }
-  $($(steps[x])["find"](_0x223afe(0x16a))[0x0])["focus"](),
-    $($(steps[x])[_0x223afe(0x1a4)](_0x223afe(0x237))[0x0])[_0x223afe(0x1a1)](),
-    validation();
-  for (idx = 0x0; idx <= x; idx++) {
-    $($(_0x223afe(0x188))[idx])[_0x223afe(0x159)](_0x223afe(0x122));
-  }
+    const _0x17f141 = _0x29f161;
+    scrollTop(), skip = ![], $('[data-form=\x22custom-progress-indicator\x22]')[_0x17f141(0x181)](
+        'disabled');
+    $(_0x17f141(0x78))[_0x17f141(0x1cb)](_0x17f141(0x171)) && (steps[_0x17f141(0x95)](_0x17f141(
+        0x135))['each'](function() {
+        const _0x5690b0 = _0x17f141;
+        $($(_0x5690b0(0x1bc))[$(this)[_0x5690b0(0x180)](_0x5690b0(0x119))['index']()]), $(this)[
+            _0x5690b0(0x137)]() === '' && emptyInput++;
+    }), emptyInput > 0x0 ? $(_0x17f141(0x6c))[
+        _0x17f141(0x142)](_0x17f141(0x1ea)) : $(_0x17f141(0x6c))[_0x17f141(0x181)](_0x17f141(
+        0x1ea)));
+    $(_0x17f141(0x1bc))[_0x17f141(0x181)](_0x17f141(0x18e)), $(
+        '[data-form=\x22custom-progress-indicator\x22]')[_0x17f141(0x142)](_0x17f141(0x1ea)), $($(
+        _0x17f141(0x1bc))[x])[_0x17f141(0x142)](_0x17f141(0x18e)), selection = selections['filter'](
+        _0x213749 => _0x213749[_0x17f141(0x132)] === x - 0x1);
+    next && (x = getSafe(() => selection[0x0]['skipTo']) ? parseInt(getSafe(() => selection[0x0][
+        _0x17f141(0x1d5)
+    ])) : x);
+    $(_0x17f141(0x102))[_0x17f141(0x104)](), steps['hide']();
+    reinitIX === !![] && window[_0x17f141(0x1fd)][_0x17f141(0x127)]();
+    $(progressbar)[_0x17f141(0x181)]('current');
+    for (i = 0x0; i <= x; i++) {
+        countCard ? $(
+            progressbar[i])[_0x17f141(0x142)](_0x17f141(0x18e)) : !$(steps[i])[_0x17f141(0x1cb)](
+            _0x17f141(0xdb)) && $(progressbar[i])[_0x17f141(0x142)](_0x17f141(0x18e));
+    }
+    reinitIX === !
+        ![] ? (window[_0x17f141(0x1fd)] && window[_0x17f141(0x1fd)][_0x17f141(0x7c)](_0x17f141(0xc2))[
+            _0x17f141(0xfa)](), document[_0x17f141(0xbe)](new Event(_0x17f141(0x1ad))), $(steps[x])[
+            'show']()) : $(steps[x])[_0x17f141(0x184)](_0x17f141(0x8d));
+    $('.active-answer-card')['removeClass'](_0x17f141(0xb7));
+    x === 0x0 && !$(steps[x])[_0x17f141(0x1cb)](_0x17f141(0xdb)) && ($(steps[x])[_0x17f141(0x95)](
+        _0x17f141(0x102))[_0x17f141(0x1ef)](), $(steps[x])[_0x17f141(0x95)](_0x17f141(0x102))[
+        'addClass']('active-answer-card'));
+    selection['length'] > 0x0 ? ($(steps[x])[_0x17f141(0x95)]('[data-answer=\x22' + selection[0x0][
+        'selected'
+    ] + '\x22]')[_0x17f141(0x1ef)](), $(steps[x])[_0x17f141(0x95)](_0x17f141(0x193) + selection[
+        0x0][_0x17f141(0x1e6)] + '\x22]')['addClass'](_0x17f141(0xb7))) : ($(steps[x])[_0x17f141(
+        0x95)]('[data-answer=\x22' + answer + '\x22]')[_0x17f141(0x1ef)](), $(steps[x])[_0x17f141(
+        0x95)](_0x17f141(0x193) + answer + '\x22]')[_0x17f141(0x142)](_0x17f141(0xb7)));
+    if (x === 0x0)
+        $('[data-form=\x22back-btn\x22]')[_0x17f141(0x104)](), $('[data-form=\x22next-btn\x22]')[
+            _0x17f141(0x1ef)](), $(_0x17f141(0x129))['hide']();
+    else {
+        if (x === steps['length'] - 0x1 || $(steps[x])['find'](_0x17f141(0x18a))[_0x17f141(
+                0x1bf)] > 0x0) {
+            $(_0x17f141(0x1da))['hide']();
+            if ($(steps[x])['find'](
+                    '[data-form=\x22next-btn\x22][data-submit-show]')['data']('submit-show')) $(steps[x])[
+                _0x17f141(0x95)](_0x17f141(0x1be))[_0x17f141(0x1ef)]();
+            else $(_0x17f141(0x1da))[_0x17f141(0x1cb)](_0x17f141(0x141)) && $(
+                '[data-form=\x22next-btn\x22]')['show']();
+            $(_0x17f141(0x129))[_0x17f141(0x1ef)](), $(_0x17f141(0x199))[_0x17f141(0x1ef)](), $(_0x17f141(
+                0x93))[_0x17f141(0x1ef)]();
+        } else $('[data-form=\x22next-btn\x22]')[_0x17f141(0x1ef)](), $(
+                '[data-form=\x22back-btn\x22]')[_0x17f141(0x1ef)](), $(_0x17f141(0x129))[_0x17f141(0x104)]
+            (), $(_0x17f141(0x199))[_0x17f141(0x104)]();
+    }
+    $($(steps[x])[_0x17f141(0x95)](_0x17f141(0xaa))[
+            0x0])['focus'](), $($(steps[x])[_0x17f141(0x95)](_0x17f141(0x6e))[0x0])['focus'](),
+        validation();
+    for (idx = 0x0; idx <= x; idx++) {
+        $($(_0x17f141(0x1bc))[idx])['removeClass'](
+            _0x17f141(0x1ea));
+    }
+    paramUrl && updateURL(curStep);
 }
 
-function validateEmail(_0x6b3f3, _0x4eda2a, _0x3fb0a1) {
-  const _0x52c059 = _0x270fbf;
-  let _0x258b75 = _0x6b3f3["includes"]("@")
-    ? _0x6b3f3["split"]("@")[0x1][_0x52c059(0x228)](".")[0x0]
-    : [];
-  dom = [];
-  _0x4eda2a !== undefined &&
-    _0x4eda2a[_0x52c059(0x228)](",")[_0x52c059(0x143)](function (_0x23b01b) {
-      const _0x4f5023 = _0x52c059;
-      _0x23b01b[_0x4f5023(0xd8)](_0x258b75) && dom[_0x4f5023(0x172)](_0x258b75);
+function validateEmail(_0x2b843f, _0x1a7ebd, _0x4a77b4) {
+    const _0x5668e9 = _0x29f161;
+    let
+        _0x562522 = _0x2b843f['includes']('@') ? _0x2b843f['split']('@')[0x1][_0x5668e9(0x90)]('.')[
+            0x0] : [];
+    dom = [];
+    _0x1a7ebd !== undefined && _0x1a7ebd[_0x5668e9(0x90)](',')[_0x5668e9(0x1e8)](function(
+        _0x6d975c) {
+        const _0x1497f5 = _0x5668e9;
+        _0x6d975c[_0x1497f5(0xbf)](_0x562522) && dom[_0x1497f5(0xb5)](_0x562522);
     });
-  dom[_0x52c059(0x225)] > 0x0 ? (domainAllowed = ![]) : (domainAllowed = !![]);
-  var _0x4a88a8 = /^([\w-\.+]+@([\w-]+\.)+[\w-]{2,20})?$/;
-  !_0x4a88a8[_0x52c059(0x240)](_0x6b3f3) || !domainAllowed
-    ? ((emailFilled = ![]), unfilledArr["push"]({ input: _0x3fb0a1 }))
-    : (emailFilled = !![]);
+    dom[_0x5668e9(0x1bf)] > 0x0 ? domainAllowed = ![] : domainAllowed = !![];
+    var _0xd7b6c2 =
+        /^([\w-\.+]+@([\w-]+\.)+[\w-]{2,20})?$/;
+    !_0xd7b6c2[_0x5668e9(0x144)](_0x2b843f) || !
+        domainAllowed ? (emailFilled = ![], unfilledArr['push']({ 'input': _0x4a77b4 })) :
+        emailFilled = !![];
 }
 
-function phoneValidation(_0x37f9f4, _0x3ce261, _0x3d8356) {
-  if (phoneFormat) return _0x3ce261 >= _0x3d8356 ? !![] : ![];
-  else {
-    if (_0x3ce261 >= _0x3d8356) return !![];
-  }
+function phoneValidation(_0x29b0ca, _0x5a9ae9, _0x30a834) {
+    if (phoneFormat) return _0x5a9ae9 >=
+        _0x30a834 ? !![] : ![];
+    else { if (_0x5a9ae9 >= _0x30a834) return !![]; }
 }
 
 function validation() {
-  const _0x605ee8 = _0x270fbf;
-  $(steps[x])["data"](_0x605ee8(0x19b)) && enableBtn();
-  (unfilledArr = []),
-    (inputFilled = !![]),
-    (radioFilled = !![]),
-    (checkboxFilled = !![]),
-    (numFilled = !![]),
-    (fileFilled = !![]),
-    (dateFilled = !![]),
-    (timeFilled = !![]),
-    (selectFilled = !![]),
-    (textareaFilled = !![]),
-    (telFilled = !![]),
-    (emailFilled = !![]),
-    (passwordFilled = !![]),
-    (emptyInput = 0x0),
-    (empReqInput = []),
-    (empReqDate = []),
-    (empReqTime = []),
-    (empReqSelect = []),
-    (empReqTel = []),
-    (empReqTextarea = []),
-    (empReqNum = []),
-    (empReqFile = []),
-    (empReqRadio = []),
-    (textareaLength = $(steps[x])["find"]("textarea[required]:visible")[
-      "length"
-    ]),
-    (textInputLength = $(steps[x])["find"](_0x605ee8(0xea))[_0x605ee8(0x225)]),
-    (selectInputLength = $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x1eb))[
-      "length"
-    ]),
-    (emailInputLength = $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x14d))[
-      _0x605ee8(0x225)
-    ]),
-    (checkboxInputLength = $(steps[x])["find"](_0x605ee8(0x14e))["length"]);
-  textInputLength > 0x0 || selectInputLength > 0x0 || textareaLength > 0x0
-    ? disableBtn()
-    : enableBtn();
-  checkCount = $(steps[x])["data"](_0x605ee8(0x15e))
-    ? $(steps[x])[_0x605ee8(0x21e)](_0x605ee8(0x15e))
-    : $(steps[x])[_0x605ee8(0x1a4)]("[data-checkbox]")[_0x605ee8(0x225)] > 0x0
-      ? $(steps[x])
-          [_0x605ee8(0x1a4)](_0x605ee8(0x1ee))
-          [_0x605ee8(0x21e)](_0x605ee8(0x15e))
-      : 0x0;
-  if (!logicExtra)
-    $(steps[x])["find"](":input")["is"]("[type=\x22checkbox\x22]") &&
-      (checkCount === "*" ||
-      checkCount >
-        $(steps[x])[_0x605ee8(0x1a4)](":input[type=\x22checkbox\x22]")[
-          _0x605ee8(0x225)
-        ]
-        ? $(steps[x])
-            ["find"](_0x605ee8(0x1c7))
-            ["each"](function () {
-              const _0xacfc8 = _0x605ee8;
-              $(this)["is"](":checked")
-                ? $(steps[x])[_0xacfc8(0x1a4)](_0xacfc8(0x128))["length"] <
-                    0x1 &&
-                  ((checkboxFilled = !![]),
-                  resetInputErrorMessage(
-                    $(this)[_0xacfc8(0x164)](_0xacfc8(0x14b)),
-                  ))
-                : ((checkboxFilled = ![]),
-                  unfilledArr[_0xacfc8(0x172)]({
-                    input: $(this)[_0xacfc8(0x164)](_0xacfc8(0x14b)),
-                  }));
-            })
-        : $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x1bf))[_0x605ee8(0x225)] >=
-            checkCount
-          ? $(steps[x])["find"](_0x605ee8(0x128))["length"] > 0x0
-            ? $(steps[x])
-                [_0x605ee8(0x1a4)](_0x605ee8(0x128))
-                [_0x605ee8(0x194)](function () {
-                  const _0x5068e5 = _0x605ee8;
-                  checkboxFilled = ![];
-                  let _0x1f0241 = $(steps[x])[_0x5068e5(0x1a4)](
-                      ":input[type=\x22checkbox\x22][required]",
-                    )[_0x5068e5(0x225)],
-                    _0x4231b6 = $(steps[x])[_0x5068e5(0x1a4)](_0x5068e5(0x177))[
-                      _0x5068e5(0x225)
-                    ];
-                  _0x1f0241 - _0x4231b6 === 0x0
-                    ? ((checkboxFilled = !![]),
-                      resetInputErrorMessage(
-                        $(steps[x])
-                          [_0x5068e5(0x1a4)](_0x5068e5(0x1c7))
-                          [_0x5068e5(0x164)]("name"),
-                      ))
-                    : ((checkboxFilled = ![]),
-                      $(steps[x])
-                        ["find"](_0x5068e5(0x10f))
-                        [_0x5068e5(0x194)](function () {
-                          const _0x5846b8 = _0x5068e5;
-                          unfilledArr[_0x5846b8(0x172)]({
-                            input: $(this)[_0x5846b8(0x164)]("name"),
-                          });
-                        }));
-                })
-            : ((checkboxFilled = !![]),
-              resetInputErrorMessage(
-                $(steps[x])
-                  [_0x605ee8(0x1a4)](_0x605ee8(0x1c7))
-                  ["attr"](_0x605ee8(0x14b)),
-              ))
-          : ((checkboxFilled = ![]),
-            $(steps[x])
-              [_0x605ee8(0x1a4)](_0x605ee8(0x128))
-              [_0x605ee8(0x194)](function () {
-                const _0x21137f = _0x605ee8;
-                $(this)[_0x21137f(0x1b9)](_0x21137f(0x132)) &&
-                  unfilledArr[_0x21137f(0x172)]({
-                    input: $(this)[_0x21137f(0x164)]("name"),
-                  });
-              }),
-            unfilledArr[_0x605ee8(0x172)]({
-              input: $(steps[x])
-                [_0x605ee8(0x1a4)](_0x605ee8(0x1c7))
-                [_0x605ee8(0x164)]("name"),
-            }))),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x105))
-        [_0x605ee8(0x194)](function (_0x4fb850) {
-          const _0x250dd8 = _0x605ee8;
-          var _0x37190e = $(this)[_0x250dd8(0x164)](_0x250dd8(0x14b));
-          $("input:radio[name=\x22" + _0x37190e + _0x250dd8(0x204))["length"] ==
-          0x0
-            ? (!empReqRadio[_0x250dd8(0x1a4)](
-                (_0x1249eb) => _0x1249eb[_0x250dd8(0x17a)] === _0x4fb850,
-              ) && empReqRadio[_0x250dd8(0x172)]({ input: _0x4fb850 }),
-              unfilledArr[_0x250dd8(0x172)]({
-                input: $(this)[_0x250dd8(0x164)](_0x250dd8(0x14b)),
-              }))
-            : (empReqRadio = empReqRadio[_0x250dd8(0x150)](
-                (_0x2d50c3) => _0x2d50c3["input"] !== _0x4fb850,
-              )),
-            empReqRadio[_0x250dd8(0x225)] === 0x0
-              ? (radioFilled = !![])
-              : (radioFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](":input[type=\x22text\x22][required]")
-        [_0x605ee8(0x194)](function (_0x3f2f08) {
-          const _0x5f3a3e = _0x605ee8;
-          let _0x4a50a6 = $(this)[_0x5f3a3e(0x16c)]()[_0x5f3a3e(0x225)],
-            _0x2bd78f = $(this)[_0x5f3a3e(0x21e)](_0x5f3a3e(0x16d))
-              ? $(this)[_0x5f3a3e(0x21e)](_0x5f3a3e(0x16d))
-              : 0x0;
-          $(this)[_0x5f3a3e(0x16c)]() !== "" && _0x4a50a6 >= _0x2bd78f
-            ? (empReqInput = empReqInput["filter"](
-                (_0x18c801) => _0x18c801[_0x5f3a3e(0x17a)] !== _0x3f2f08,
-              ))
-            : (!empReqInput["find"](
-                (_0x54b388) => _0x54b388[_0x5f3a3e(0x17a)] === _0x3f2f08,
-              ) && empReqInput[_0x5f3a3e(0x172)]({ input: _0x3f2f08 }),
-              unfilledArr[_0x5f3a3e(0x172)]({
-                input: $(this)["attr"](_0x5f3a3e(0x14b)),
-              })),
-            empReqInput[_0x5f3a3e(0x225)] === 0x0
-              ? (inputFilled = !![])
-              : (inputFilled = ![]);
-        }),
-      $(steps[x])
-        ["find"](_0x605ee8(0x10a))
-        [_0x605ee8(0x194)](function (_0x4c40eb) {
-          const _0x4e3e48 = _0x605ee8;
-          let _0x4296ee = $(this)["val"]()["length"],
-            _0x5ef3c9 = $(this)[_0x4e3e48(0x21e)](_0x4e3e48(0x16d))
-              ? $(this)[_0x4e3e48(0x21e)]("min-character")
-              : 0x0;
-          $(this)[_0x4e3e48(0x16c)]() !== "" && _0x4296ee >= _0x5ef3c9
-            ? (empReqPassword = empReqPassword[_0x4e3e48(0x150)](
-                (_0x3a840a) => _0x3a840a["input"] !== _0x4c40eb,
-              ))
-            : (!empReqPassword[_0x4e3e48(0x1a4)](
-                (_0x1250c2) => _0x1250c2[_0x4e3e48(0x17a)] === _0x4c40eb,
-              ) && empReqPassword[_0x4e3e48(0x172)]({ input: _0x4c40eb }),
-              unfilledArr[_0x4e3e48(0x172)]({
-                input: $(this)[_0x4e3e48(0x164)]("name"),
-              })),
-            empReqPassword[_0x4e3e48(0x225)] === 0x0
-              ? (passwordFilled = !![])
-              : (passwordFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](":input[type=\x22url\x22][required]")
-        ["each"](function (_0x479730) {
-          const _0x2cf8d8 = _0x605ee8;
-          let _0x5177d0 = $(this)[_0x2cf8d8(0x16c)]()[_0x2cf8d8(0x225)],
-            _0x5dcb6f = $(this)[_0x2cf8d8(0x21e)](_0x2cf8d8(0x16d))
-              ? $(this)[_0x2cf8d8(0x21e)](_0x2cf8d8(0x16d))
-              : 0x0;
-          $(this)[_0x2cf8d8(0x16c)]() !== "" && _0x5177d0 >= _0x5dcb6f
-            ? (empReqUrl = empReqUrl["filter"](
-                (_0x11f74c) => _0x11f74c[_0x2cf8d8(0x17a)] !== _0x479730,
-              ))
-            : (!empReqTime[_0x2cf8d8(0x1a4)](
-                (_0x182cb8) => _0x182cb8[_0x2cf8d8(0x17a)] === _0x479730,
-              ) && empReqUrl[_0x2cf8d8(0x172)]({ input: _0x479730 }),
-              unfilledArr[_0x2cf8d8(0x172)]({
-                input: $(this)[_0x2cf8d8(0x164)]("name"),
-              })),
-            empReqUrl[_0x2cf8d8(0x225)] === 0x0 &&
-            validateURL($(this)[_0x2cf8d8(0x16c)]())
-              ? (urlFilled = !![])
-              : (urlFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x144))
-        [_0x605ee8(0x194)](function (_0x513c96) {
-          const _0x5b7bd7 = _0x605ee8;
-          let _0x523b22 = $(this)[_0x5b7bd7(0x16c)]()[_0x5b7bd7(0x225)],
-            _0x2381cd = $(this)["data"](_0x5b7bd7(0x16d))
-              ? $(this)[_0x5b7bd7(0x21e)]("min-character")
-              : 0x0;
-          $(this)[_0x5b7bd7(0x16c)]() !== "" && _0x523b22 >= _0x2381cd
-            ? (empReqTime = empReqTime["filter"](
-                (_0x3db90b) => _0x3db90b["input"] !== _0x513c96,
-              ))
-            : (!empReqTime[_0x5b7bd7(0x1a4)](
-                (_0x3625b7) => _0x3625b7[_0x5b7bd7(0x17a)] === _0x513c96,
-              ) && empReqTime["push"]({ input: _0x513c96 }),
-              unfilledArr[_0x5b7bd7(0x172)]({
-                input: $(this)[_0x5b7bd7(0x164)](_0x5b7bd7(0x14b)),
-              })),
-            empReqTime["length"] === 0x0
-              ? (timeFilled = !![])
-              : (timeFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](":input[type=\x22date\x22][required]")
-        [_0x605ee8(0x194)](function (_0x51b2db) {
-          const _0x128015 = _0x605ee8;
-          $(this)[_0x128015(0x16c)]() !== ""
-            ? (empReqDate = empReqDate["filter"](
-                (_0x1eef29) => _0x1eef29[_0x128015(0x17a)] !== _0x51b2db,
-              ))
-            : (!empReqDate[_0x128015(0x1a4)](
-                (_0x384d00) => _0x384d00[_0x128015(0x17a)] === _0x51b2db,
-              ) && empReqDate[_0x128015(0x172)]({ input: _0x51b2db }),
-              unfilledArr[_0x128015(0x172)]({
-                input: $(this)["attr"]("name"),
-              })),
-            empReqDate["length"] === 0x0
-              ? (dateFilled = !![])
-              : (dateFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1c1))
-        [_0x605ee8(0x194)](function (_0x4bfddb) {
-          const _0x5f37c9 = _0x605ee8;
-          if ($(this)[_0x5f37c9(0x16c)]() !== "") {
-            let _0x46458c = $(this)["val"]()[_0x5f37c9(0x225)],
-              _0x591ba3 = $(this)[_0x5f37c9(0x21e)]("min-character")
-                ? $(this)["data"](_0x5f37c9(0x16d))
-                : 0x0;
-            if ($(this)[_0x5f37c9(0x21e)](_0x5f37c9(0x100))) {
-              var _0x4dc578 = phoneAutoFormat(
-                $(this)[_0x5f37c9(0x21e)]("phone-autoformat"),
-              );
-              $(this)["val"](_0x4dc578($(this)[_0x5f37c9(0x16c)]()));
+    const _0x2ad9ea = _0x29f161;
+    $(steps[x])[_0x2ad9ea(0x1cb)](_0x2ad9ea(0xdb)) && enableBtn();
+    unfilledArr = [], inputFilled = !![], radioFilled = !![], checkboxFilled = !![], numFilled = !![],
+        fileFilled = !![], dateFilled = !![], timeFilled = !![], selectFilled = !![], textareaFilled = !
+        ![], telFilled = !![], emailFilled = !![], passwordFilled = !![], emptyInput = 0x0,
+        empReqInput = [], empReqDate = [], empReqTime = [], empReqSelect = [], empReqTel = [],
+        empReqTextarea = [], empReqNum = [], empReqFile = [], empReqRadio = [], textareaLength = $(
+            steps[x])['find']('textarea[required]:visible')[_0x2ad9ea(0x1bf)], textInputLength = $(steps[
+            x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xd6))[_0x2ad9ea(0x1bf)], selectInputLength = $(steps[x])[
+            _0x2ad9ea(0x95)](_0x2ad9ea(0x138))['length'], emailInputLength = $(steps[x])['find'](
+            _0x2ad9ea(0x1b2))[_0x2ad9ea(0x1bf)], checkboxInputLength = $(steps[x])['find'](_0x2ad9ea(
+            0x131))[_0x2ad9ea(0x1bf)];
+    textInputLength > 0x0 || selectInputLength > 0x0 || textareaLength > 0x0 ? disableBtn() :
+        enableBtn();
+    checkCount = $(steps[x])[_0x2ad9ea(0x1cb)]('checkbox') ? $(steps[x])[_0x2ad9ea(0x1cb)](_0x2ad9ea(
+        0x9b)) : $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x14f))[_0x2ad9ea(0x1bf)] > 0x0 ? $(steps[x])[
+        _0x2ad9ea(0x95)](_0x2ad9ea(0x14f))['data']('checkbox') : 0x0, maxCheckCount = $(steps[x])[
+        _0x2ad9ea(0x1cb)](_0x2ad9ea(0x149)) ? $(steps[x])[_0x2ad9ea(0x1cb)](_0x2ad9ea(0x149)) : $(
+        steps[x])[_0x2ad9ea(0x95)]('[data-max-checkbox]')[_0x2ad9ea(0x1bf)] > 0x0 ? $(steps[x])[
+        _0x2ad9ea(0x95)](_0x2ad9ea(0xcf))[_0x2ad9ea(0x1cb)](_0x2ad9ea(0x149)) : 0x0;
+    if (!
+        logicExtra) {
+        let _0x2a5ec0 = $(steps[x])['find'](_0x2ad9ea(0xf0)),
+            _0x14f55b = _0x2a5ec0[_0x2ad9ea(0x11c)](_0x2ad9ea(0x11d)),
+            _0x2c0776 = _0x2a5ec0['filter'](_0x2ad9ea(0x1d6));
+        _0x2a5ec0[_0x2ad9ea(0x1bf)] > 0x0 && (checkCount === '*' || checkCount > _0x2a5ec0[_0x2ad9ea(
+                0x1bf)] ? _0x2a5ec0[_0x2ad9ea(0x1c3)](function() {
+                const _0x49d84e = _0x2ad9ea;
+                $(this)['is'](_0x49d84e(0x1d6)) ? (checkboxFilled = !![], resetInputErrorMessage($(
+                    this)[_0x49d84e(0xb6)](_0x49d84e(0x122)))) : (checkboxFilled = ![], unfilledArr[
+                    _0x49d84e(0xb5)]({ 'input': $(this)[_0x49d84e(0xb6)]('name') }));
+            }) : _0x2c0776[
+                _0x2ad9ea(0x1bf)] >= checkCount ? _0x14f55b['length'] > 0x0 ? _0x14f55b[_0x2ad9ea(
+                0x1bf)] === _0x2c0776[_0x2ad9ea(0x1bf)] ? (checkboxFilled = !![], resetInputErrorMessage(
+                _0x14f55b['first']()[_0x2ad9ea(0xb6)]('name'))) : (checkboxFilled = ![], _0x14f55b[
+                _0x2ad9ea(0xc8)](':checked')[_0x2ad9ea(0x1c3)](function() {
+                const _0x2f33f7 =
+                    _0x2ad9ea;
+                unfilledArr['push']({ 'input': $(this)[_0x2f33f7(0xb6)]('name') });
+            })) : _0x2c0776[
+                'length'] < maxCheckCount ? ($(steps[x])['find']('input[type=\x22checkbox\x22]')['prop'](
+                _0x2ad9ea(0x1ea), ![]), $(steps[x])['find'](_0x2ad9ea(0x18c))['parent'](_0x2ad9ea(
+                0x160))['removeClass'](_0x2ad9ea(0x1ea))) : ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0x74))[_0x2ad9ea(0x16a)](_0x2ad9ea(0x160))[_0x2ad9ea(0x142)](_0x2ad9ea(0x1ea)), $(steps[
+                x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x74))['prop'](_0x2ad9ea(0x1ea), !![])) : (
+                checkboxFilled = ![], _0x14f55b[_0x2ad9ea(0xc8)](_0x2ad9ea(0x1d6))[_0x2ad9ea(0x1c3)](
+                    function() {
+                        const _0x4939c9 = _0x2ad9ea;
+                        unfilledArr[_0x4939c9(0xb5)]({
+                            'input': $(this)[_0x4939c9(0xb6)](_0x4939c9(
+                                0x122))
+                        });
+                    }), unfilledArr[_0x2ad9ea(0xb5)]({
+                    'input': _0x2a5ec0[_0x2ad9ea(0x1df)]
+                        ()[_0x2ad9ea(0xb6)]('name')
+                }))), $(steps[x])[_0x2ad9ea(0x95)]('input:radio[required]')[
+                'each'](function(_0x3f49b4) {
+                const _0x275483 = _0x2ad9ea;
+                var _0x56cb5e = $(this)[
+                    _0x275483(0xb6)](_0x275483(0x122));
+                $(_0x275483(0xb4) + _0x56cb5e + _0x275483(0x1f7))[_0x275483(0x1bf)] == 0x0 ? (!
+                    empReqRadio[_0x275483(0x95)](_0x208307 => _0x208307['input'] === _0x3f49b4) &&
+                    empReqRadio[_0x275483(0xb5)]({ 'input': _0x3f49b4 }), unfilledArr[_0x275483(0xb5)]
+                    ({ 'input': $(this)['attr'](_0x275483(0x122)) })) : empReqRadio = empReqRadio[
+                    _0x275483(
+                        0x11c)](_0x54699c => _0x54699c[_0x275483(0x16d)] !== _0x3f49b4), empReqRadio[
+                    _0x275483(0x1bf)] === 0x0 ? radioFilled = !![] : radioFilled = ![];
+            }), $(steps[x])[
+                _0x2ad9ea(0x95)](':input[type=\x22text\x22][required]')[_0x2ad9ea(0x1c3)](function(
+                _0x5d76be) {
+                const _0x2b65fc = _0x2ad9ea;
+                let _0x5a2657 = $(this)[_0x2b65fc(0x137)]()[
+                        _0x2b65fc(0x1bf)],
+                    _0x2a50e8 = $(this)[_0x2b65fc(0x1cb)](_0x2b65fc(0x152)) ? $(this)[_0x2b65fc(0x1cb)](
+                        'min-character') : 0x0;
+                $(this)[_0x2b65fc(0x137)]() !== '' && _0x5a2657 >= _0x2a50e8 ? empReqInput = empReqInput[
+                    _0x2b65fc(0x11c)](_0x53e7d6 => _0x53e7d6['input'] !== _0x5d76be) : (!empReqInput[
+                        _0x2b65fc(0x95)](_0x23f98f => _0x23f98f[_0x2b65fc(0x16d)] === _0x5d76be) &&
+                    empReqInput[_0x2b65fc(0xb5)]({ 'input': _0x5d76be }), unfilledArr[_0x2b65fc(0xb5)]
+                    ({ 'input': $(this)[_0x2b65fc(0xb6)](_0x2b65fc(0x122)) })), empReqInput[_0x2b65fc(
+                    0x1bf)] === 0x0 ? inputFilled = !![] : inputFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)]
+            (_0x2ad9ea(0xc1))[_0x2ad9ea(0x1c3)](function(_0x26874e) {
+                const _0x157af0 = _0x2ad9ea;
+                let
+                    _0x55c114 = $(this)[_0x157af0(0x137)]()[_0x157af0(0x1bf)],
+                    _0x2b01a0 = $(this)[_0x157af0(0x1cb)](_0x157af0(0x152)) ? $(this)[_0x157af0(0x1cb)](
+                        'min-character') : 0x0;
+                $(this)[_0x157af0(0x137)]() !== '' && _0x55c114 >= _0x2b01a0 ? empReqPassword =
+                    empReqPassword[_0x157af0(0x11c)](_0x458e5a => _0x458e5a[_0x157af0(0x16d)] !==
+                        _0x26874e) : (!empReqPassword[_0x157af0(0x95)](_0x29e8f6 => _0x29e8f6[_0x157af0(
+                            0x16d)] === _0x26874e) && empReqPassword[_0x157af0(0xb5)]({ 'input': _0x26874e }),
+                        unfilledArr['push']({ 'input': $(this)['attr'](_0x157af0(0x122)) })), empReqPassword[
+                        _0x157af0(0x1bf)] === 0x0 ? passwordFilled = !![] : passwordFilled = ![];
+            }), $(steps[
+                x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x1b8))[_0x2ad9ea(0x1c3)](function(_0x1b7c79) {
+                const
+                    _0x5b8391 = _0x2ad9ea;
+                let _0x42afb0 = $(this)[_0x5b8391(0x137)]()[_0x5b8391(0x1bf)],
+                    _0x5ec89e = $(this)[_0x5b8391(0x1cb)](_0x5b8391(0x152)) ? $(this)[_0x5b8391(0x1cb)](
+                        _0x5b8391(0x152)) : 0x0;
+                $(this)[_0x5b8391(0x137)]() !== '' && _0x42afb0 >= _0x5ec89e ? empReqUrl = empReqUrl[
+                        'filter'](_0x58e0aa => _0x58e0aa['input'] !== _0x1b7c79) : (!empReqTime[_0x5b8391(
+                        0x95)](_0x1ed381 => _0x1ed381[_0x5b8391(0x16d)] === _0x1b7c79) && empReqUrl[
+                        _0x5b8391(0xb5)]({ 'input': _0x1b7c79 }), unfilledArr[_0x5b8391(0xb5)]({
+                        'input': $(
+                            this)[_0x5b8391(0xb6)](_0x5b8391(0x122))
+                    })), empReqUrl[_0x5b8391(0x1bf)] === 0x0 &&
+                    validateURL($(this)[_0x5b8391(0x137)]()) ? urlFilled = !![] : urlFilled = ![];
+            }), $(
+                steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x1d1))[_0x2ad9ea(0x1c3)](function(_0x4955e8) {
+                const
+                    _0x59ee3e = _0x2ad9ea;
+                let _0x5a6fe3 = $(this)[_0x59ee3e(0x137)]()[_0x59ee3e(0x1bf)],
+                    _0x2e57a8 = $(this)[_0x59ee3e(0x1cb)](_0x59ee3e(0x152)) ? $(this)[_0x59ee3e(0x1cb)](
+                        _0x59ee3e(0x152)) : 0x0;
+                $(this)[_0x59ee3e(0x137)]() !== '' && _0x5a6fe3 >= _0x2e57a8 ? empReqTime = empReqTime[
+                    _0x59ee3e(0x11c)](_0x522b4d => _0x522b4d[_0x59ee3e(0x16d)] !== _0x4955e8) : (!
+                    empReqTime[_0x59ee3e(0x95)](_0x5bf9f8 => _0x5bf9f8[_0x59ee3e(0x16d)] === _0x4955e8) &&
+                    empReqTime[_0x59ee3e(0xb5)]({ 'input': _0x4955e8 }), unfilledArr[_0x59ee3e(0xb5)]
+                    ({ 'input': $(this)[_0x59ee3e(0xb6)](_0x59ee3e(0x122)) })), empReqTime[_0x59ee3e(
+                    0x1bf)] === 0x0 ? timeFilled = !![] : timeFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](
+                _0x2ad9ea(0x118))['each'](function(_0x3134eb) {
+                const _0x39366f = _0x2ad9ea;
+                $(this)[_0x39366f(0x137)]() !== '' ? empReqDate = empReqDate[_0x39366f(0x11c)](
+                        _0x16e038 => _0x16e038[_0x39366f(0x16d)] !== _0x3134eb) : (!empReqDate['find'](
+                            _0x443e55 => _0x443e55['input'] === _0x3134eb) && empReqDate[_0x39366f(0xb5)]
+                        ({ 'input': _0x3134eb }), unfilledArr[_0x39366f(0xb5)]({
+                            'input': $(this)[_0x39366f(
+                                0xb6)](_0x39366f(0x122))
+                        })), empReqDate[_0x39366f(0x1bf)] === 0x0 ? dateFilled = !
+                    ![] : dateFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x114))['each'](
+                function(_0x31def3) {
+                    const _0x564f92 = _0x2ad9ea;
+                    if ($(this)[_0x564f92(0x137)]() !==
+                        '') {
+                        let _0x894ada = $(this)[_0x564f92(0x137)]()['length'],
+                            _0x551d59 = $(this)[_0x564f92(0x1cb)]('min-character') ? $(this)[_0x564f92(0x1cb)](
+                                _0x564f92(0x152)) : 0x0;
+                        if ($(this)[_0x564f92(0x1cb)](_0x564f92(0x1fa))) {
+                            var
+                                _0x88816b = phoneAutoFormat($(this)['data'](_0x564f92(0x1fa)));
+                            $(this)[_0x564f92(0x137)](_0x88816b($(this)[_0x564f92(0x137)]()));
+                        }
+                        phoneValidation(
+                                $(this)['val'](), _0x894ada, _0x551d59) ? empReqTel = empReqTel[_0x564f92(0x11c)](
+                                _0x2b2732 => _0x2b2732[_0x564f92(0x16d)] !== _0x31def3) : empReqTel[_0x564f92(0xb5)]
+                            ({ 'input': _0x31def3 });
+                    } else !empReqTel['find'](_0x15e1cf => _0x15e1cf[_0x564f92(
+                            0x16d)] === _0x31def3) && empReqTel[_0x564f92(0xb5)]({ 'input': _0x31def3 }),
+                        unfilledArr['push']({ 'input': $(this)[_0x564f92(0xb6)](_0x564f92(0x122)) });
+                    empReqTel['length'] === 0x0 ? telFilled = !![] : telFilled = ![];
+                }), $(steps[x])[
+                _0x2ad9ea(0x95)](':input[type=\x22file\x22][required]')[_0x2ad9ea(0x1c3)](function(
+                _0x4e3c87) {
+                const _0x2c5879 = _0x2ad9ea;
+                $(this)[_0x2c5879(0x137)]() !== '' ? empReqFile = empReqFile[_0x2c5879(0x11c)](
+                        _0x22aa70 => _0x22aa70[_0x2c5879(0x16d)] !== _0x4e3c87) : (!empReqFile[_0x2c5879(
+                        0x95)](_0x52380f => _0x52380f[_0x2c5879(0x16d)] === _0x4e3c87) && empReqFile[
+                        _0x2c5879(0xb5)]({ 'input': _0x4e3c87 }), unfilledArr['push']({
+                        'input': $(this)[
+                            _0x2c5879(0xb6)](_0x2c5879(0x122))
+                    })), empReqFile[_0x2c5879(0x1bf)] === 0x0 ?
+                    fileFilled = !![] : fileFilled = ![];
+            }), $(steps[x])['find'](_0x2ad9ea(0x1ee))[_0x2ad9ea(
+                0x1c3)](function(_0x486396) {
+                const _0x579c97 = _0x2ad9ea;
+                let _0x53fd24 = $(this)[
+                        _0x579c97(0x137)]()[_0x579c97(0x1bf)],
+                    _0x6e637c = $(this)['data'](_0x579c97(0x152)) ? $(this)['data'](_0x579c97(0x152)) : 0x0;
+                $(this)['val']() !== '' && _0x53fd24 >= _0x6e637c ? empReqNum = empReqNum['filter'](
+                        _0x565ee7 => _0x565ee7[_0x579c97(0x16d)] !== _0x486396) : (!empReqNum[_0x579c97(0x95)]
+                        (_0x1f6ea7 => _0x1f6ea7[_0x579c97(0x16d)] === _0x486396) && empReqNum[_0x579c97(0xb5)]
+                        ({ 'input': _0x486396 }), unfilledArr['push']({
+                            'input': $(this)[_0x579c97(0xb6)](
+                                'name')
+                        })), empReqNum[_0x579c97(0x1bf)] === 0x0 ? numFilled = !![] :
+                    numFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xb9))['each'](function(
+                _0x2cb318) {
+                const _0x7d89d6 = _0x2ad9ea;
+                let _0x59af46 = $(this)[_0x7d89d6(0x137)]();
+                _0x59af46 === '' && (_0x59af46 = null), _0x59af46 != null ? empReqSelect = empReqSelect[
+                        _0x7d89d6(0x11c)](_0x389eda => _0x389eda['input'] !== _0x2cb318) : (!empReqSelect[
+                            _0x7d89d6(0x95)](_0x4db03f => _0x4db03f[_0x7d89d6(0x16d)] === _0x2cb318) &&
+                        empReqSelect['push']({ 'input': _0x2cb318 }), unfilledArr[_0x7d89d6(0xb5)]
+                        ({ 'input': $(this)['attr'](_0x7d89d6(0x122)) })), empReqSelect[_0x7d89d6(0x1bf)] ===
+                    0x0 ? selectFilled = !![] : selectFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](
+                'textarea[required]')[_0x2ad9ea(0x1c3)](function(_0x2b464d) {
+                const _0x313ea3 =
+                    _0x2ad9ea;
+                let _0x8d2cd = $(this)[_0x313ea3(0x137)]()[_0x313ea3(0x1bf)],
+                    _0x372eca = $(this)['data'](_0x313ea3(0x152)) ? $(this)['data'](_0x313ea3(0x152)) : 0x0;
+                $(this)[_0x313ea3(0x137)]() !== '' && _0x8d2cd >= _0x372eca ? empReqTextarea =
+                    empReqTextarea[_0x313ea3(0x11c)](_0x87053e => _0x87053e[_0x313ea3(0x16d)] !==
+                        _0x2b464d) : (!empReqTextarea['find'](_0x503039 => _0x503039['input'] ===
+                            _0x2b464d) &&
+                        empReqTextarea[_0x313ea3(0xb5)]({ 'input': _0x2b464d }), unfilledArr[_0x313ea3(0xb5)]
+                        ({ 'input': $(this)['attr'](_0x313ea3(0x122)) })), empReqTextarea[_0x313ea3(
+                        0x1bf)] ===
+                    0x0 ? textareaFilled = !![] : textareaFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](
+                ':input[type=\x22email\x22][required]')[_0x2ad9ea(0x1c3)](function() {
+                const _0x3fb063 =
+                    _0x2ad9ea;
+                $(this)['val']() !== '' ? validateEmail($(this)['val'](), $(this)[_0x3fb063(0x1cb)](
+                    _0x3fb063(0x11b)), $(this)[_0x3fb063(0xb6)](_0x3fb063(0x122))) : (emailFilled = ![],
+                    unfilledArr[_0x3fb063(0xb5)]({ 'input': $(this)[_0x3fb063(0xb6)](_0x3fb063(0x122)) })
+                );
+            });
+    } else {
+        if ($(steps[x])[_0x2ad9ea(0x1cb)](_0x2ad9ea(0xdb))) answer = $(steps[x])[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0x7d))[_0x2ad9ea(0x1cb)](_0x2ad9ea(0x14a)), selections =
+            selections[_0x2ad9ea(0x11c)](_0x27cce9 => _0x27cce9['step'] !== x), selections[_0x2ad9ea(
+                0xb5)]({ 'step': x, 'selected': answer }), next = !![], back = ![];
+        else $(steps[x])['find'](_0x2ad9ea(0xee))[_0x2ad9ea(0x1cb)](_0x2ad9ea(0xdb)) && (answer = $(
+                steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x1cb)](_0x2ad9ea(0x14a)),
+            selections = selections[_0x2ad9ea(0x11c)](_0x35c798 => _0x35c798[_0x2ad9ea(0x132)] !== x),
+            selections['push']({ 'step': x, 'selected': answer }), next = !![], back = ![]);
+        if ($(steps[
+                x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x126))['is'](
+                '[type=\x22checkbox\x22]')) {
+            if (checkCount === '*' || checkCount > $(steps[x])['find'](
+                    _0x2ad9ea(0xf0))[_0x2ad9ea(0x1bf)]) $(steps[x])['find'](_0x2ad9ea(0xf0))[_0x2ad9ea(0x1c3)]
+                (function() {
+                    const _0x43544e = _0x2ad9ea;
+                    if ($(this)['is'](_0x43544e(0x1d6))) {
+                        if ($(
+                                steps[x])[_0x43544e(0x95)](':input[required]')[_0x43544e(0x1bf)] < 0x1) {
+                            let
+                                _0x3635a6 = undefined;
+                            $(this)[_0x43544e(0x180)]('[data-skip-to]')['data'](_0x43544e(0x1b9)) && (
+                                _0x3635a6 = $(this)['parents'](_0x43544e(0x82))['data'](_0x43544e(0x1b9)));
+                            if ($(
+                                    this)[_0x43544e(0x180)](_0x43544e(0x7d))[_0x43544e(0xb6)](_0x43544e(
+                                    0xd9))) {
+                                let _0x241a07 = $(this)['parents'](_0x43544e(0x7d))[_0x43544e(0xb6)](
+                                    _0x43544e(0xd9));
+                                selections = selections[_0x43544e(0x11c)](_0xed1037 => _0xed1037['step'] !== x),
+                                    selections[_0x43544e(0xb5)]({ 'step': x, 'selected': _0x241a07 });
+                                if (
+                                    _0x3635a6) {
+                                    selections = selections['filter'](_0x12c4e3 => _0x12c4e3[_0x43544e(
+                                        0x132)] !== _0x3635a6 - 0x2), selections['push']({
+                                        'step': _0x3635a6 -
+                                            0x2,
+                                        'selected': _0x241a07
+                                    });
+                                    let _0x225fee = selections[_0x43544e(0xc7)](
+                                        _0x17d524 => _0x17d524['step'] === x);
+                                    selections[_0x225fee][_0x43544e(0x1d5)] = parseInt(_0x3635a6) - 0x1, selections[
+                                        _0x225fee][_0x43544e(0x187)] = x;
+                                }
+                            }
+                            checkboxFilled = !![], $(steps[x])[
+                                    'find'](_0x43544e(0x75))[_0x43544e(0x1bf)] >= $(steps[x])['find'](
+                                    ':input[type=\x22checkbox\x22][required]')[_0x43544e(0x1bf)] &&
+                                resetInputErrorMessage($(steps[x])['find'](_0x43544e(0xf0))['attr'](
+                                    'name'));
+                        }
+                    } else checkboxFilled = ![], unfilledArr['push']({
+                        'input': $(this)[
+                            _0x43544e(0xb6)]('name')
+                    });
+                });
+            else {
+                if ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x13f))[
+                        _0x2ad9ea(0x1bf)] >= checkCount) {
+                    if ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[
+                            _0x2ad9ea(0x95)](_0x2ad9ea(0xf0))[_0x2ad9ea(0x180)](_0x2ad9ea(0x7d))[_0x2ad9ea(0xb6)](
+                            _0x2ad9ea(0xd9))) {
+                        let _0x202307 = undefined;
+                        $(steps[x])[_0x2ad9ea(0x95)]('.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(0xf0))[
+                            _0x2ad9ea(0x180)](_0x2ad9ea(0x82))[_0x2ad9ea(0xb6)](_0x2ad9ea(0x111)) && (
+                            _0x202307 = $(steps[x])[_0x2ad9ea(0x95)]('.active-answer-card')[_0x2ad9ea(0x95)](
+                                _0x2ad9ea(0x13f))[_0x2ad9ea(0x180)]('[data-skip-to]')[_0x2ad9ea(0xb6)](
+                                'data-skip-to'));
+                        let _0xdaff47 = $(steps[x])['find'](_0x2ad9ea(0xee))['find'](
+                            ':input[type=\x22checkbox\x22]')[_0x2ad9ea(0x180)](_0x2ad9ea(0x7d))['attr'](
+                            _0x2ad9ea(0xd9));
+                        selections = selections[_0x2ad9ea(0x11c)](_0x44ca2b => _0x44ca2b[_0x2ad9ea(0x132)] !==
+                            x), selections['push']({ 'step': x, 'selected': _0xdaff47 });
+                        if (
+                            _0x202307) {
+                            selections = selections[_0x2ad9ea(0x11c)](_0x46f1c9 => _0x46f1c9[
+                                'step'] !== _0x202307 - 0x2), selections[_0x2ad9ea(0xb5)]({
+                                'step': _0x202307 -
+                                    0x2,
+                                'selected': _0xdaff47
+                            });
+                            let _0x1b41b3 = selections[_0x2ad9ea(0xc7)](
+                                _0x1b925d => _0x1b925d[_0x2ad9ea(0x132)] === x);
+                            selections[_0x1b41b3][_0x2ad9ea(0x1d5)] = parseInt(_0x202307) - 0x1, selections[
+                                _0x1b41b3][_0x2ad9ea(0x187)] = x;
+                        }
+                    }
+                    checkboxFilled = !![], $(steps[x])[_0x2ad9ea(
+                            0x95)](_0x2ad9ea(0x75))[_0x2ad9ea(0x1bf)] >= $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(
+                            0x19b))[_0x2ad9ea(0x1bf)] && resetInputErrorMessage($(steps[x])[_0x2ad9ea(0x95)](
+                            ':input[type=\x22checkbox\x22]')[_0x2ad9ea(0xb6)](_0x2ad9ea(0x122))), $(steps[x])[
+                            'find'](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x13f))[_0x2ad9ea(0x1bf)] <
+                        maxCheckCount ? ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](
+                            _0x2ad9ea(0x18c))['prop'](_0x2ad9ea(0x1ea), ![]), $(steps[x])['find'](
+                            '.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(0x18c))['parent']('label')[
+                            _0x2ad9ea(0x181)](_0x2ad9ea(0x1ea))) : ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[
+                            _0x2ad9ea(0x95)](_0x2ad9ea(0x74))[_0x2ad9ea(0x16a)](_0x2ad9ea(0x160))['addClass'](
+                            'disabled'), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](
+                            _0x2ad9ea(0x74))[_0x2ad9ea(0xb0)](_0x2ad9ea(0x1ea), !![]));
+                } else
+                    checkboxFilled = ![], $(steps[x])['find'](':input[type=\x22checkbox\x22][required]')[
+                        _0x2ad9ea(0x1c3)](function() {
+                        const _0x213c23 = _0x2ad9ea;
+                        $(this)[_0x213c23(0xc8)](_0x213c23(0x1d6)) && unfilledArr['push']({
+                            'input': $(this)[
+                                _0x213c23(0xb6)]('name')
+                        });
+                    });
             }
-            phoneValidation($(this)["val"](), _0x46458c, _0x591ba3)
-              ? (empReqTel = empReqTel[_0x5f37c9(0x150)](
-                  (_0x556ddc) => _0x556ddc[_0x5f37c9(0x17a)] !== _0x4bfddb,
-                ))
-              : empReqTel[_0x5f37c9(0x172)]({ input: _0x4bfddb });
-          } else
-            !empReqTel[_0x5f37c9(0x1a4)](
-              (_0x1a2266) => _0x1a2266[_0x5f37c9(0x17a)] === _0x4bfddb,
-            ) && empReqTel["push"]({ input: _0x4bfddb }),
-              unfilledArr[_0x5f37c9(0x172)]({
-                input: $(this)[_0x5f37c9(0x164)](_0x5f37c9(0x14b)),
-              });
-          empReqTel[_0x5f37c9(0x225)] === 0x0
-            ? (telFilled = !![])
-            : (telFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x176))
-        [_0x605ee8(0x194)](function (_0x5f541d) {
-          const _0x466cd1 = _0x605ee8;
-          $(this)["val"]() !== ""
-            ? (empReqFile = empReqFile[_0x466cd1(0x150)](
-                (_0x5ba1e7) => _0x5ba1e7[_0x466cd1(0x17a)] !== _0x5f541d,
-              ))
-            : (!empReqFile["find"](
-                (_0x1e7adb) => _0x1e7adb["input"] === _0x5f541d,
-              ) && empReqFile[_0x466cd1(0x172)]({ input: _0x5f541d }),
-              unfilledArr[_0x466cd1(0x172)]({
-                input: $(this)[_0x466cd1(0x164)](_0x466cd1(0x14b)),
-              })),
-            empReqFile["length"] === 0x0
-              ? (fileFilled = !![])
-              : (fileFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1f0))
-        [_0x605ee8(0x194)](function (_0x548164) {
-          const _0x4404fd = _0x605ee8;
-          let _0x3f422f = $(this)[_0x4404fd(0x16c)]()[_0x4404fd(0x225)],
-            _0x3a6102 = $(this)[_0x4404fd(0x21e)](_0x4404fd(0x16d))
-              ? $(this)["data"](_0x4404fd(0x16d))
-              : 0x0;
-          $(this)[_0x4404fd(0x16c)]() !== "" && _0x3f422f >= _0x3a6102
-            ? (empReqNum = empReqNum[_0x4404fd(0x150)](
-                (_0x30c977) => _0x30c977[_0x4404fd(0x17a)] !== _0x548164,
-              ))
-            : (!empReqNum[_0x4404fd(0x1a4)](
-                (_0x278a49) => _0x278a49["input"] === _0x548164,
-              ) && empReqNum["push"]({ input: _0x548164 }),
-              unfilledArr[_0x4404fd(0x172)]({
-                input: $(this)[_0x4404fd(0x164)](_0x4404fd(0x14b)),
-              })),
-            empReqNum["length"] === 0x0
-              ? (numFilled = !![])
-              : (numFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x15a))
-        [_0x605ee8(0x194)](function (_0x1b0f4e) {
-          const _0x191aff = _0x605ee8;
-          let _0x378b57 = $(this)["val"]();
-          _0x378b57 === "" && (_0x378b57 = null),
-            _0x378b57 != null
-              ? (empReqSelect = empReqSelect["filter"](
-                  (_0x4c8924) => _0x4c8924[_0x191aff(0x17a)] !== _0x1b0f4e,
-                ))
-              : (!empReqSelect["find"](
-                  (_0x31ecab) => _0x31ecab[_0x191aff(0x17a)] === _0x1b0f4e,
-                ) && empReqSelect["push"]({ input: _0x1b0f4e }),
-                unfilledArr[_0x191aff(0x172)]({
-                  input: $(this)["attr"](_0x191aff(0x14b)),
-                })),
-            empReqSelect[_0x191aff(0x225)] === 0x0
-              ? (selectFilled = !![])
-              : (selectFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1bc))
-        ["each"](function (_0xbc07ca) {
-          const _0x3a07e8 = _0x605ee8;
-          let _0x1b5541 = $(this)[_0x3a07e8(0x16c)]()[_0x3a07e8(0x225)],
-            _0x4f694c = $(this)[_0x3a07e8(0x21e)]("min-character")
-              ? $(this)[_0x3a07e8(0x21e)](_0x3a07e8(0x16d))
-              : 0x0;
-          $(this)["val"]() !== "" && _0x1b5541 >= _0x4f694c
-            ? (empReqTextarea = empReqTextarea["filter"](
-                (_0x2069a9) => _0x2069a9[_0x3a07e8(0x17a)] !== _0xbc07ca,
-              ))
-            : (!empReqTextarea[_0x3a07e8(0x1a4)](
-                (_0x20daa4) => _0x20daa4[_0x3a07e8(0x17a)] === _0xbc07ca,
-              ) && empReqTextarea[_0x3a07e8(0x172)]({ input: _0xbc07ca }),
-              unfilledArr[_0x3a07e8(0x172)]({
-                input: $(this)["attr"](_0x3a07e8(0x14b)),
-              })),
-            empReqTextarea[_0x3a07e8(0x225)] === 0x0
-              ? (textareaFilled = !![])
-              : (textareaFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xf2))
-        [_0x605ee8(0x194)](function () {
-          const _0x8bb515 = _0x605ee8;
-          $(this)["val"]() !== ""
-            ? validateEmail(
-                $(this)[_0x8bb515(0x16c)](),
-                $(this)["data"]("block-domain"),
-                $(this)["attr"]("name"),
-              )
-            : ((emailFilled = ![]),
-              unfilledArr[_0x8bb515(0x172)]({
-                input: $(this)[_0x8bb515(0x164)](_0x8bb515(0x14b)),
-              }));
-        });
-  else {
-    if ($(steps[x])[_0x605ee8(0x21e)](_0x605ee8(0x19b)))
-      (answer = $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1fe))
-        [_0x605ee8(0x21e)]("go-to")),
-        (selections = selections[_0x605ee8(0x150)](
-          (_0x573896) => _0x573896["step"] !== x,
-        )),
-        selections[_0x605ee8(0x172)]({ step: x, selected: answer });
-    else
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        ["data"](_0x605ee8(0x19b)) &&
-        ((answer = $(steps[x])
-          [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-          ["data"](_0x605ee8(0x156))),
-        (selections = selections[_0x605ee8(0x150)](
-          (_0x4614f7) => _0x4614f7[_0x605ee8(0x21c)] !== x,
-        )),
-        selections["push"]({ step: x, selected: answer }));
-    $(steps[x])
-      [_0x605ee8(0x1a4)](".active-answer-card")
-      [_0x605ee8(0x1a4)](":input")
-      ["is"](_0x605ee8(0x123)) &&
-      (checkCount === "*" ||
-      checkCount > $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x1c7))["length"]
-        ? $(steps[x])
-            ["find"](":input[type=\x22checkbox\x22]")
-            ["each"](function () {
-              const _0x28d75f = _0x605ee8;
-              $(this)["is"](_0x28d75f(0x132))
-                ? $(steps[x])[_0x28d75f(0x1a4)](_0x28d75f(0xf6))[
-                    _0x28d75f(0x225)
-                  ] < 0x1 &&
-                  ((skipTo = undefined),
-                  $(this)
-                    [_0x28d75f(0x10d)](_0x28d75f(0x1a3))
-                    [_0x28d75f(0x21e)]("skip-to") &&
-                    (skipTo = $(this)
-                      [_0x28d75f(0x10d)](_0x28d75f(0x1a3))
-                      [_0x28d75f(0x21e)](_0x28d75f(0x212))),
-                  $(this)
-                    ["parents"](_0x28d75f(0x1fe))
-                    ["attr"](_0x28d75f(0x1ac)) &&
-                    ((answer = $(this)
-                      [_0x28d75f(0x10d)](_0x28d75f(0x1fe))
-                      ["attr"](_0x28d75f(0x1ac))),
-                    (selections = selections[_0x28d75f(0x150)](
-                      (_0x4f88cb) => _0x4f88cb["step"] !== x,
-                    )),
-                    selections[_0x28d75f(0x172)]({ step: x, selected: answer }),
-                    skipTo &&
-                      (selections[_0x28d75f(0x172)]({
-                        step: skipTo - 0x2,
-                        selected: answer,
-                      }),
-                      (objIndex = selections[_0x28d75f(0xc5)](
-                        (_0x350f18) => _0x350f18["step"] === x,
-                      )),
-                      (selections[objIndex][_0x28d75f(0x1cf)] =
-                        parseInt(skipTo) - 0x1),
-                      (selections[objIndex][_0x28d75f(0x230)] = x))),
-                  (checkboxFilled = !![]),
-                  $(steps[x])[_0x28d75f(0x1a4)](_0x28d75f(0x177))[
-                    _0x28d75f(0x225)
-                  ] >=
-                    $(steps[x])[_0x28d75f(0x1a4)](_0x28d75f(0x128))["length"] &&
-                    resetInputErrorMessage(
-                      $(steps[x])
-                        [_0x28d75f(0x1a4)](_0x28d75f(0x1c7))
-                        ["attr"]("name"),
-                    ))
-                : ((checkboxFilled = ![]),
-                  unfilledArr["push"]({
-                    input: $(this)[_0x28d75f(0x164)]("name"),
-                  }));
-            })
-        : $(steps[x])
-              [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-              [_0x605ee8(0x1a4)](_0x605ee8(0x1bf))[_0x605ee8(0x225)] >=
-            checkCount
-          ? ($(steps[x])
-              ["find"](_0x605ee8(0xe7))
-              [_0x605ee8(0x1a4)](":input[type=\x22checkbox\x22]")
-              [_0x605ee8(0x10d)](_0x605ee8(0x1fe))
-              [_0x605ee8(0x164)](_0x605ee8(0x1ac)) &&
-              ((skipTo = undefined),
-              $(steps[x])
-                [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-                [_0x605ee8(0x1a4)](_0x605ee8(0x1c7))
-                ["parents"](_0x605ee8(0x1a3))
-                [_0x605ee8(0x164)](_0x605ee8(0x209)) &&
-                (skipTo = $(steps[x])
-                  ["find"](".active-answer-card")
-                  [_0x605ee8(0x1a4)](_0x605ee8(0x1bf))
-                  [_0x605ee8(0x10d)](_0x605ee8(0x1a3))
-                  [_0x605ee8(0x164)](_0x605ee8(0x209))),
-              (answer = $(steps[x])
-                [_0x605ee8(0x1a4)](".active-answer-card")
-                [_0x605ee8(0x1a4)](_0x605ee8(0x1c7))
-                [_0x605ee8(0x10d)](_0x605ee8(0x1fe))
-                [_0x605ee8(0x164)](_0x605ee8(0x1ac))),
-              (selections = selections[_0x605ee8(0x150)](
-                (_0x3fb351) => _0x3fb351["step"] !== x,
-              )),
-              selections["push"]({ step: x, selected: answer }),
-              skipTo &&
-                ((selections = selections[_0x605ee8(0x150)](
-                  (_0x852a4) => _0x852a4[_0x605ee8(0x21c)] !== skipTo - 0x2,
-                )),
-                selections[_0x605ee8(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x605ee8(0xc5)](
-                  (_0x54b7e0) => _0x54b7e0[_0x605ee8(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x605ee8(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x605ee8(0x230)] = x))),
-            (checkboxFilled = !![]),
-            $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x177))[_0x605ee8(0x225)] >=
-              $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0x128))[
-                _0x605ee8(0x225)
-              ] &&
-              resetInputErrorMessage(
-                $(steps[x])
-                  [_0x605ee8(0x1a4)](_0x605ee8(0x1c7))
-                  [_0x605ee8(0x164)](_0x605ee8(0x14b)),
-              ))
-          : ((checkboxFilled = ![]),
-            $(steps[x])
-              [_0x605ee8(0x1a4)](_0x605ee8(0x128))
-              [_0x605ee8(0x194)](function () {
-                const _0x2cd43c = _0x605ee8;
-                $(this)[_0x2cd43c(0x1b9)](":checked") &&
-                  unfilledArr["push"]({
-                    input: $(this)[_0x2cd43c(0x164)]("name"),
-                  });
-              }))),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)]("input:radio[required]")
-        [_0x605ee8(0x194)](function (_0xdb6472) {
-          const _0x1403c2 = _0x605ee8;
-          var _0x122719 = $(this)["attr"](_0x1403c2(0x14b));
-          $("input:radio[name=\x22" + _0x122719 + _0x1403c2(0x204))["length"] ==
-          0x0
-            ? (!empReqRadio[_0x1403c2(0x1a4)](
-                (_0x43985d) => _0x43985d[_0x1403c2(0x17a)] === _0xdb6472,
-              ) && empReqRadio[_0x1403c2(0x172)]({ input: _0xdb6472 }),
-              unfilledArr[_0x1403c2(0x172)]({
-                input: $(this)["attr"](_0x1403c2(0x14b)),
-              }))
-            : (empReqRadio = empReqRadio[_0x1403c2(0x150)](
-                (_0xf2f721) => _0xf2f721[_0x1403c2(0x17a)] !== _0xdb6472,
-              )),
-            empReqRadio[_0x1403c2(0x225)] === 0x0
-              ? (radioFilled = !![])
-              : (radioFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0xfd))
-        [_0x605ee8(0x194)](function (_0x1edc60) {
-          const _0x1203de = _0x605ee8;
-          let _0x537fd6 = $(this)[_0x1203de(0x16c)]()["length"],
-            _0x5e955c = $(this)["data"](_0x1203de(0x16d))
-              ? $(this)[_0x1203de(0x21e)](_0x1203de(0x16d))
-              : 0x0;
-          $(this)["val"]() !== "" && _0x537fd6 >= _0x5e955c
-            ? (empReqInput = empReqInput["filter"](
-                (_0x5d75c2) => _0x5d75c2[_0x1203de(0x17a)] !== _0x1edc60,
-              ))
-            : (!empReqInput["find"](
-                (_0x56660d) => _0x56660d["input"] === _0x1edc60,
-              ) && empReqInput[_0x1203de(0x172)]({ input: _0x1edc60 }),
-              unfilledArr[_0x1203de(0x172)]({
-                input: $(this)[_0x1203de(0x164)](_0x1203de(0x14b)),
-              })),
-            empReqInput[_0x1203de(0x225)] === 0x0
-              ? (inputFilled = !![])
-              : (inputFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1e1))
-        [_0x605ee8(0x194)](function (_0x587945) {
-          const _0x44020b = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x44020b(0x10d)](_0x44020b(0x1a3))
-              [_0x44020b(0x21e)](_0x44020b(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x44020b(0x10d)](_0x44020b(0x1a3))
-                [_0x44020b(0x21e)]("skip-to")),
-            $(this)
-              [_0x44020b(0x10d)]("[data-go-to]")
-              [_0x44020b(0x164)](_0x44020b(0x1ac)) &&
-              ((answer = $(this)
-                [_0x44020b(0x10d)](_0x44020b(0x1fe))
-                [_0x44020b(0x164)](_0x44020b(0x1ac))),
-              (selections = selections[_0x44020b(0x150)](
-                (_0x40c08c) => _0x40c08c[_0x44020b(0x21c)] !== x,
-              )),
-              selections[_0x44020b(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections["push"]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x44020b(0xc5)](
-                  (_0x34de0d) => _0x34de0d[_0x44020b(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x44020b(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex]["backTo"] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](":input[type=\x22password\x22][required]")
-        ["each"](function (_0x461894) {
-          const _0x154f5c = _0x605ee8;
-          let _0x165633 = $(this)[_0x154f5c(0x16c)]()[_0x154f5c(0x225)],
-            _0x54d17b = $(this)[_0x154f5c(0x21e)]("min-character")
-              ? $(this)[_0x154f5c(0x21e)](_0x154f5c(0x16d))
-              : 0x0;
-          $(this)[_0x154f5c(0x16c)]() !== "" && _0x165633 >= _0x54d17b
-            ? (empReqPassword = empReqPassword["filter"](
-                (_0x57f91c) => _0x57f91c[_0x154f5c(0x17a)] !== _0x461894,
-              ))
-            : (!empReqPassword[_0x154f5c(0x1a4)](
-                (_0x48ef42) => _0x48ef42[_0x154f5c(0x17a)] === _0x461894,
-              ) && empReqPassword[_0x154f5c(0x172)]({ input: _0x461894 }),
-              unfilledArr[_0x154f5c(0x172)]({
-                input: $(this)[_0x154f5c(0x164)]("name"),
-              })),
-            empReqPassword[_0x154f5c(0x225)] === 0x0
-              ? (passwordFilled = !![])
-              : (passwordFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x168))
-        [_0x605ee8(0x194)](function (_0x1e9d30) {
-          const _0x32ec9a = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x32ec9a(0x10d)]("[data-skip-to]")
-              [_0x32ec9a(0x21e)](_0x32ec9a(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x32ec9a(0x10d)](_0x32ec9a(0x1a3))
-                [_0x32ec9a(0x21e)]("skip-to")),
-            $(this)["parents"]("[data-go-to]")["attr"](_0x32ec9a(0x1ac)) &&
-              ((answer = $(this)
-                [_0x32ec9a(0x10d)](_0x32ec9a(0x1fe))
-                ["attr"](_0x32ec9a(0x1ac))),
-              (selections = selections[_0x32ec9a(0x150)](
-                (_0x1d2310) => _0x1d2310["step"] !== x,
-              )),
-              selections["push"]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x32ec9a(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x32ec9a(0xc5)](
-                  (_0x205b87) => _0x205b87[_0x32ec9a(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x32ec9a(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex]["backTo"] = x)));
-        }),
-      $(steps[x])
-        ["find"](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](":input[type=\x22url\x22][required]")
-        ["each"](function (_0x137e43) {
-          const _0x39a2d7 = _0x605ee8;
-          let _0x5d8f3d = $(this)["val"]()[_0x39a2d7(0x225)],
-            _0x1c836f = $(this)[_0x39a2d7(0x21e)](_0x39a2d7(0x16d))
-              ? $(this)[_0x39a2d7(0x21e)]("min-character")
-              : 0x0;
-          $(this)[_0x39a2d7(0x16c)]() !== "" && _0x5d8f3d >= _0x1c836f
-            ? (empReqUrl = empReqUrl[_0x39a2d7(0x150)](
-                (_0x22a9ed) => _0x22a9ed[_0x39a2d7(0x17a)] !== _0x137e43,
-              ))
-            : (!empReqUrl[_0x39a2d7(0x1a4)](
-                (_0x5a0b07) => _0x5a0b07["input"] === _0x137e43,
-              ) && empReqUrl["push"]({ input: _0x137e43 }),
-              unfilledArr[_0x39a2d7(0x172)]({
-                input: $(this)[_0x39a2d7(0x164)]("name"),
-              })),
-            empReqUrl[_0x39a2d7(0x225)] === 0x0 &&
-            validateURL($(this)[_0x39a2d7(0x16c)]())
-              ? (urlFilled = !![])
-              : (urlFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x21a))
-        ["each"](function (_0x30d288) {
-          const _0xb9216a = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0xb9216a(0x10d)](_0xb9216a(0x1a3))
-              [_0xb9216a(0x21e)](_0xb9216a(0x212)) !== "" &&
-              (skipTo = $(this)
-                ["parents"](_0xb9216a(0x1a3))
-                [_0xb9216a(0x21e)](_0xb9216a(0x212))),
-            $(this)
-              [_0xb9216a(0x10d)](_0xb9216a(0x1fe))
-              ["attr"](_0xb9216a(0x1ac)) &&
-              ((answer = $(this)
-                ["parents"](_0xb9216a(0x1fe))
-                ["attr"](_0xb9216a(0x1ac))),
-              (selections = selections[_0xb9216a(0x150)](
-                (_0x1cc2a9) => _0x1cc2a9[_0xb9216a(0x21c)] !== x,
-              )),
-              selections["push"]({ step: x, selected: answer }),
-              skipTo &&
-                (selections["push"]({ step: skipTo - 0x2, selected: answer }),
-                (objIndex = selections[_0xb9216a(0xc5)](
-                  (_0x24e763) => _0x24e763["step"] === x,
-                )),
-                (selections[objIndex][_0xb9216a(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0xb9216a(0x230)] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)](":input[type=\x22date\x22][required]")
-        [_0x605ee8(0x194)](function (_0x195600) {
-          const _0x50ac14 = _0x605ee8;
-          $(this)["val"]() !== ""
-            ? (empReqDate = empReqDate[_0x50ac14(0x150)](
-                (_0x56571b) => _0x56571b[_0x50ac14(0x17a)] !== _0x195600,
-              ))
-            : (!empReqDate[_0x50ac14(0x1a4)](
-                (_0x1643f2) => _0x1643f2[_0x50ac14(0x17a)] === _0x195600,
-              ) && empReqDate[_0x50ac14(0x172)]({ input: _0x195600 }),
-              unfilledArr[_0x50ac14(0x172)]({
-                input: $(this)[_0x50ac14(0x164)](_0x50ac14(0x14b)),
-              })),
-            empReqDate[_0x50ac14(0x225)] === 0x0
-              ? (dateFilled = !![])
-              : (dateFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)](_0x605ee8(0x193))
-        [_0x605ee8(0x194)](function (_0x1eb667) {
-          const _0x50c27b = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x50c27b(0x10d)](_0x50c27b(0x1a3))
-              [_0x50c27b(0x21e)](_0x50c27b(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x50c27b(0x10d)](_0x50c27b(0x1a3))
-                [_0x50c27b(0x21e)](_0x50c27b(0x212))),
-            $(this)
-              ["parents"]("[data-go-to]")
-              [_0x50c27b(0x164)](_0x50c27b(0x1ac)) &&
-              ((answer = $(this)
-                ["parents"]("[data-go-to]")
-                [_0x50c27b(0x164)](_0x50c27b(0x1ac))),
-              (selections = selections[_0x50c27b(0x150)](
-                (_0x5e7742) => _0x5e7742[_0x50c27b(0x21c)] !== x,
-              )),
-              selections[_0x50c27b(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x50c27b(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x50c27b(0xc5)](
-                  (_0x544192) => _0x544192[_0x50c27b(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x50c27b(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex]["backTo"] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x144))
-        ["each"](function (_0x2208e2) {
-          const _0x5885bc = _0x605ee8;
-          $(this)[_0x5885bc(0x16c)]() !== ""
-            ? (empReqTime = empReqTime["filter"](
-                (_0x41f58a) => _0x41f58a[_0x5885bc(0x17a)] !== _0x2208e2,
-              ))
-            : (!empReqTime["find"](
-                (_0x269d57) => _0x269d57[_0x5885bc(0x17a)] === _0x2208e2,
-              ) && empReqTime[_0x5885bc(0x172)]({ input: _0x2208e2 }),
-              unfilledArr[_0x5885bc(0x172)]({
-                input: $(this)[_0x5885bc(0x164)](_0x5885bc(0x14b)),
-              })),
-            empReqTime[_0x5885bc(0x225)] === 0x0
-              ? (timeFilled = !![])
-              : (timeFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        ["find"](":input[type=\x22time\x22]")
-        ["each"](function (_0x2fefad) {
-          const _0x16878c = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x16878c(0x10d)](_0x16878c(0x1a3))
-              ["data"](_0x16878c(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x16878c(0x10d)](_0x16878c(0x1a3))
-                ["data"](_0x16878c(0x212))),
-            $(this)
-              [_0x16878c(0x10d)](_0x16878c(0x1fe))
-              ["attr"](_0x16878c(0x1ac)) &&
-              ((answer = $(this)
-                [_0x16878c(0x10d)](_0x16878c(0x1fe))
-                [_0x16878c(0x164)](_0x16878c(0x1ac))),
-              (selections = selections[_0x16878c(0x150)](
-                (_0x1ebe79) => _0x1ebe79[_0x16878c(0x21c)] !== x,
-              )),
-              selections[_0x16878c(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections["push"]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x16878c(0xc5)](
-                  (_0x126346) => _0x126346[_0x16878c(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x16878c(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x16878c(0x230)] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1f0))
-        [_0x605ee8(0x194)](function (_0x37a126) {
-          const _0x1a9737 = _0x605ee8;
-          let _0x31b5d7 = $(this)[_0x1a9737(0x16c)]()["length"],
-            _0x137e88 = $(this)[_0x1a9737(0x21e)]("min-character")
-              ? $(this)["data"]("min-character")
-              : 0x0;
-          $(this)[_0x1a9737(0x16c)]() !== "" && _0x31b5d7 >= _0x137e88
-            ? (empReqNum = empReqNum["filter"](
-                (_0x559695) => _0x559695["input"] !== _0x37a126,
-              ))
-            : (!empReqNum["find"](
-                (_0x2838b9) => _0x2838b9[_0x1a9737(0x17a)] === _0x37a126,
-              ) && empReqNum[_0x1a9737(0x172)]({ input: _0x37a126 }),
-              unfilledArr[_0x1a9737(0x172)]({
-                input: $(this)[_0x1a9737(0x164)]("name"),
-              })),
-            empReqNum["length"] === 0x0
-              ? (numFilled = !![])
-              : (numFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        ["find"](_0x605ee8(0x185))
-        [_0x605ee8(0x194)](function (_0x1375d4) {
-          const _0x22da20 = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x22da20(0x10d)](_0x22da20(0x1a3))
-              ["data"](_0x22da20(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x22da20(0x10d)](_0x22da20(0x1a3))
-                ["data"](_0x22da20(0x212))),
-            $(this)
-              ["parents"](_0x22da20(0x1fe))
-              [_0x22da20(0x164)]("data-go-to") &&
-              ((answer = $(this)
-                [_0x22da20(0x10d)]("[data-go-to]")
-                [_0x22da20(0x164)](_0x22da20(0x1ac))),
-              (selections = selections[_0x22da20(0x150)](
-                (_0x9b4d0a) => _0x9b4d0a[_0x22da20(0x21c)] !== x,
-              )),
-              selections[_0x22da20(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x22da20(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x22da20(0xc5)](
-                  (_0x1ae7c1) => _0x1ae7c1[_0x22da20(0x21c)] === x,
-                )),
-                (selections[objIndex]["skipTo"] = parseInt(skipTo) - 0x1),
-                (selections[objIndex]["backTo"] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1c1))
-        [_0x605ee8(0x194)](function (_0x50840a) {
-          const _0x2271b7 = _0x605ee8;
-          if ($(this)["val"]() !== "") {
-            let _0xcd2873 = $(this)[_0x2271b7(0x16c)]()[_0x2271b7(0x225)],
-              _0x50d63b = $(this)[_0x2271b7(0x21e)](_0x2271b7(0x16d))
-                ? $(this)[_0x2271b7(0x21e)](_0x2271b7(0x16d))
-                : 0x0;
-            if ($(this)["data"](_0x2271b7(0x100))) {
-              var _0x39e344 = phoneAutoFormat(
-                $(this)[_0x2271b7(0x21e)](_0x2271b7(0x100)),
-              );
-              $(this)["val"](_0x39e344($(this)["val"]()));
-            }
-            phoneValidation($(this)[_0x2271b7(0x16c)](), _0xcd2873, _0x50d63b)
-              ? (empReqTel = empReqTel[_0x2271b7(0x150)](
-                  (_0x754763) => _0x754763[_0x2271b7(0x17a)] !== _0x50840a,
-                ))
-              : empReqTel[_0x2271b7(0x172)]({ input: _0x50840a });
-          } else
-            !empReqTel[_0x2271b7(0x1a4)](
-              (_0xc2ec90) => _0xc2ec90[_0x2271b7(0x17a)] === _0x50840a,
-            ) && empReqTel["push"]({ input: _0x50840a }),
-              unfilledArr[_0x2271b7(0x172)]({
-                input: $(this)["attr"](_0x2271b7(0x14b)),
-              });
-          empReqTel["length"] === 0x0 ? (telFilled = !![]) : (telFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        ["find"](_0x605ee8(0x192))
-        [_0x605ee8(0x194)](function (_0x53a308) {
-          const _0x36e359 = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              ["parents"](_0x36e359(0x1a3))
-              [_0x36e359(0x21e)](_0x36e359(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x36e359(0x10d)](_0x36e359(0x1a3))
-                [_0x36e359(0x21e)](_0x36e359(0x212))),
-            $(this)
-              [_0x36e359(0x10d)](_0x36e359(0x1fe))
-              [_0x36e359(0x164)](_0x36e359(0x1ac)) &&
-              ((answer = $(this)
-                [_0x36e359(0x10d)](_0x36e359(0x1fe))
-                [_0x36e359(0x164)](_0x36e359(0x1ac))),
-              (selections = selections[_0x36e359(0x150)](
-                (_0x532ae6) => _0x532ae6[_0x36e359(0x21c)] !== x,
-              )),
-              selections[_0x36e359(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections["push"]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x36e359(0xc5)](
-                  (_0x190627) => _0x190627[_0x36e359(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x36e359(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x36e359(0x230)] = x)));
-        }),
-      $(steps[x])
-        ["find"](".active-answer-card")
-        ["find"](_0x605ee8(0x176))
-        [_0x605ee8(0x194)](function (_0x3a6bb8) {
-          const _0x35f8de = _0x605ee8;
-          $(this)[_0x35f8de(0x16c)]() !== ""
-            ? (empReqFile = empReqFile["filter"](
-                (_0xfa90b2) => _0xfa90b2["input"] !== _0x3a6bb8,
-              ))
-            : (!empReqFile[_0x35f8de(0x1a4)](
-                (_0x1442a0) => _0x1442a0[_0x35f8de(0x17a)] === _0x3a6bb8,
-              ) && empReqFile[_0x35f8de(0x172)]({ input: _0x3a6bb8 }),
-              unfilledArr[_0x35f8de(0x172)]({
-                input: $(this)[_0x35f8de(0x164)](_0x35f8de(0x14b)),
-              })),
-            empReqFile[_0x35f8de(0x225)] === 0x0
-              ? (fileFilled = !![])
-              : (fileFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](":input[type=\x22file\x22]")
-        [_0x605ee8(0x194)](function (_0x3d9e60) {
-          const _0x5202b2 = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x5202b2(0x10d)](_0x5202b2(0x1a3))
-              ["data"](_0x5202b2(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x5202b2(0x10d)](_0x5202b2(0x1a3))
-                [_0x5202b2(0x21e)](_0x5202b2(0x212))),
-            $(this)
-              [_0x5202b2(0x10d)](_0x5202b2(0x1fe))
-              [_0x5202b2(0x164)](_0x5202b2(0x1ac)) &&
-              ((answer = $(this)
-                ["parents"]("[data-go-to]")
-                ["attr"](_0x5202b2(0x1ac))),
-              (selections = selections[_0x5202b2(0x150)](
-                (_0x50325f) => _0x50325f[_0x5202b2(0x21c)] !== x,
-              )),
-              selections[_0x5202b2(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections["push"]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x5202b2(0xc5)](
-                  (_0x5a8dba) => _0x5a8dba[_0x5202b2(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x5202b2(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex]["backTo"] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)]("select[required]")
-        ["each"](function (_0x3d83a6) {
-          const _0x1e2969 = _0x605ee8;
-          $(this)["val"]() !== null && $(this)[_0x1e2969(0x16c)]() !== ""
-            ? (empReqSelect = empReqSelect[_0x1e2969(0x150)](
-                (_0x46c989) => _0x46c989[_0x1e2969(0x17a)] !== _0x3d83a6,
-              ))
-            : (!empReqSelect[_0x1e2969(0x1a4)](
-                (_0x9ace09) => _0x9ace09[_0x1e2969(0x17a)] === _0x3d83a6,
-              ) && empReqSelect[_0x1e2969(0x172)]({ input: _0x3d83a6 }),
-              unfilledArr["push"]({
-                input: $(this)[_0x1e2969(0x164)](_0x1e2969(0x14b)),
-              })),
-            empReqSelect[_0x1e2969(0x225)] === 0x0
-              ? (selectFilled = !![])
-              : (selectFilled = ![]);
-        }),
-      $(steps[x])
-        ["find"](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)]("select")
-        ["each"](function (_0xdc392b) {
-          const _0x27437f = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              ["parents"](_0x27437f(0x1a3))
-              [_0x27437f(0x21e)]("skip-to") !== "" &&
-              (skipTo = $(this)
-                ["parents"](_0x27437f(0x1a3))
-                [_0x27437f(0x21e)](_0x27437f(0x212))),
-            $(this)
-              [_0x27437f(0x10d)](_0x27437f(0x1fe))
-              [_0x27437f(0x164)](_0x27437f(0x1ac)) &&
-              ((answer = $(this)
-                ["parents"](_0x27437f(0x1fe))
-                [_0x27437f(0x164)]("data-go-to")),
-              (selections = selections[_0x27437f(0x150)](
-                (_0x2f28db) => _0x2f28db[_0x27437f(0x21c)] !== x,
-              )),
-              selections[_0x27437f(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x27437f(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x27437f(0xc5)](
-                  (_0x21ff50) => _0x21ff50[_0x27437f(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x27437f(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x27437f(0x230)] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)]("textarea[required]")
-        [_0x605ee8(0x194)](function (_0x329fe2) {
-          const _0x2e5df1 = _0x605ee8;
-          let _0x5e715a = $(this)[_0x2e5df1(0x16c)]()["length"],
-            _0x57c054 = $(this)[_0x2e5df1(0x21e)](_0x2e5df1(0x16d))
-              ? $(this)[_0x2e5df1(0x21e)](_0x2e5df1(0x16d))
-              : 0x0;
-          $(this)[_0x2e5df1(0x16c)]() !== "" && _0x5e715a >= _0x57c054
-            ? (empReqTextarea = empReqTextarea[_0x2e5df1(0x150)](
-                (_0x2e9ed8) => _0x2e9ed8[_0x2e5df1(0x17a)] !== _0x329fe2,
-              ))
-            : (!empReqTextarea["find"](
-                (_0x374628) => _0x374628[_0x2e5df1(0x17a)] === _0x329fe2,
-              ) && empReqTextarea["push"]({ input: _0x329fe2 }),
-              unfilledArr[_0x2e5df1(0x172)]({
-                input: $(this)[_0x2e5df1(0x164)](_0x2e5df1(0x14b)),
-              })),
-            empReqTextarea[_0x2e5df1(0x225)] === 0x0
-              ? (textareaFilled = !![])
-              : (textareaFilled = ![]);
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0x1aa))
-        [_0x605ee8(0x194)](function (_0x2834f9) {
-          const _0x4920d4 = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              [_0x4920d4(0x10d)](_0x4920d4(0x1a3))
-              [_0x4920d4(0x21e)](_0x4920d4(0x212)) !== "" &&
-              (skipTo = $(this)
-                [_0x4920d4(0x10d)](_0x4920d4(0x1a3))
-                [_0x4920d4(0x21e)](_0x4920d4(0x212))),
-            $(this)
-              [_0x4920d4(0x10d)](_0x4920d4(0x1fe))
-              [_0x4920d4(0x164)](_0x4920d4(0x1ac)) &&
-              ((answer = $(this)
-                [_0x4920d4(0x10d)]("[data-go-to]")
-                [_0x4920d4(0x164)](_0x4920d4(0x1ac))),
-              (selections = selections[_0x4920d4(0x150)](
-                (_0x3207a5) => _0x3207a5[_0x4920d4(0x21c)] !== x,
-              )),
-              selections[_0x4920d4(0x172)]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x4920d4(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections["findIndex"](
-                  (_0x358d71) => _0x358d71[_0x4920d4(0x21c)] === x,
-                )),
-                (selections[objIndex][_0x4920d4(0x1cf)] =
-                  parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x4920d4(0x230)] = x)));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](".active-answer-card")
-        [_0x605ee8(0x1a4)](_0x605ee8(0xf2))
-        [_0x605ee8(0x194)](function (_0x4ed40c) {
-          const _0xc6a5c1 = _0x605ee8;
-          $(this)[_0xc6a5c1(0x16c)]() !== ""
-            ? validateEmail(
-                $(this)["val"](),
-                $(this)["data"](_0xc6a5c1(0x217)),
-                $(this)["attr"](_0xc6a5c1(0x14b)),
-              )
-            : ((emailFilled = ![]),
-              unfilledArr[_0xc6a5c1(0x172)]({
-                input: $(this)[_0xc6a5c1(0x164)](_0xc6a5c1(0x14b)),
-              }));
-        }),
-      $(steps[x])
-        [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-        [_0x605ee8(0x1a4)](_0x605ee8(0xdb))
-        [_0x605ee8(0x194)](function (_0xf2d769) {
-          const _0x1b0a99 = _0x605ee8;
-          (skipTo = undefined),
-            $(this)
-              ["parents"](_0x1b0a99(0x1a3))
-              [_0x1b0a99(0x21e)](_0x1b0a99(0x212)) !== "" &&
-              (skipTo = $(this)
-                ["parents"](_0x1b0a99(0x1a3))
-                [_0x1b0a99(0x21e)](_0x1b0a99(0x212))),
-            $(this)
-              ["parents"](_0x1b0a99(0x1fe))
-              [_0x1b0a99(0x164)](_0x1b0a99(0x1ac)) &&
-              ((answer = $(this)
-                [_0x1b0a99(0x10d)](_0x1b0a99(0x1fe))
-                [_0x1b0a99(0x164)](_0x1b0a99(0x1ac))),
-              (selections = selections["filter"](
-                (_0x46320) => _0x46320[_0x1b0a99(0x21c)] !== x,
-              )),
-              selections["push"]({ step: x, selected: answer }),
-              skipTo &&
-                (selections[_0x1b0a99(0x172)]({
-                  step: skipTo - 0x2,
-                  selected: answer,
-                }),
-                (objIndex = selections[_0x1b0a99(0xc5)](
-                  (_0x195bff) => _0x195bff[_0x1b0a99(0x21c)] === x,
-                )),
-                (selections[objIndex]["skipTo"] = parseInt(skipTo) - 0x1),
-                (selections[objIndex][_0x1b0a99(0x230)] = x)));
-        });
-  }
-  $(steps[x])[_0x605ee8(0x1a4)](_0x605ee8(0xcd))["is"](":checked") &&
-    ((selArr = []),
-    $(steps)
-      ["find"](_0x605ee8(0x195))
-      ["each"](function (_0x31fe11, _0x44f9f2) {
-        const _0x1fbc49 = _0x605ee8;
-        selArr[_0x1fbc49(0x172)]({
-          selected: $(this)[_0x1fbc49(0x21e)](_0x1fbc49(0x13f)),
-        });
-      }),
-    (selString = []),
-    selArr[_0x605ee8(0x143)]((_0x4225cf) =>
-      selString[_0x605ee8(0x172)](_0x4225cf[_0x605ee8(0x13f)]),
-    ),
-    $(steps[x])
-      [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-      ["find"](":input[type=\x27radio\x27]:checked")
-      [_0x605ee8(0x194)](function () {
-        const _0x484860 = _0x605ee8;
-        skipTo = undefined;
-        if ($(this)[_0x484860(0x10d)](_0x484860(0x1a3))["data"]("skip-to"))
-          skipTo = $(this)
-            ["parents"](_0x484860(0x1a3))
-            [_0x484860(0x21e)]("skip-to");
-        else
-          $(this)[_0x484860(0x21e)]("skip-to") &&
-            (skipTo = $(this)["data"]("skip-to"));
-        selections = selections[_0x484860(0x150)](
-          (_0x14fabf) => _0x14fabf["step"] !== x,
-        );
-        if ($(this)[_0x484860(0x21e)](_0x484860(0x156)))
-          (answer = $(this)[_0x484860(0x164)]("data-go-to")),
-            selections["push"]({ step: x, selected: answer }),
-            skipTo &&
-              (selections[_0x484860(0x172)]({
-                step: skipTo - 0x2,
-                selected: answer,
-              }),
-              (objIndex = selections[_0x484860(0xc5)](
-                (_0x12eed2) => _0x12eed2[_0x484860(0x21c)] === x,
-              )),
-              (selections[objIndex][_0x484860(0x1cf)] = parseInt(skipTo) - 0x1),
-              (selections[objIndex]["backTo"] = x));
-        else
-          $(this)
-            [_0x484860(0x10d)](_0x484860(0x1fe))
-            [_0x484860(0x21e)](_0x484860(0x156)) &&
-            ((answer = $(this)
-              [_0x484860(0x10d)](_0x484860(0x1fe))
-              ["data"]("go-to")),
-            selections[_0x484860(0x172)]({ step: x, selected: answer }),
-            skipTo &&
-              (selections[_0x484860(0x172)]({
-                step: skipTo - 0x2,
-                selected: answer,
-              }),
-              (objIndex = selections[_0x484860(0xc5)](
-                (_0x3aacea) => _0x3aacea[_0x484860(0x21c)] === x,
-              )),
-              (selections[objIndex][_0x484860(0x1cf)] = parseInt(skipTo) - 0x1),
-              (selections[objIndex][_0x484860(0x230)] = x)));
-      }),
-    logicExtra
-      ? ($(steps[x])
-          [_0x605ee8(0x1a4)](_0x605ee8(0xe7))
-          [_0x605ee8(0x1a4)]("[data-radio-skip]:visible")
-          [_0x605ee8(0x21e)]("radio-skip") === !![] ||
-          $(steps[x])
-            [_0x605ee8(0x1a4)](_0x605ee8(0x184))
-            [_0x605ee8(0x21e)](_0x605ee8(0x239)) === !![]) &&
-        skip &&
-        selections["filter"]((_0x3bbc68) => _0x3bbc68["step"] === x)["length"] >
-          0x0 &&
-        textareaLength === 0x0 &&
-        textInputLength === 0x0 &&
-        emailInputLength === 0x0 &&
-        checkboxInputLength === 0x0 &&
-        setTimeout(
-          function () {
-            (next = !![]), nextStep(), selectionQuiz();
-          },
-          $(steps[x])
-            ["find"](_0x605ee8(0x137))
-            [_0x605ee8(0x21e)]("radio-delay"),
-        )
-      : $(steps[x])
-          [_0x605ee8(0x1a4)]("[data-radio-skip]:visible")
-          [_0x605ee8(0x21e)]("radio-skip") === !![] &&
-        skip &&
-        textareaLength === 0x0 &&
-        textInputLength === 0x0 &&
-        emailInputLength === 0x0 &&
-        checkboxInputLength === 0x0 &&
-        setTimeout(
-          function () {
-            (next = !![]), nextStep(), selectionQuiz();
-          },
-          $(steps[x])
-            [_0x605ee8(0x1a4)](_0x605ee8(0x137))
-            [_0x605ee8(0x21e)](_0x605ee8(0x1ef)),
-        )),
-    inputFilled &&
-    fileFilled &&
-    numFilled &&
-    checkboxFilled &&
-    telFilled &&
-    radioFilled &&
-    emailFilled &&
-    domainAllowed &&
-    selectFilled &&
-    textareaFilled &&
-    passwordFilled &&
-    urlFilled
-      ? enableBtn()
-      : disableBtn(),
-    andLogic(),
-    cloneRemove(),
-    cloneRemoveInput();
+        }
+        $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0x143))[_0x2ad9ea(0x1c3)](function(_0x550cdb) {
+                const
+                    _0x5086e8 = _0x2ad9ea;
+                var _0x436984 = $(this)[_0x5086e8(0xb6)](_0x5086e8(0x122));
+                $(_0x5086e8(0xb4) + _0x436984 + _0x5086e8(0x1f7))['length'] == 0x0 ? (!empReqRadio[
+                        _0x5086e8(0x95)](_0x258b04 => _0x258b04['input'] === _0x550cdb) && empReqRadio[
+                        _0x5086e8(0xb5)]({ 'input': _0x550cdb }), unfilledArr[_0x5086e8(0xb5)]({
+                        'input': $(
+                            this)[_0x5086e8(0xb6)]('name')
+                    })) : empReqRadio = empReqRadio[_0x5086e8(0x11c)](
+                        _0x1eb94b => _0x1eb94b[_0x5086e8(0x16d)] !== _0x550cdb), empReqRadio['length'] ===
+                    0x0 ? radioFilled = !![] : radioFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](
+                '.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(0x177))[_0x2ad9ea(0x1c3)](function(
+                _0x4771d9) {
+                const _0x2128e8 = _0x2ad9ea;
+                let _0x142540 = $(this)[_0x2128e8(0x137)]()[
+                        _0x2128e8(0x1bf)],
+                    _0x238471 = $(this)[_0x2128e8(0x1cb)](_0x2128e8(0x152)) ? $(this)['data'](_0x2128e8(
+                        0x152)) : 0x0;
+                $(this)[_0x2128e8(0x137)]() !== '' && _0x142540 >= _0x238471 ? empReqInput = empReqInput[
+                        'filter'](_0x1bad2f => _0x1bad2f[_0x2128e8(0x16d)] !== _0x4771d9) : (!empReqInput[
+                            _0x2128e8(0x95)](_0x52e863 => _0x52e863[_0x2128e8(0x16d)] === _0x4771d9) &&
+                        empReqInput[_0x2128e8(0xb5)]({ 'input': _0x4771d9 }), unfilledArr[_0x2128e8(0xb5)]
+                        ({ 'input': $(this)['attr'](_0x2128e8(0x122)) })), empReqInput['length'] === 0x0 ?
+                    inputFilled = !![] : inputFilled = ![];
+            }), $(steps[x])['find'](_0x2ad9ea(0xee))['find'](
+                _0x2ad9ea(0x88))[_0x2ad9ea(0x1c3)](function(_0x3c92bc) {
+                const _0x429583 = _0x2ad9ea;
+                skipTo = undefined, $(this)['parents'](_0x429583(0x82))['data'](_0x429583(0x1b9)) !==
+                    '' && (skipTo = $(this)[_0x429583(0x180)](_0x429583(0x82))['data'](_0x429583(0x1b9))),
+                    $(this)[_0x429583(0x180)]('[data-go-to]')[_0x429583(0xb6)](_0x429583(0xd9)) && (answer =
+                        $(this)[_0x429583(0x180)](_0x429583(0x7d))['attr']('data-go-to'), selections =
+                        selections[_0x429583(0x11c)](_0x33df5f => _0x33df5f[_0x429583(0x132)] !== x),
+                        selections[_0x429583(0xb5)]({ 'step': x, 'selected': answer }), skipTo && (
+                            selections = selections[_0x429583(0x11c)](_0xc142e6 => _0xc142e6['step'] !==
+                                skipTo - 0x2), selections['push']({ 'step': skipTo - 0x2, 'selected': answer }),
+                            objIndex = selections[_0x429583(0xc7)](_0x4799cf => _0x4799cf[_0x429583(0x132)] ===
+                                x), selections[objIndex][_0x429583(0x1d5)] = parseInt(skipTo) - 0x1, selections[
+                                objIndex]['backTo'] = x));
+            }), $(steps[x])[_0x2ad9ea(0x95)]('.active-answer-card')[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0xc1))[_0x2ad9ea(0x1c3)](function(_0x117f19) {
+                const _0x51b647 =
+                    _0x2ad9ea;
+                let _0x4dcf50 = $(this)[_0x51b647(0x137)]()[_0x51b647(0x1bf)],
+                    _0x48433d = $(this)[_0x51b647(0x1cb)](_0x51b647(0x152)) ? $(this)[_0x51b647(0x1cb)](
+                        _0x51b647(0x152)) : 0x0;
+                $(this)['val']() !== '' && _0x4dcf50 >= _0x48433d ? empReqPassword = empReqPassword[
+                        _0x51b647(0x11c)](_0x969e3e => _0x969e3e['input'] !== _0x117f19) : (!empReqPassword[
+                        'find'](_0xd94191 => _0xd94191[_0x51b647(0x16d)] === _0x117f19) && empReqPassword[
+                        _0x51b647(0xb5)]({ 'input': _0x117f19 }), unfilledArr[_0x51b647(0xb5)]({
+                        'input': $(
+                            this)[_0x51b647(0xb6)](_0x51b647(0x122))
+                    })), empReqPassword[_0x51b647(0x1bf)] ===
+                    0x0 ? passwordFilled = !![] : passwordFilled = ![];
+            }), $(steps[x])['find'](
+                '.active-answer-card')[_0x2ad9ea(0x95)](':input[type=\x22password\x22]')[_0x2ad9ea(0x1c3)](
+                function(_0x1d96af) {
+                    const _0x495a0f = _0x2ad9ea;
+                    skipTo = undefined, $(this)[_0x495a0f(0x180)](_0x495a0f(0x82))[_0x495a0f(0x1cb)](
+                        _0x495a0f(0x1b9)) !== '' && (skipTo = $(this)[_0x495a0f(0x180)](_0x495a0f(0x82))[
+                        _0x495a0f(0x1cb)](_0x495a0f(0x1b9))), $(this)[_0x495a0f(0x180)](_0x495a0f(0x7d))[
+                        _0x495a0f(0xb6)](_0x495a0f(0xd9)) && (answer = $(this)[_0x495a0f(0x180)](_0x495a0f(
+                            0x7d))[_0x495a0f(0xb6)](_0x495a0f(0xd9)), selections = selections[_0x495a0f(0x11c)](
+                            _0x587904 => _0x587904['step'] !== x), selections[_0x495a0f(0xb5)]
+                        ({ 'step': x, 'selected': answer }), skipTo && (selections = selections[_0x495a0f(
+                            0x11c)](
+                            _0x33f208 => _0x33f208[_0x495a0f(0x132)] !== skipTo - 0x2), selections[_0x495a0f(
+                            0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }), objIndex = selections[
+                            _0x495a0f(0xc7)](_0x15f4c7 => _0x15f4c7[_0x495a0f(0x132)] === x), selections[
+                            objIndex][_0x495a0f(0x1d5)] = parseInt(skipTo) - 0x1, selections[objIndex][
+                            _0x495a0f(0x187)
+                        ] = x));
+                }), $(steps[x])[_0x2ad9ea(0x95)]('.active-answer-card')['find'](_0x2ad9ea(
+                0x1b8))[_0x2ad9ea(0x1c3)](function(_0x3ab5b3) {
+                const _0x542c83 = _0x2ad9ea;
+                let _0xdfbf37 =
+                    $(this)[_0x542c83(0x137)]()['length'],
+                    _0x2942f4 = $(this)[_0x542c83(0x1cb)]('min-character') ? $(this)[_0x542c83(0x1cb)](
+                        _0x542c83(0x152)) : 0x0;
+                $(this)[_0x542c83(0x137)]() !== '' && _0xdfbf37 >= _0x2942f4 ? empReqUrl = empReqUrl[
+                    'filter'](_0x133288 => _0x133288[_0x542c83(0x16d)] !== _0x3ab5b3) : (!empReqUrl[
+                        _0x542c83(0x95)](_0xd06090 => _0xd06090['input'] === _0x3ab5b3) && empReqUrl['push']
+                    ({ 'input': _0x3ab5b3 }), unfilledArr['push']({
+                        'input': $(this)[_0x542c83(0xb6)](
+                            'name')
+                    })), empReqUrl[_0x542c83(0x1bf)] === 0x0 && validateURL($(this)['val']
+                    ()) ? urlFilled = !![] : urlFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0x1e2))[_0x2ad9ea(0x1c3)](function(_0x14ce7a) {
+                const
+                    _0x3a6207 = _0x2ad9ea;
+                skipTo = undefined, $(this)['parents'](_0x3a6207(0x82))['data'](_0x3a6207(0x1b9)) !==
+                    '' && (skipTo = $(this)[_0x3a6207(0x180)](_0x3a6207(0x82))[_0x3a6207(0x1cb)](_0x3a6207(
+                        0x1b9))), $(this)['parents'](_0x3a6207(0x7d))[_0x3a6207(0xb6)](_0x3a6207(0xd9)) && (
+                        answer = $(this)['parents']('[data-go-to]')['attr'](_0x3a6207(0xd9)), selections =
+                        selections['filter'](_0x30b2c1 => _0x30b2c1[_0x3a6207(0x132)] !== x), selections[
+                            'push']({ 'step': x, 'selected': answer }), skipTo && (selections = selections[
+                                _0x3a6207(0x11c)](_0x3474d5 => _0x3474d5[_0x3a6207(0x132)] !== skipTo - 0x2),
+                            selections[_0x3a6207(0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }),
+                            objIndex = selections[_0x3a6207(0xc7)](_0x21433f => _0x21433f[_0x3a6207(0x132)] ===
+                                x), selections[objIndex][_0x3a6207(0x1d5)] = parseInt(skipTo) - 0x1, selections[
+                                objIndex][_0x3a6207(0x187)] = x));
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0xee))[_0x2ad9ea(0x95)](':input[type=\x22date\x22][required]')[_0x2ad9ea(0x1c3)](function(
+                _0x4e343c) {
+                const _0x1df6d7 = _0x2ad9ea;
+                $(this)[_0x1df6d7(0x137)]() !== '' ? empReqDate = empReqDate[_0x1df6d7(0x11c)](
+                        _0x2f1b43 => _0x2f1b43[_0x1df6d7(0x16d)] !== _0x4e343c) : (!empReqDate[_0x1df6d7(
+                            0x95)](_0x108bc7 => _0x108bc7['input'] === _0x4e343c) && empReqDate[_0x1df6d7(0xb5)]
+                        ({ 'input': _0x4e343c }), unfilledArr['push']({
+                            'input': $(this)[_0x1df6d7(0xb6)](
+                                _0x1df6d7(0x122))
+                        })), empReqDate['length'] === 0x0 ? dateFilled = !![] :
+                    dateFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)]('.active-answer-card')[_0x2ad9ea(0x95)]
+            (_0x2ad9ea(0x100))[_0x2ad9ea(0x1c3)](function(_0x123cd5) {
+                const _0x4f91c6 = _0x2ad9ea;
+                skipTo = undefined, $(this)['parents'](_0x4f91c6(0x82))['data'](_0x4f91c6(0x1b9)) !==
+                    '' && (skipTo = $(this)[_0x4f91c6(0x180)](_0x4f91c6(0x82))['data']('skip-to')), $(this)[
+                        _0x4f91c6(0x180)]('[data-go-to]')[_0x4f91c6(0xb6)](_0x4f91c6(0xd9)) && (answer = $(
+                            this)[_0x4f91c6(0x180)]('[data-go-to]')[_0x4f91c6(0xb6)]('data-go-to'), selections =
+                        selections[_0x4f91c6(0x11c)](_0x816dfd => _0x816dfd[_0x4f91c6(0x132)] !== x),
+                        selections[_0x4f91c6(0xb5)]({ 'step': x, 'selected': answer }), skipTo && (
+                            selections = selections['filter'](_0x33194c => _0x33194c[_0x4f91c6(0x132)] !==
+                                skipTo - 0x2), selections['push']({ 'step': skipTo - 0x2, 'selected': answer }),
+                            objIndex = selections[_0x4f91c6(0xc7)](_0x54cca3 => _0x54cca3['step'] === x),
+                            selections[objIndex][_0x4f91c6(0x1d5)] = parseInt(skipTo) - 0x1, selections[
+                                objIndex][_0x4f91c6(0x187)] = x));
+            }), $(steps[x])[_0x2ad9ea(0x95)](
+                '.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(0x1d1))[_0x2ad9ea(0x1c3)](function(
+                _0x2c2e85) {
+                const _0x1cf609 = _0x2ad9ea;
+                $(this)['val']() !== '' ? empReqTime = empReqTime['filter'](_0x401383 => _0x401383[
+                        _0x1cf609(0x16d)] !== _0x2c2e85) : (!empReqTime[_0x1cf609(0x95)](_0x1372fa =>
+                            _0x1372fa[_0x1cf609(0x16d)] === _0x2c2e85) && empReqTime[_0x1cf609(0xb5)]
+                        ({ 'input': _0x2c2e85 }), unfilledArr[_0x1cf609(0xb5)]({
+                            'input': $(this)['attr'](
+                                _0x1cf609(0x122))
+                        })), empReqTime[_0x1cf609(0x1bf)] === 0x0 ? timeFilled = !![] :
+                    timeFilled = ![];
+            }), $(steps[x])['find']('.active-answer-card')[_0x2ad9ea(0x95)](
+                _0x2ad9ea(0x128))[_0x2ad9ea(0x1c3)](function(_0x4d6867) {
+                const _0x88d28 = _0x2ad9ea;
+                skipTo = undefined, $(this)[_0x88d28(0x180)](_0x88d28(0x82))[_0x88d28(0x1cb)](_0x88d28(
+                    0x1b9)) !== '' && (skipTo = $(this)[_0x88d28(0x180)](_0x88d28(0x82))[_0x88d28(0x1cb)](
+                    'skip-to')), $(this)[_0x88d28(0x180)](_0x88d28(0x7d))['attr'](_0x88d28(0xd9)) && (
+                    answer = $(this)[_0x88d28(0x180)](_0x88d28(0x7d))[_0x88d28(0xb6)]('data-go-to'),
+                    selections = selections[_0x88d28(0x11c)](_0x1c36de => _0x1c36de[_0x88d28(0x132)] !==
+                        x), selections['push']({ 'step': x, 'selected': answer }), skipTo && (selections =
+                        selections[_0x88d28(0x11c)](_0x234d37 => _0x234d37[_0x88d28(0x132)] !== skipTo -
+                            0x2), selections[_0x88d28(0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }),
+                        objIndex = selections[_0x88d28(0xc7)](_0x465ec2 => _0x465ec2[_0x88d28(0x132)] ===
+                            x), selections[objIndex]['skipTo'] = parseInt(skipTo) - 0x1, selections[objIndex][
+                            _0x88d28(0x187)
+                        ] = x));
+            }), $(steps[x])['find']('.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0x1ee))['each'](function(_0x548847) {
+                const _0x3c9ba1 = _0x2ad9ea;
+                let _0x3cf4d4 = $(this)[
+                        _0x3c9ba1(0x137)]()[_0x3c9ba1(0x1bf)],
+                    _0x45d702 = $(this)[_0x3c9ba1(0x1cb)](_0x3c9ba1(0x152)) ? $(this)[_0x3c9ba1(0x1cb)](
+                        _0x3c9ba1(0x152)) : 0x0;
+                $(this)[_0x3c9ba1(0x137)]() !== '' && _0x3cf4d4 >= _0x45d702 ? empReqNum = empReqNum[
+                        _0x3c9ba1(0x11c)](_0x2deea3 => _0x2deea3[_0x3c9ba1(0x16d)] !== _0x548847) : (!
+                        empReqNum[_0x3c9ba1(0x95)](_0x3e9209 => _0x3e9209[_0x3c9ba1(0x16d)] === _0x548847) &&
+                        empReqNum['push']({ 'input': _0x548847 }), unfilledArr[_0x3c9ba1(0xb5)]({
+                            'input': $(
+                                this)[_0x3c9ba1(0xb6)]('name')
+                        })), empReqNum[_0x3c9ba1(0x1bf)] === 0x0 ?
+                    numFilled = !![] : numFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[
+                'find'](_0x2ad9ea(0x1a2))[_0x2ad9ea(0x1c3)](function(_0x4a8d8d) {
+                const _0x15b796 =
+                    _0x2ad9ea;
+                skipTo = undefined, $(this)[_0x15b796(0x180)](_0x15b796(0x82))[_0x15b796(0x1cb)](
+                    _0x15b796(0x1b9)) !== '' && (skipTo = $(this)[_0x15b796(0x180)](_0x15b796(0x82))[
+                    _0x15b796(0x1cb)](_0x15b796(0x1b9))), $(this)['parents']('[data-go-to]')['attr'](
+                    'data-go-to') && (answer = $(this)[_0x15b796(0x180)]('[data-go-to]')[_0x15b796(0xb6)](
+                        _0x15b796(0xd9)), selections = selections[_0x15b796(0x11c)](_0x41b3fc => _0x41b3fc[
+                        _0x15b796(0x132)] !== x), selections[_0x15b796(0xb5)]
+                    ({ 'step': x, 'selected': answer }), skipTo && (selections = selections['filter'](
+                            _0x45e9b2 => _0x45e9b2['step'] !== skipTo - 0x2), selections['push']
+                        ({ 'step': skipTo - 0x2, 'selected': answer }), objIndex = selections[_0x15b796(
+                            0xc7)]
+                        (_0x15a6ec => _0x15a6ec[_0x15b796(0x132)] === x), selections[objIndex][_0x15b796(
+                            0x1d5)] = parseInt(skipTo) - 0x1, selections[objIndex][_0x15b796(0x187)] = x));
+            }), $(
+                steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x114))[_0x2ad9ea(
+                0x1c3)](function(_0x46043b) {
+                const _0x13d627 = _0x2ad9ea;
+                if ($(this)[_0x13d627(0x137)]
+                    () !== '') {
+                    let _0x35e814 = $(this)[_0x13d627(0x137)]()[_0x13d627(0x1bf)],
+                        _0x21a24a = $(this)[_0x13d627(0x1cb)](_0x13d627(0x152)) ? $(this)[_0x13d627(0x1cb)](
+                            _0x13d627(0x152)) : 0x0;
+                    if ($(this)[_0x13d627(0x1cb)](_0x13d627(0x1fa))) {
+                        var
+                            _0x2181d2 = phoneAutoFormat($(this)['data']('phone-autoformat'));
+                        $(this)[_0x13d627(0x137)](_0x2181d2($(this)[_0x13d627(0x137)]()));
+                    }
+                    phoneValidation(
+                            $(this)['val'](), _0x35e814, _0x21a24a) ? empReqTel = empReqTel[_0x13d627(0x11c)](
+                            _0x12f4c9 => _0x12f4c9[_0x13d627(0x16d)] !== _0x46043b) : empReqTel['push']
+                        ({ 'input': _0x46043b });
+                } else !empReqTel[_0x13d627(0x95)](_0xddce17 => _0xddce17[
+                        'input'] === _0x46043b) && empReqTel[_0x13d627(0xb5)]({ 'input': _0x46043b }),
+                    unfilledArr[_0x13d627(0xb5)]({ 'input': $(this)[_0x13d627(0xb6)]('name') });
+                empReqTel[_0x13d627(0x1bf)] === 0x0 ? telFilled = !![] : telFilled = ![];
+            }), $(steps[x])[
+                'find']('.active-answer-card')[_0x2ad9ea(0x95)](':input[type=\x22tel\x22]')[_0x2ad9ea(
+                0x1c3)](function(_0x5cb82d) {
+                const _0x2a57f0 = _0x2ad9ea;
+                skipTo = undefined, $(this)[_0x2a57f0(0x180)](_0x2a57f0(0x82))[_0x2a57f0(0x1cb)](
+                    _0x2a57f0(0x1b9)) !== '' && (skipTo = $(this)[_0x2a57f0(0x180)](_0x2a57f0(0x82))[
+                    'data'](_0x2a57f0(0x1b9))), $(this)[_0x2a57f0(0x180)](_0x2a57f0(0x7d))[_0x2a57f0(
+                    0xb6)](_0x2a57f0(0xd9)) && (answer = $(this)['parents']('[data-go-to]')[_0x2a57f0(
+                        0xb6)](_0x2a57f0(0xd9)), selections = selections[_0x2a57f0(0x11c)](_0x378d88 =>
+                        _0x378d88['step'] !== x), selections[_0x2a57f0(0xb5)]
+                    ({ 'step': x, 'selected': answer }), skipTo && (selections = selections['filter'](
+                            _0x25c7f5 => _0x25c7f5['step'] !== skipTo - 0x2), selections['push']
+                        ({ 'step': skipTo - 0x2, 'selected': answer }), objIndex = selections[_0x2a57f0(
+                            0xc7)]
+                        (_0x39dac8 => _0x39dac8['step'] === x), selections[objIndex][_0x2a57f0(0x1d5)] =
+                        parseInt(skipTo) - 0x1, selections[objIndex]['backTo'] = x));
+            }), $(steps[x])[_0x2ad9ea(
+                0x95)]('.active-answer-card')[_0x2ad9ea(0x95)](_0x2ad9ea(0x97))['each'](function(
+                _0x5cc66a) {
+                const _0x5423fb = _0x2ad9ea;
+                $(this)[_0x5423fb(0x137)]() !== '' ? empReqFile = empReqFile['filter'](_0xb719b =>
+                        _0xb719b[_0x5423fb(0x16d)] !== _0x5cc66a) : (!empReqFile[_0x5423fb(0x95)](_0x58650c =>
+                            _0x58650c[_0x5423fb(0x16d)] === _0x5cc66a) && empReqFile[_0x5423fb(0xb5)]
+                        ({ 'input': _0x5cc66a }), unfilledArr['push']({
+                            'input': $(this)['attr'](_0x5423fb(
+                                0x122))
+                        })), empReqFile[_0x5423fb(0x1bf)] === 0x0 ? fileFilled = !![] :
+                    fileFilled = ![];
+            }), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](
+                _0x2ad9ea(0xba))[_0x2ad9ea(0x1c3)](function(_0x38e570) {
+                const _0x51118f = _0x2ad9ea;
+                skipTo = undefined, $(this)[_0x51118f(0x180)](_0x51118f(0x82))[_0x51118f(0x1cb)](
+                    'skip-to') !== '' && (skipTo = $(this)[_0x51118f(0x180)](_0x51118f(0x82))[_0x51118f(
+                    0x1cb)](_0x51118f(0x1b9))), $(this)['parents'](_0x51118f(0x7d))['attr'](
+                    'data-go-to') && (answer = $(this)[_0x51118f(0x180)](_0x51118f(0x7d))[_0x51118f(0xb6)]
+                    (
+                        _0x51118f(0xd9)), selections = selections[_0x51118f(0x11c)](_0x1e3476 => _0x1e3476[
+                        _0x51118f(0x132)] !== x), selections[_0x51118f(0xb5)]
+                    ({ 'step': x, 'selected': answer }), skipTo && (selections = selections[_0x51118f(
+                        0x11c)](
+                        _0x10b06e => _0x10b06e[_0x51118f(0x132)] !== skipTo - 0x2), selections[_0x51118f(
+                        0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }), objIndex = selections[
+                        'findIndex'](_0x31b8d1 => _0x31b8d1['step'] === x), selections[objIndex][
+                        _0x51118f(0x1d5)
+                    ] = parseInt(skipTo) - 0x1, selections[objIndex][_0x51118f(0x187)] = x));
+            }), $(steps[x])[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0xb9))['each'](function(
+                _0x41c08e) {
+                const _0x23cc98 = _0x2ad9ea;
+                $(this)[_0x23cc98(0x137)]() !== null && $(this)[_0x23cc98(0x137)]() !== '' ?
+                    empReqSelect = empReqSelect[_0x23cc98(0x11c)](_0x4037ad => _0x4037ad['input'] !==
+                        _0x41c08e) : (!empReqSelect[_0x23cc98(0x95)](_0x1a00e9 => _0x1a00e9[_0x23cc98(
+                        0x16d)] === _0x41c08e) && empReqSelect['push']({ 'input': _0x41c08e }), unfilledArr[
+                        _0x23cc98(0xb5)]({ 'input': $(this)[_0x23cc98(0xb6)](_0x23cc98(0x122)) })),
+                    empReqSelect[_0x23cc98(0x1bf)] === 0x0 ? selectFilled = !![] : selectFilled = ![];
+            }), $(
+                steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0xf4))[_0x2ad9ea(
+                0x1c3)](function(_0xa02f1c) {
+                const _0x584f13 = _0x2ad9ea;
+                skipTo = undefined, $(this)[_0x584f13(0x180)]('[data-skip-to]')[_0x584f13(0x1cb)](
+                    _0x584f13(0x1b9)) !== '' && (skipTo = $(this)[_0x584f13(0x180)](_0x584f13(0x82))[
+                    _0x584f13(0x1cb)](_0x584f13(0x1b9))), $(this)['parents'](_0x584f13(0x7d))['attr'](
+                    'data-go-to') && (answer = $(this)[_0x584f13(0x180)](_0x584f13(0x7d))['attr'](
+                        'data-go-to'), selections = selections[_0x584f13(0x11c)](_0x3fddd0 => _0x3fddd0[
+                        _0x584f13(0x132)] !== x), selections[_0x584f13(0xb5)]
+                    ({ 'step': x, 'selected': answer }), skipTo && (selections = selections[_0x584f13(
+                            0x11c)](
+                            _0x42116b => _0x42116b['step'] !== skipTo - 0x2), selections[_0x584f13(0xb5)]
+                        ({ 'step': skipTo - 0x2, 'selected': answer }), objIndex = selections[_0x584f13(
+                            0xc7)]
+                        (_0x4ee44f => _0x4ee44f[_0x584f13(0x132)] === x), selections[objIndex][_0x584f13(
+                            0x1d5)] = parseInt(skipTo) - 0x1, selections[objIndex]['backTo'] = x));
+            }), $(steps[x])[
+                _0x2ad9ea(0x95)](_0x2ad9ea(0xee))['find'](_0x2ad9ea(0xfe))[_0x2ad9ea(0x1c3)](function(
+                _0x2c7211) {
+                const _0x1ea33a = _0x2ad9ea;
+                let _0x314e29 = $(this)[_0x1ea33a(0x137)]()[
+                        'length'],
+                    _0x5ceae7 = $(this)[_0x1ea33a(0x1cb)](_0x1ea33a(0x152)) ? $(this)[_0x1ea33a(0x1cb)](
+                        _0x1ea33a(0x152)) : 0x0;
+                $(this)[_0x1ea33a(0x137)]() !== '' && _0x314e29 >= _0x5ceae7 ? empReqTextarea =
+                    empReqTextarea[_0x1ea33a(0x11c)](_0x4d1087 => _0x4d1087[_0x1ea33a(0x16d)] !==
+                        _0x2c7211) : (!empReqTextarea[_0x1ea33a(0x95)](_0x1dfd8d => _0x1dfd8d[_0x1ea33a(
+                            0x16d)] === _0x2c7211) && empReqTextarea[_0x1ea33a(0xb5)]({ 'input': _0x2c7211 }),
+                        unfilledArr['push']({ 'input': $(this)[_0x1ea33a(0xb6)]('name') })), empReqTextarea[
+                        _0x1ea33a(0x1bf)] === 0x0 ? textareaFilled = !![] : textareaFilled = ![];
+            }), $(steps[
+                x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x130))[_0x2ad9ea(0x1c3)](
+                function(_0x38709f) {
+                    const _0x3a873a = _0x2ad9ea;
+                    skipTo = undefined, $(this)['parents'](_0x3a873a(0x82))['data'](_0x3a873a(0x1b9)) !==
+                        '' && (skipTo = $(this)[_0x3a873a(0x180)](_0x3a873a(0x82))[_0x3a873a(0x1cb)](_0x3a873a(
+                            0x1b9))), $(this)[_0x3a873a(0x180)](_0x3a873a(0x7d))[_0x3a873a(0xb6)](_0x3a873a(
+                            0xd9)) && (answer = $(this)[_0x3a873a(0x180)](_0x3a873a(0x7d))['attr']('data-go-to'),
+                            selections = selections['filter'](_0x5aacfb => _0x5aacfb[_0x3a873a(0x132)] !== x),
+                            selections[_0x3a873a(0xb5)]({ 'step': x, 'selected': answer }), skipTo && (
+                                selections = selections[_0x3a873a(0x11c)](_0x326284 => _0x326284[_0x3a873a(
+                                    0x132)] !== skipTo - 0x2), selections['push']({
+                                    'step': skipTo -
+                                        0x2,
+                                    'selected': answer
+                                }), objIndex = selections[_0x3a873a(0xc7)](_0x42f8e7 =>
+                                    _0x42f8e7[_0x3a873a(0x132)] === x), selections[objIndex]['skipTo'] = parseInt(
+                                    skipTo) - 0x1, selections[objIndex][_0x3a873a(0x187)] = x));
+                }), $(steps[x])[
+                'find'](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x195))[_0x2ad9ea(0x1c3)](function(
+                _0x52612f) {
+                const _0x3aa815 = _0x2ad9ea;
+                $(this)['val']() !== '' ? validateEmail($(this)[_0x3aa815(0x137)](), $(this)[_0x3aa815(
+                    0x1cb)](_0x3aa815(0x11b)), $(this)[_0x3aa815(0xb6)]('name')) : (emailFilled = ![],
+                    unfilledArr[_0x3aa815(0xb5)]({ 'input': $(this)[_0x3aa815(0xb6)]('name') }));
+            }), $(steps[
+                x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0xc4))[_0x2ad9ea(0x1c3)](
+                function(_0x4b7fb1) {
+                    const _0x5b4646 = _0x2ad9ea;
+                    skipTo = undefined, $(this)[_0x5b4646(0x180)](_0x5b4646(0x82))[_0x5b4646(0x1cb)](
+                        _0x5b4646(0x1b9)) !== '' && (skipTo = $(this)[_0x5b4646(0x180)](_0x5b4646(0x82))[
+                        _0x5b4646(0x1cb)](_0x5b4646(0x1b9))), $(this)[_0x5b4646(0x180)](_0x5b4646(0x7d))[
+                        _0x5b4646(0xb6)](_0x5b4646(0xd9)) && (answer = $(this)['parents']('[data-go-to]')[
+                            _0x5b4646(0xb6)](_0x5b4646(0xd9)), selections = selections['filter'](_0x41af2a =>
+                            _0x41af2a[_0x5b4646(0x132)] !== x), console[_0x5b4646(0xcc)]('selections\x20email',
+                            selections, x), selections[_0x5b4646(0xb5)]({ 'step': x, 'selected': answer }),
+                        skipTo && (selections = selections[_0x5b4646(0x11c)](_0x3eaa08 => _0x3eaa08[_0x5b4646(
+                            0x132)] !== skipTo - 0x2), selections[_0x5b4646(0xb5)]({
+                            'step': skipTo -
+                                0x2,
+                            'selected': answer
+                        }), objIndex = selections[_0x5b4646(0xc7)](_0x249e0d =>
+                            _0x249e0d['step'] === x), selections[objIndex][_0x5b4646(0x1d5)] = parseInt(
+                            skipTo) - 0x1, selections[objIndex][_0x5b4646(0x187)] = x));
+                });
+    }
+    $(steps[x])['find']
+        (_0x2ad9ea(0x1fb))['is'](_0x2ad9ea(0x1d6)) && (selArr = [], $(steps)[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0xb2))[_0x2ad9ea(0x1c3)](function(_0x48e4db, _0xfc0f21) {
+                const _0x2febbb = _0x2ad9ea;
+                selArr[_0x2febbb(0xb5)]({ 'selected': $(this)[_0x2febbb(0x1cb)](_0x2febbb(0x1e6)) });
+            }),
+            selString = [], selArr[_0x2ad9ea(0x1e8)](_0x3761b9 => selString['push'](_0x3761b9[
+                'selected'])), $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0xad))[_0x2ad9ea(0x1c3)](function() {
+                const _0x2e6928 = _0x2ad9ea;
+                skipTo = undefined;
+                if ($(this)['parents'](_0x2e6928(0x82))[_0x2e6928(0x1cb)](_0x2e6928(
+                        0x1b9))) skipTo = $(this)['parents'](_0x2e6928(0x82))['data']('skip-to');
+                else $(this)[_0x2e6928(0x1cb)](_0x2e6928(0x1b9)) && (skipTo = $(this)[_0x2e6928(0x1cb)](
+                    _0x2e6928(0x1b9)));
+                selections = selections[_0x2e6928(0x11c)](_0x406539 => _0x406539[_0x2e6928(0x132)] !==
+                    x);
+                if ($(this)['data'](_0x2e6928(0x14a))) answer = $(this)[_0x2e6928(0xb6)](_0x2e6928(
+                    0xd9)), selections[_0x2e6928(0xb5)]({ 'step': x, 'selected': answer }), skipTo && (
+                    selections = selections['filter'](_0x2ecfe8 => _0x2ecfe8['step'] !== skipTo - 0x2),
+                    selections[_0x2e6928(0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }), objIndex =
+                    selections[_0x2e6928(0xc7)](_0x480e85 => _0x480e85[_0x2e6928(0x132)] === x),
+                    selections[objIndex][_0x2e6928(0x1d5)] = parseInt(skipTo) - 0x1, selections[objIndex][
+                        _0x2e6928(0x187)
+                    ] = x);
+                else $(this)[_0x2e6928(0x180)](_0x2e6928(0x7d))[_0x2e6928(0x1cb)](_0x2e6928(0x14a)) && (
+                    answer = $(this)[_0x2e6928(0x180)]('[data-go-to]')['data'](_0x2e6928(0x14a)),
+                    selections['push']({ 'step': x, 'selected': answer }), skipTo && (selections =
+                        selections['filter'](_0x421365 => _0x421365[_0x2e6928(0x132)] !== skipTo - 0x2),
+                        selections[_0x2e6928(0xb5)]({ 'step': skipTo - 0x2, 'selected': answer }),
+                        objIndex = selections[_0x2e6928(0xc7)](_0x1cb349 => _0x1cb349['step'] === x),
+                        selections[objIndex][_0x2e6928(0x1d5)] = parseInt(skipTo) - 0x1, selections[
+                            objIndex]['backTo'] = x));
+            }), logicExtra ? ($(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(
+                0xee))[_0x2ad9ea(0x95)](_0x2ad9ea(0x1d9))[_0x2ad9ea(0x1cb)]('radio-skip') === !![] || $(
+                steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x1b3))[_0x2ad9ea(0x1cb)](_0x2ad9ea(0xa1)) === !![]) &&
+            (skip && selections[_0x2ad9ea(0x11c)](_0x1a218e => _0x1a218e[_0x2ad9ea(0x132)] === x)[
+                'length'] > 0x0 && (textareaLength === 0x0 && textInputLength === 0x0 &&
+                emailInputLength === 0x0 && checkboxInputLength === 0x0 && setTimeout(function() {
+                    next
+                        = !![], back = ![], nextStep(), selectionQuiz();
+                }, $(steps[x])['find'](_0x2ad9ea(
+                    0x15e))['data']('radio-delay')))) : $(steps[x])[_0x2ad9ea(0x95)](_0x2ad9ea(0x1d9))[
+                _0x2ad9ea(0x1cb)](_0x2ad9ea(0xa1)) === !![] && (skip && (textareaLength === 0x0 &&
+                textInputLength === 0x0 && emailInputLength === 0x0 && checkboxInputLength === 0x0 &&
+                setTimeout(function() { next = !![], back = ![], nextStep(), selectionQuiz(); }, $(steps[
+                    x])['find'](_0x2ad9ea(0x15e))['data'](_0x2ad9ea(0x1c4)))))), inputFilled && fileFilled &&
+        numFilled && checkboxFilled && telFilled && radioFilled && emailFilled && domainAllowed &&
+        selectFilled && textareaFilled && passwordFilled && urlFilled ? enableBtn() : disableBtn(),
+        andLogic(), cloneRemove(), cloneRemoveInput();
 }
 
 function displayErrorMessage() {
-  const _0x40563f = _0x270fbf;
-  $(_0x40563f(0x216))[_0x40563f(0x22a)](),
-    unfilledArr[_0x40563f(0x225)] > 0x0 &&
-      unfilledArr[_0x40563f(0x143)](function (_0x1b8049) {
-        const _0x311412 = _0x40563f;
-        $(_0x311412(0x167) + _0x1b8049[_0x311412(0x17a)] + "\x22]")
-          [_0x311412(0x102)]("[data-text=\x22error-message\x22]")
-          [_0x311412(0x1da)](),
-          $(_0x311412(0x167) + _0x1b8049["input"] + "\x22]")
-            [_0x311412(0x10d)]()
-            ["children"](_0x311412(0x216))
-            [_0x311412(0x1da)](),
-          $(_0x311412(0xcb) + _0x1b8049[_0x311412(0x17a)] + "\x22]")
-            ["siblings"](_0x311412(0x216))
-            [_0x311412(0x1da)](),
-          $(_0x311412(0xeb) + _0x1b8049[_0x311412(0x17a)] + "\x22]")
-            [_0x311412(0x102)]("[data-text=\x22error-message\x22]")
-            ["fadeIn"]();
-      });
+    const _0x3b0972 = _0x29f161;
+    $('[data-text=\x22error-message\x22]')[_0x3b0972(0x104)](), unfilledArr['length'] > 0x0 &&
+        unfilledArr[_0x3b0972(0x1e8)](function(_0x4a7401) {
+            const _0x225167 = _0x3b0972;
+            $(_0x225167(0x1a0) + _0x4a7401[_0x225167(0x16d)] + '\x22]')[_0x225167(0xcb)](_0x225167(
+                    0x151))['fadeIn'](), $(_0x225167(0x1a0) + _0x4a7401['input'] + '\x22]')[_0x225167(
+                    0x180)]()['children'](_0x225167(0x151))[_0x225167(0x184)](), $('textarea[name=\x22' +
+                    _0x4a7401[_0x225167(0x16d)] + '\x22]')['siblings'](_0x225167(0x151))[_0x225167(0x184)]
+                (), $(_0x225167(0xa3) + _0x4a7401[_0x225167(0x16d)] + '\x22]')[_0x225167(0xcb)](_0x225167(
+                    0x151))[_0x225167(0x184)]();
+        });
 }
 
-function resetInputErrorMessage(_0x52886f) {
-  const _0x4ae45b = _0x270fbf;
-  $(_0x4ae45b(0x167) + _0x52886f + "\x22]")
-    [_0x4ae45b(0x102)](_0x4ae45b(0x216))
-    [_0x4ae45b(0x22a)](),
-    $(_0x4ae45b(0x167) + _0x52886f + "\x22]")
-      [_0x4ae45b(0x10d)]()
-      [_0x4ae45b(0x14f)]("[data-text=\x22error-message\x22]")
-      [_0x4ae45b(0x22a)](),
-    $(_0x4ae45b(0xcb) + _0x52886f + "\x22]")
-      [_0x4ae45b(0x102)](_0x4ae45b(0x216))
-      [_0x4ae45b(0x22a)](),
-    $("select[name=\x22" + _0x52886f + "\x22]")
-      [_0x4ae45b(0x102)]("[data-text=\x22error-message\x22]")
-      [_0x4ae45b(0x22a)]();
+function resetInputErrorMessage(_0x53c8c7) {
+    const _0x3e82ee = _0x29f161;
+    $(_0x3e82ee(0x1a0) + _0x53c8c7 + '\x22]')[_0x3e82ee(0xcb)]('[data-text=\x22error-message\x22]')[
+        'hide'](), $(_0x3e82ee(0x1a0) + _0x53c8c7 + '\x22]')[_0x3e82ee(0x180)]()['children'](
+        _0x3e82ee(0x151))[_0x3e82ee(0x104)](), $(_0x3e82ee(0x101) + _0x53c8c7 + '\x22]')[_0x3e82ee(
+        0xcb)](_0x3e82ee(0x151))[_0x3e82ee(0x104)](), $('select[name=\x22' + _0x53c8c7 + '\x22]')[
+        _0x3e82ee(0xcb)](_0x3e82ee(0x151))[_0x3e82ee(0x104)]();
 }
 
 function increaseCurstep() {
-  const _0xc4eb1d = _0x270fbf;
-  countCard
-    ? ((curStep = curStep + 0x1),
-      $(_0xc4eb1d(0xf5))[_0xc4eb1d(0x18b)](steps[_0xc4eb1d(0x225)]))
-    : $(steps[x])["data"]("card")
-      ? (curStep = curStep + 0x0)
-      : (curStep = curStep + 0x1),
-    $(_0xc4eb1d(0x153))["text"](curStep);
+    const _0x406d12 = _0x29f161;
+    countCard ? (curStep = curStep + 0x1, $(_0x406d12(0x1c2))[_0x406d12(0x1b7)](steps['length'])) : $(
+            steps[x])[_0x406d12(0x1cb)](_0x406d12(0xdb)) ? curStep = curStep + 0x0 : curStep = curStep +
+        0x1, $('[data-text=\x22current-step\x22]')[_0x406d12(0x1b7)](curStep);
 }
 
 function decreaseCurstep() {
-  const _0x78b34f = _0x270fbf;
-  countCard
-    ? ((curStep = curStep - 0x1),
-      $(_0x78b34f(0xf5))["text"](steps[_0x78b34f(0x225)]))
-    : $(steps[x])[_0x78b34f(0x21e)](_0x78b34f(0x19b))
-      ? (curStep = curStep - 0x0)
-      : (curStep = curStep - 0x1),
-    $("[data-text=\x22current-step\x22]")[_0x78b34f(0x18b)](curStep);
+    const _0x4cec9f = _0x29f161;
+    countCard ? (curStep = curStep - 0x1, $(_0x4cec9f(0x1c2))[_0x4cec9f(0x1b7)](steps[_0x4cec9f(
+            0x1bf)])) : $(steps[x])[_0x4cec9f(0x1cb)](_0x4cec9f(0xdb)) ? curStep = curStep - 0x0 :
+        curStep = curStep - 0x1, $(_0x4cec9f(0xe3))[_0x4cec9f(0x1b7)](curStep);
 }
-$(_0x270fbf(0x1f9))["on"]("click", function (_0x1b2003) {
-  const _0x24448c = _0x270fbf;
-  $(this)[_0x24448c(0x21e)](_0x24448c(0x116)) &&
-    (redirectTo = $(this)[_0x24448c(0x21e)](_0x24448c(0x116))),
-    !$(this)["data"](_0x24448c(0x211)) &&
-      (newTab = $(this)[_0x24448c(0x21e)](_0x24448c(0x211))),
-    (successCard = $(this)[_0x24448c(0x21e)](_0x24448c(0x1b6))),
-    _0x1b2003["preventDefault"](),
-    _0x1b2003[_0x24448c(0x1f2)](),
-    logicExtra &&
-      ($(this)[_0x24448c(0x1a9)](_0x24448c(0x1d7), !![]),
-      $(steps)
-        [_0x24448c(0x1a4)](_0x24448c(0xd7))
-        [_0x24448c(0x1a9)](_0x24448c(0x1a7), ![])),
-    localStorage["removeItem"]("filledInput"),
-    fill
-      ? ($(this)[_0x24448c(0x21e)](_0x24448c(0x1cc))
-          ? (console[_0x24448c(0xe3)](
-              $(this)[_0x24448c(0x21e)](_0x24448c(0x1cc)),
-            ),
-            $(this)["text"]($(this)[_0x24448c(0x21e)](_0x24448c(0x1cc))))
-          : $(this)
-              [_0x24448c(0x16c)](_0x24448c(0x235))
-              [_0x24448c(0x18b)]("Please\x20wait..."),
-        $(_0x24448c(0x1d8))[_0x24448c(0x130)](),
-        $(_0x24448c(0x112))[_0x24448c(0x225)] > 0x0 &&
-          grecaptcha["getResponse"]()[_0x24448c(0x225)] === 0x0 &&
-          (form[_0x24448c(0x1a4)](_0x24448c(0x1f9))["text"](oldSubmitText),
-          form[_0x24448c(0x1a4)](_0x24448c(0x1f9))["val"](oldSubmitText)),
-        customError && $("[data-text=\x22error-message\x22]")["hide"]())
-      : customError && displayErrorMessage();
+$(_0x29f161(0x129))[
+    'on'](_0x29f161(0x145), function(_0x5accb4) {
+    const _0x50860b = _0x29f161;
+    $(this)[_0x50860b(0x1cb)](_0x50860b(0xdd)) && (redirectTo = $(this)['data'](_0x50860b(
+        0xdd)));
+    !$(this)[_0x50860b(0x1cb)]('new-tab') && (newTab = $(this)[_0x50860b(0x1cb)](
+        _0x50860b(0x10d)));
+    successCard = $(this)[_0x50860b(0x1cb)](_0x50860b(0xc6)), _0x5accb4[_0x50860b(0xed)](),
+        _0x5accb4['stopPropagation']();
+    const _0x469e89 = new URLSearchParams(window[_0x50860b(
+            0x84)]['search']),
+        _0x5c85ca = (_0x35dfce, _0x2f9059) => {
+            const _0x1f336e = _0x50860b,
+                _0x2ce67e = document['querySelector'](_0x1f336e(0x94) + _0x35dfce + '\x22]');
+            _0x2ce67e && (_0x2ce67e['value'] = _0x2f9059);
+        };
+    _0x5c85ca('referrer', _0x469e89[_0x50860b(0xe2)](_0x50860b(0x1b6)) || document['referrer'] ||
+        'Direct'), _0x5c85ca('user-agent', navigator[_0x50860b(0x11e)]), _0x5c85ca(_0x50860b(
+        0x15c), new Date()['toISOString']()), _0x5c85ca(_0x50860b(0x17c), Intl['DateTimeFormat']
+        ()[_0x50860b(0xb3)]()[_0x50860b(0x79)]), _0x5c85ca(_0x50860b(0x67), window[_0x50860b(
+            0x1f4)]
+        ['width'] + 'x' + window[_0x50860b(0x1f4)]['height']), _0x5c85ca(_0x50860b(0xc3),
+        _0x50860b(0x1db));
+    const _0x1e8a1b = () => {
+        const _0x89e5fd = _0x50860b,
+            _0x318251 = document['querySelector'](
+                '[data-hidden-input=\x22page-visit-duration\x22]');
+        if (_0x318251) {
+            const _0x52ab6e =
+                localStorage[_0x89e5fd(0x6b)](_0x89e5fd(0x153));
+            console[_0x89e5fd(0xcc)](_0x52ab6e);
+            if (_0x52ab6e) {
+                const _0x1d9e06 = Math['round']((
+                    Date['now']() - parseInt(_0x52ab6e)) / 0x3e8);
+                _0x318251[_0x89e5fd(0x150)] = _0x1d9e06 + '\x20seconds';
+            } else _0x318251[_0x89e5fd(
+                0x150)] = _0x89e5fd(0x1db);
+        }
+    };
+    _0x1e8a1b(), logicExtra && ($(this)[_0x50860b(0xb0)](_0x50860b(0xdc), !![]), $(steps)[
+            _0x50860b(0x95)](_0x50860b(0x126))[_0x50860b(0xb0)](_0x50860b(0x1cd), ![])), localStorage[
+            _0x50860b(0x110)](_0x50860b(0x1f9)), localStorage[_0x50860b(0x110)](_0x50860b(0x153)),
+        fill ? ($(this)[_0x50860b(0x1cb)]('wait') ? (console['log']($(this)[_0x50860b(0x1cb)](
+            _0x50860b(0x1dc))), $(this)[_0x50860b(0x1b7)]($(this)[_0x50860b(0x1cb)]('wait'))) : $(
+            this)[_0x50860b(0x137)](_0x50860b(0x18d))['text'](_0x50860b(0x18d)), $(_0x50860b(
+            0x173))[_0x50860b(0x86)](), $('div.g-recaptcha')['length'] > 0x0 && (grecaptcha[
+            _0x50860b(
+                0xbc)]()[_0x50860b(0x1bf)] === 0x0 && (form[_0x50860b(0x95)](
+            '[data-form=\x22submit-btn\x22]')[_0x50860b(0x1b7)](oldSubmitText), form[_0x50860b(
+            0x95)](_0x50860b(0x129))[_0x50860b(0x137)](oldSubmitText))), customError && $(
+            '[data-text=\x22error-message\x22]')['hide']()) : customError &&
+        displayErrorMessage();
 });
 
 function nextStep() {
-  const _0x4223fd = _0x270fbf;
-  customError
-    ? ($(_0x4223fd(0x216))[_0x4223fd(0x22a)](),
-      fill
-        ? (x++,
-          increaseCurstep(),
-          (progress = x),
-          x <= steps[_0x4223fd(0x225)] - 0x1 &&
-            (updateStep(), memory && saveFilledInput()))
-        : displayErrorMessage())
-    : (x++,
-      increaseCurstep(),
-      x > progress && (progress = x),
-      x <= steps[_0x4223fd(0x225)] - 0x1 &&
-        (updateStep(), memory && saveFilledInput())),
-    andLogic();
+    const _0x251a5b = _0x29f161;
+    customError ? ($(_0x251a5b(0x151))['hide'](), fill ? (x++, increaseCurstep(), progress = x, x <=
+            steps['length'] - 0x1 && (updateStep(), memory && saveFilledInput())) :
+        displayErrorMessage()) : (x++, increaseCurstep(), x > progress && (progress = x), x <= steps[
+        _0x251a5b(0x1bf)] - 0x1 && (updateStep(), memory && saveFilledInput())), andLogic();
 }
 
 function backStep() {
-  const _0x3e906a = _0x270fbf;
-  customError && $(_0x3e906a(0x216))[_0x3e906a(0x22a)](),
-    decreaseCurstep(),
-    x > 0x0 &&
-      ($(progressbar[x])[_0x3e906a(0x159)](_0x3e906a(0x1f8)),
-      selections[_0x3e906a(0x150)](
-        (_0x3a61d9) => _0x3a61d9[_0x3e906a(0x1cf)] === x,
-      )[_0x3e906a(0x225)] > 0x0
-        ? (x = parseInt(
-            getSafe(
-              () =>
-                selections[_0x3e906a(0x150)](
-                  (_0x2e0f37) => _0x2e0f37[_0x3e906a(0x1cf)] === x,
-                )[0x0][_0x3e906a(0x230)],
-            ),
-          ))
-        : x--,
-      updateStep()),
-    ($(steps[x])
-      [_0x3e906a(0x1a4)](_0x3e906a(0x165))
-      [_0x3e906a(0x21e)](_0x3e906a(0x239)) === !![] ||
-      $(steps[x])
-        [_0x3e906a(0x1a4)](_0x3e906a(0xe7))
-        [_0x3e906a(0x1a4)]("[data-radio-skip]:visible")
-        [_0x3e906a(0x21e)]("radio-skip") === !![] ||
-      $(steps[x])
-        [_0x3e906a(0x1a4)](_0x3e906a(0x184))
-        [_0x3e906a(0x21e)](_0x3e906a(0x239)) === !![]) &&
-      ((all_data = all_data["filter"](
-        (_0x492e21) =>
-          _0x492e21["field"] !==
-          $(steps[x])
-            [_0x3e906a(0x1a4)](_0x3e906a(0x223))
-            [_0x3e906a(0x164)](_0x3e906a(0x14b)),
-      )),
-      $(
-        "[data-input-field=\x22" +
-          $(steps[x])
-            [_0x3e906a(0x1a4)]("input[type=\x22radio\x22]:checked")
-            [_0x3e906a(0x164)](_0x3e906a(0x14b)) +
-          "\x22]",
-      )["hide"](),
-      $(steps[x])
-        [_0x3e906a(0x1a4)]("input[type=\x22radio\x22]")
-        [_0x3e906a(0x1a9)](_0x3e906a(0x1ad), ![]),
-      $(steps[x])
-        [_0x3e906a(0x1a4)](_0x3e906a(0x126))
-        [_0x3e906a(0x159)](_0x3e906a(0x1d6)),
-      validation());
+    const _0x44a36b = _0x29f161;
+    customError && $(_0x44a36b(0x151))['hide'](), decreaseCurstep(), x > 0x0 && ($(progressbar[x])[
+            _0x44a36b(0x181)](_0x44a36b(0x18e)), selections[_0x44a36b(0x11c)](_0x2ddcce => _0x2ddcce[
+            _0x44a36b(0x1d5)] === x)[_0x44a36b(0x1bf)] > 0x0 ? x = parseInt(getSafe(() => selections[
+            _0x44a36b(0x11c)](_0x51cc0f => _0x51cc0f['skipTo'] === x)[0x0][_0x44a36b(0x187)])) : x--,
+        updateStep()), ($(steps[x])[_0x44a36b(0x95)](_0x44a36b(0x1d9))[_0x44a36b(0x1cb)](
+        'radio-skip') === !![] || $(steps[x])[_0x44a36b(0x95)](_0x44a36b(0xee))['find'](_0x44a36b(
+        0x1d9))['data'](_0x44a36b(0xa1)) === !![] || $(steps[x])[_0x44a36b(0x95)](_0x44a36b(0x1b3))[
+        _0x44a36b(0x1cb)](_0x44a36b(0xa1)) === !![]) && (all_data = all_data[_0x44a36b(0x11c)](
+        _0x1f84cd => _0x1f84cd[_0x44a36b(0xea)] !== $(steps[x])['find'](_0x44a36b(0xe4))[_0x44a36b(
+            0xb6)]('name')), $(_0x44a36b(0x83) + $(steps[x])[_0x44a36b(0x95)](_0x44a36b(0xe4))['attr']
+        (_0x44a36b(0x122)) + '\x22]')[_0x44a36b(0x104)](), $(steps[x])[_0x44a36b(0x95)](
+        'input[type=\x22radio\x22]')[_0x44a36b(0xb0)](_0x44a36b(0x15b), ![]), $(steps[x])['find'](
+        _0x44a36b(0xfc))[_0x44a36b(0x181)](_0x44a36b(0x1ed)), validation());
 }
 weightedSelectionRange &&
-  $(_0x270fbf(0x10e))["each"](function () {
-    const _0x424b6e = _0x270fbf;
-    $(this)[_0x424b6e(0x12b)](
-      _0x424b6e(0x179) +
-        $(this)[_0x424b6e(0x21e)]("selection") +
-        _0x424b6e(0x1cd),
-    );
-  });
+    $(_0x29f161(0x13a))[_0x29f161(0x1c3)](function() {
+        const _0x2ff6c9 = _0x29f161;
+        $(this)[_0x2ff6c9(0x10a)](_0x2ff6c9(0x1ac) + $(this)[_0x2ff6c9(0x1cb)](_0x2ff6c9(0x91)) +
+            '</div>');
+    });
 
 function selectionQuiz() {
-  const _0x499db3 = _0x270fbf;
-  if ($(this)[_0x499db3(0x1a4)](_0x499db3(0x1ce))) {
-    $(_0x499db3(0x10e))[_0x499db3(0x22a)](),
-      $(_0x499db3(0x16f))[_0x499db3(0x22a)]();
-    if (weightedSelection) {
-      (selTotal = 0x0),
-        selArr[_0x499db3(0x143)](function (_0x2451d0) {
-          const _0x3fd935 = _0x499db3;
-          selTotal = selTotal + _0x2451d0[_0x3fd935(0x13f)];
-        }),
-        $(_0x499db3(0x1d2))[_0x499db3(0x18b)](selTotal);
-      if ($(_0x499db3(0x22b) + selTotal + "\x22]")[_0x499db3(0x225)] > 0x0)
-        $("[data-selection=\x22" + selTotal + "\x22]")["fadeIn"]();
-      else
-        $(_0x499db3(0x10c) + selTotal + ")")
-          ? $(_0x499db3(0x10c) + selTotal + ")")
-              [_0x499db3(0x163)](_0x499db3(0x10e))
-              ["eq"](0x0)
-              [_0x499db3(0x180)]()
-          : $(_0x499db3(0x101))[_0x499db3(0x1da)]();
-    } else {
-      let _0x366e7d = -0x1;
-      $(_0x499db3(0x10e))["each"](function (_0x4023e6) {
-        const _0x47cea2 = _0x499db3;
-        $($(_0x47cea2(0x10e))[_0x4023e6])
-          ["data"](_0x47cea2(0xda))
-          ["includes"](selString[_0x47cea2(0x119)]()) &&
-          (_0x366e7d = _0x4023e6);
-      }),
-        _0x366e7d > -0x1
-          ? $($(_0x499db3(0x10e))[_0x366e7d])[_0x499db3(0x1da)]()
-          : $("[data-selection=\x22other\x22]")[_0x499db3(0x1da)]();
+    const _0x53f318 = _0x29f161;
+    if ($(this)[_0x53f318(0x95)](
+            '[data-btn=\x22check\x22]')) {
+        $('[data-selection]')[_0x53f318(0x104)](), $(_0x53f318(0x1aa))[
+            _0x53f318(0x104)]();
+        if (weightedSelection) {
+            selTotal = 0x0, selArr['forEach'](function(
+                _0x4c146c) { selTotal = selTotal + _0x4c146c['selected']; }), $(
+                '[data-text=\x22total-weight\x22]')[_0x53f318(0x1b7)](selTotal);
+            if ($(_0x53f318(0x10e) +
+                    selTotal + '\x22]')[_0x53f318(0x1bf)] > 0x0) $(_0x53f318(0x10e) + selTotal + '\x22]')[
+                _0x53f318(0x184)]();
+            else $(_0x53f318(0x9a) + selTotal + ')') ? $(_0x53f318(0x9a) + selTotal + ')')[_0x53f318(
+                0x16a)](_0x53f318(0x13a))['eq'](0x0)[_0x53f318(0x1ef)]() : $(_0x53f318(0x17e))[_0x53f318(
+                0x184)]();
+        } else {
+            let _0x5c8d86 = -0x1;
+            $(_0x53f318(0x13a))['each'](function(_0x1e84ab) {
+                const _0x1de039 = _0x53f318;
+                $($(_0x1de039(0x13a))[_0x1e84ab])[_0x1de039(0x1cb)](_0x1de039(0x91))[_0x1de039(0xbf)](
+                    selString[_0x1de039(0x9f)]()) && (_0x5c8d86 = _0x1e84ab);
+            }), _0x5c8d86 > -0x1 ? $($(
+                _0x53f318(0x13a))[_0x5c8d86])['fadeIn']() : $(_0x53f318(0x17e))['fadeIn']();
+        }
     }
-  }
 }
 
 function triggerInputAllData() {
-  const _0x3505d8 = _0x270fbf;
-  if (savedFilledInput && memory)
-    savedFilledInput["forEach"]((_0xd20a37) => {
-      const _0x24d1ed = _0x2393;
-      var _0x4ee529 = $(
-          _0x24d1ed(0x167) +
-            _0xd20a37[_0x24d1ed(0x106)] +
-            _0x24d1ed(0x1de) +
-            _0xd20a37[_0x24d1ed(0x10b)] +
-            _0x24d1ed(0x23a),
-        ),
-        _0x1214eb = $(
-          _0x24d1ed(0x167) +
-            _0xd20a37[_0x24d1ed(0x106)] +
-            "\x22]:not([data-prefill=\x22false\x22])",
-        ),
-        _0x3bd825 = $(
-          _0x24d1ed(0xcb) + _0xd20a37[_0x24d1ed(0x106)] + _0x24d1ed(0x23a),
-        ),
-        _0x377218 = $(_0x24d1ed(0x1b3) + _0xd20a37["inputName"] + "\x22]"),
-        _0x389efe = $(
-          _0x24d1ed(0x162) +
-            _0xd20a37[_0x24d1ed(0x106)] +
-            "\x22][value=\x22" +
-            _0xd20a37[_0x24d1ed(0x10b)] +
-            _0x24d1ed(0x23a),
-        );
-      if (_0x4ee529[_0x24d1ed(0x164)](_0x24d1ed(0x109)) !== _0x24d1ed(0x133)) {
-        if (
-          _0x4ee529[_0x24d1ed(0x164)](_0x24d1ed(0x109)) === _0x24d1ed(0x1c8) &&
-          !_0x4ee529[_0x24d1ed(0x10d)]("[data-radio-skip]")[_0x24d1ed(0x21e)](
-            "radio-skip",
-          )
-        )
-          _0x4ee529[_0x24d1ed(0x1bd)](),
-            _0x4ee529["siblings"](_0x24d1ed(0xec))[_0x24d1ed(0xce)](
-              _0x24d1ed(0x1d6),
-            ),
-            _0x4ee529[_0x24d1ed(0xc7)]("input");
-        else
-          _0xd20a37[_0x24d1ed(0x10b)] === "on"
-            ? (_0x1214eb["click"](),
-              _0x1214eb[_0x24d1ed(0x102)](_0x24d1ed(0x1b8))[_0x24d1ed(0xce)](
-                _0x24d1ed(0x1d6),
-              ),
-              _0x1214eb["trigger"](_0x24d1ed(0x17a)))
-            : (_0x1214eb[_0x24d1ed(0x16c)](_0xd20a37[_0x24d1ed(0x10b)]),
-              _0x3bd825[_0x24d1ed(0x16c)](_0xd20a37["value"]),
-              $(_0x24d1ed(0xd4))
-                [_0x24d1ed(0x1a4)](
-                  _0x24d1ed(0x227) + _0xd20a37[_0x24d1ed(0x10b)] + "\x22]",
-                )
-                [_0x24d1ed(0x1a9)](_0x24d1ed(0x13f), !![]),
-              _0x1214eb[_0x24d1ed(0xc7)](_0x24d1ed(0x17a)),
-              _0x1214eb[_0x24d1ed(0xc7)]("change"));
-        const _0xc9bc68 = _0x389efe[_0x24d1ed(0x21e)](_0x24d1ed(0x18a)),
-          _0xb8c314 = _0x377218[_0x24d1ed(0x21e)](_0x24d1ed(0x18a));
-        _0x389efe[_0x24d1ed(0x163)]()["addClass"](_0xc9bc68),
-          _0x377218[_0x24d1ed(0x163)]()[_0x24d1ed(0xce)](_0xb8c314);
-      }
-    });
-  else
-    _params &&
-      (getParams(),
-      searchQ[_0x3505d8(0x143)]((_0xa86a2) => {
-        const _0x17ab22 = _0x3505d8;
-        if (
-          $(
-            _0x17ab22(0x167) +
-              _0xa86a2["inputName"] +
-              _0x17ab22(0x1de) +
-              _0xa86a2[_0x17ab22(0x10b)] +
-              _0x17ab22(0x23a),
-          )[_0x17ab22(0x164)](_0x17ab22(0x109)) !== "file"
-        ) {
-          if (
-            $(
-              _0x17ab22(0x167) +
-                _0xa86a2[_0x17ab22(0x226)] +
-                _0x17ab22(0x1de) +
-                _0xa86a2[_0x17ab22(0x16c)] +
-                _0x17ab22(0x23a),
-            )[_0x17ab22(0x164)](_0x17ab22(0x109)) === _0x17ab22(0x1c8)
-          )
-            $(
-              "input[name=\x22" +
-                _0xa86a2[_0x17ab22(0x226)] +
-                _0x17ab22(0x1de) +
-                _0xa86a2[_0x17ab22(0x16c)] +
-                _0x17ab22(0x23a),
-            )[_0x17ab22(0x1bd)](),
-              $(
-                _0x17ab22(0x167) +
-                  _0xa86a2[_0x17ab22(0x226)] +
-                  "\x22][value=\x22" +
-                  _0xa86a2[_0x17ab22(0x16c)] +
-                  _0x17ab22(0x23a),
-              )
-                [_0x17ab22(0x102)](_0x17ab22(0xec))
-                [_0x17ab22(0xce)](_0x17ab22(0x1d6)),
-              $(
-                _0x17ab22(0x167) +
-                  _0xa86a2[_0x17ab22(0x226)] +
-                  _0x17ab22(0x1de) +
-                  _0xa86a2[_0x17ab22(0x16c)] +
-                  _0x17ab22(0x23a),
-              )[_0x17ab22(0xc7)](_0x17ab22(0x17a));
-          else
-            _0xa86a2["val"] === "on"
-              ? ($(
-                  "input[name=\x22" +
-                    _0xa86a2[_0x17ab22(0x226)] +
-                    "\x22]:not([data-prefill=\x22false\x22])",
-                )[_0x17ab22(0x1bd)](),
-                $(
-                  _0x17ab22(0x167) +
-                    _0xa86a2[_0x17ab22(0x226)] +
-                    "\x22]:not([data-prefill=\x22false\x22])",
-                )
-                  [_0x17ab22(0x102)](_0x17ab22(0x1b8))
-                  [_0x17ab22(0xce)](_0x17ab22(0x1d6)),
-                $(_0x17ab22(0x167) + _0xa86a2[_0x17ab22(0x226)] + "\x22]")[
-                  _0x17ab22(0xc7)
-                ](_0x17ab22(0x17a)))
-              : ($(
-                  _0x17ab22(0x167) +
-                    _0xa86a2[_0x17ab22(0x226)] +
-                    _0x17ab22(0x23a),
-                )["val"](_0xa86a2[_0x17ab22(0x16c)]),
-                $(
-                  "textarea[name=\x22" +
-                    _0xa86a2[_0x17ab22(0x226)] +
-                    _0x17ab22(0x23a),
-                )["val"](_0xa86a2[_0x17ab22(0x16c)]),
-                $(_0x17ab22(0xeb) + _0xa86a2["key"] + _0x17ab22(0x23a))
-                  [_0x17ab22(0x1a4)](
-                    _0x17ab22(0x227) + _0xa86a2[_0x17ab22(0x16c)] + "\x22]",
-                  )
-                  [_0x17ab22(0x1a9)](_0x17ab22(0x13f), !![]),
-                $(
-                  "input[name=\x22" +
-                    _0xa86a2[_0x17ab22(0x226)] +
-                    _0x17ab22(0x23a),
-                )[_0x17ab22(0xc7)](_0x17ab22(0x17a)),
-                $(_0x17ab22(0x167) + _0xa86a2["key"] + _0x17ab22(0x23a))[
-                  _0x17ab22(0xc7)
-                ]("change"));
+    const _0x36bd47 = _0x29f161;
+    if (savedFilledInput && memory)
+        savedFilledInput[_0x36bd47(0x1e8)](_0x20386f => {
+            const _0x4f0f1c = _0x36bd47;
+            var _0x463cec =
+                $(_0x4f0f1c(0x1a0) + _0x20386f['inputName'] + '\x22][value=\x22' + _0x20386f[_0x4f0f1c(
+                    0x150)] + _0x4f0f1c(0x1a6)),
+                _0x26a4b1 = $(_0x4f0f1c(0x1a0) + _0x20386f[_0x4f0f1c(0x165)] + _0x4f0f1c(0x1a6)),
+                _0x36af41 = $(_0x4f0f1c(0x101) + _0x20386f[_0x4f0f1c(0x165)] + _0x4f0f1c(0x1a6)),
+                _0xf9d19a = $(_0x4f0f1c(0x1fe) + _0x20386f['inputName'] + '\x22]'),
+                _0x3c88e4 = $(_0x4f0f1c(0x162) + _0x20386f[_0x4f0f1c(0x165)] + _0x4f0f1c(0xa4) +
+                    _0x20386f[_0x4f0f1c(0x150)] + '\x22]:not([data-prefill=\x22false\x22])');
+            if (_0x463cec[
+                    'attr']('type') !== _0x4f0f1c(0x1a9)) {
+                if (_0x463cec['attr'](_0x4f0f1c(0x1d4)) ===
+                    _0x4f0f1c(0xec) && !_0x463cec['parents'](_0x4f0f1c(0x108))['data'](_0x4f0f1c(0xa1)))
+                    _0x463cec[_0x4f0f1c(0x145)](), _0x463cec[_0x4f0f1c(0xcb)](_0x4f0f1c(0xd7))[_0x4f0f1c(
+                        0x142)](_0x4f0f1c(0x1ed)), _0x463cec['trigger'](_0x4f0f1c(0x16d));
+                else _0x20386f[_0x4f0f1c(0x150)] === 'on' ? (_0x26a4b1[_0x4f0f1c(0x145)](), _0x26a4b1[
+                    _0x4f0f1c(0xcb)](_0x4f0f1c(0x1bd))[_0x4f0f1c(0x142)](_0x4f0f1c(0x1ed)), _0x26a4b1[
+                    'trigger'](_0x4f0f1c(0x16d))) : (_0x26a4b1[_0x4f0f1c(0x137)](_0x20386f[_0x4f0f1c(
+                    0x150)]), _0x36af41[_0x4f0f1c(0x137)](_0x20386f[_0x4f0f1c(0x150)]), $(_0x4f0f1c(
+                    0x10f))['find'](_0x4f0f1c(0x13b) + _0x20386f['value'] + '\x22]')[_0x4f0f1c(0xb0)](
+                    _0x4f0f1c(0x1e6), !![]), _0x26a4b1[_0x4f0f1c(0x1af)](_0x4f0f1c(0x16d)), _0x26a4b1[
+                    _0x4f0f1c(0x1af)](_0x4f0f1c(0x169)));
+                const _0x3d485a = _0x3c88e4[_0x4f0f1c(0x1cb)](
+                        _0x4f0f1c(0xd3)),
+                    _0x2fa850 = _0xf9d19a[_0x4f0f1c(0x1cb)](_0x4f0f1c(0xd3));
+                _0x3c88e4[_0x4f0f1c(0x16a)]()['addClass'](_0x3d485a), _0xf9d19a[_0x4f0f1c(0x16a)]()[
+                    _0x4f0f1c(0x142)](_0x2fa850);
+            }
+        });
+    else _params && (getParams(), searchQ[_0x36bd47(0x1e8)](_0x5e35cc => {
+        const _0xfdc4b7 =
+            _0x36bd47;
+        if ($(_0xfdc4b7(0x1a0) + _0x5e35cc[_0xfdc4b7(0x165)] + _0xfdc4b7(0xa4) +
+                _0x5e35cc['value'] + '\x22]:not([data-prefill=\x22false\x22])')[_0xfdc4b7(0xb6)](
+                _0xfdc4b7(0x1d4)) !== _0xfdc4b7(0x1a9)) {
+            if ($(_0xfdc4b7(0x1a0) + _0x5e35cc['key'] +
+                    _0xfdc4b7(0xa4) + _0x5e35cc['val'] + _0xfdc4b7(0x1a6))[_0xfdc4b7(0xb6)](_0xfdc4b7(
+                    0x1d4)) === 'radio') $('input[name=\x22' + _0x5e35cc[_0xfdc4b7(0xbd)] + _0xfdc4b7(
+                0xa4) + _0x5e35cc[_0xfdc4b7(0x137)] + '\x22]:not([data-prefill=\x22false\x22])')[
+                _0xfdc4b7(0x145)](), $(_0xfdc4b7(0x1a0) + _0x5e35cc[_0xfdc4b7(0xbd)] + _0xfdc4b7(
+                0xa4) + _0x5e35cc['val'] + _0xfdc4b7(0x1a6))[_0xfdc4b7(0xcb)](_0xfdc4b7(0xd7))[
+                _0xfdc4b7(0x142)](_0xfdc4b7(0x1ed)), $(_0xfdc4b7(0x1a0) + _0x5e35cc[_0xfdc4b7(
+                    0xbd)] + _0xfdc4b7(0xa4) + _0x5e35cc[_0xfdc4b7(0x137)] +
+                '\x22]:not([data-prefill=\x22false\x22])')['trigger']('input');
+            else _0x5e35cc[_0xfdc4b7(0x137)] === 'on' ? ($('input[name=\x22' + _0x5e35cc[_0xfdc4b7(
+                0xbd)] + '\x22]:not([data-prefill=\x22false\x22])')[_0xfdc4b7(0x145)](), $(
+                _0xfdc4b7(0x1a0) + _0x5e35cc['key'] + _0xfdc4b7(0x1a6))['siblings'](_0xfdc4b7(
+                0x1bd))['addClass'](_0xfdc4b7(0x1ed)), $(_0xfdc4b7(0x1a0) + _0x5e35cc['key'] +
+                '\x22]')[_0xfdc4b7(0x1af)](_0xfdc4b7(0x16d))) : ($(_0xfdc4b7(0x1a0) + _0x5e35cc[
+                _0xfdc4b7(0xbd)] + _0xfdc4b7(0x1a6))[_0xfdc4b7(0x137)](_0x5e35cc[_0xfdc4b7(
+                0x137)]), $('textarea[name=\x22' + _0x5e35cc['key'] + _0xfdc4b7(0x1a6))[_0xfdc4b7(
+                0x137)](_0x5e35cc[_0xfdc4b7(0x137)]), $('select[name=\x22' + _0x5e35cc[_0xfdc4b7(
+                0xbd)] + '\x22]:not([data-prefill=\x22false\x22])')['find'](_0xfdc4b7(0x13b) +
+                _0x5e35cc[_0xfdc4b7(0x137)] + '\x22]')[_0xfdc4b7(0xb0)]('selected', !![]), $(
+                'input[name=\x22' + _0x5e35cc[_0xfdc4b7(0xbd)] + _0xfdc4b7(0x1a6))['trigger'](
+                _0xfdc4b7(0x16d)), $(_0xfdc4b7(0x1a0) + _0x5e35cc[_0xfdc4b7(0xbd)] +
+                '\x22]:not([data-prefill=\x22false\x22])')[_0xfdc4b7(0x1af)](_0xfdc4b7(0x169)));
         }
-      }));
+    }));
 }
-$(_0x270fbf(0xe8))["on"](_0x270fbf(0x1bd), function () {
-  (next = !![]), nextStep(), selectionQuiz();
-}),
-  $(_0x270fbf(0x147))["on"](_0x270fbf(0x1bd), function () {
-    (next = ![]), (back = !![]), backStep();
-  }),
-  $(steps)
-    [_0x270fbf(0x1a4)](_0x270fbf(0xd7))
-    ["not"](_0x270fbf(0x111))
-    ["on"](_0x270fbf(0x17a), function (_0x47dae7) {
-      validation(), andLogic(), addClickClass();
-    }),
-  $(steps)
-    [_0x270fbf(0x1a4)](_0x270fbf(0x208))
-    ["on"]("click", function () {
-      (skip = !![]), validation(), addClickClass();
-    });
-$("[data-clickable-all]")["data"](_0x270fbf(0xe2))
-  ? $(_0x270fbf(0x188))["removeClass"](_0x270fbf(0x122))
-  : $("[data-form=\x22custom-progress-indicator\x22]")["addClass"](
-      _0x270fbf(0x122),
-    );
+$(
+    _0x29f161(0x1da))['on'](_0x29f161(0x145), function() {
+    next = !![], back = ![], nextStep(),
+        selectionQuiz();
+}), $('[data-form=\x22back-btn\x22]')['on'](_0x29f161(0x145),
+    function() { next = ![], back = !![], backStep(); }), $(steps)[_0x29f161(0x95)](_0x29f161(
+    0x126))[
+    _0x29f161(0xc8)]('[type=\x22radio\x22]')['on'](_0x29f161(0x16d), function(
+    _0x3f58f0) { validation(), andLogic(), addClickClass(); }), $(steps)['find'](_0x29f161(0x1a1))[
+    'on'](_0x29f161(0x145), function() { skip = !![], validation(), addClickClass(); });
+$(_0x29f161(0x1cf))['data'](_0x29f161(0x9c)) ? $('[data-form=\x22custom-progress-indicator\x22]')[
+    _0x29f161(0x181)](_0x29f161(0x1ea)) : $(_0x29f161(0x1bc))['addClass'](_0x29f161(0x1ea));
 
 function clickableIndicator() {
-  const _0x198791 = _0x270fbf;
-  $("[data-clickable]")[_0x198791(0x21e)](_0x198791(0x11f)) &&
-    ($(_0x198791(0x17e))[_0x198791(0x159)](_0x198791(0x1f8)),
-    $(_0x198791(0x20a))[_0x198791(0x21e)]("clickable-all")
-      ? ((x = $(this)[_0x198791(0x20f)]()), updateStep())
-      : $(this)["index"]() <= progress &&
-        ((x = $(this)["index"]()), updateStep())),
-    $(_0x198791(0x153))["text"](x + 0x1);
+    const _0x485862 = _0x29f161;
+    $(_0x485862(0x78))[_0x485862(0x1cb)](_0x485862(0x171)) && ($(_0x485862(0xe6))[_0x485862(0x181)](
+        'current'), $(_0x485862(0x78))[_0x485862(0x1cb)](_0x485862(0x9c)) ? (x = $(this)[_0x485862(
+        0x103)](), updateStep()) : $(this)[_0x485862(0x103)]() <= progress && (x = $(this)['index']
+        (), updateStep())), $(_0x485862(0xe3))['text'](x + 0x1);
 }
-$("[data-form=\x22custom-progress-indicator\x22]")["on"](
-  _0x270fbf(0x1bd),
-  clickableIndicator,
-);
-$(_0x270fbf(0x1d8))[_0x270fbf(0x21e)](_0x270fbf(0x21d)) &&
-  ($(_0x270fbf(0x1fe))[_0x270fbf(0x194)](function () {
-    const _0x5b78d6 = _0x270fbf;
-    $(this)[_0x5b78d6(0x12b)](
-      _0x5b78d6(0xc9),
-      $(this)["data"](_0x5b78d6(0x156)),
-    );
-  }),
-  $("[data-answer]")[_0x270fbf(0x194)](function () {
-    const _0x1f6286 = _0x270fbf;
-    $(this)[_0x1f6286(0x12b)](
-      "<br>Data\x20Answer\x20=\x20",
-      $(this)[_0x1f6286(0x21e)](_0x1f6286(0x18e)),
-    );
-  }));
+$(_0x29f161(0x1bc))['on'](_0x29f161(
+    0x145), clickableIndicator), excludeCount = !$('[data-form=\x22multistep\x22]')[_0x29f161(
+    0x1cb)](_0x29f161(0x1b5)), steps[_0x29f161(0x1c3)](function(_0x42160d) {
+    const _0x2f2e27 =
+        _0x29f161,
+        _0xf3e813 = $(this)[_0x2f2e27(0x1cb)](_0x2f2e27(0xdb));
+    console['log'](excludeCount), _0xf3e813 && excludeCount && $(
+        '[data-form=\x22custom-progress-indicator\x22]')['eq'](_0x42160d)[_0x2f2e27(0x104)]();
+});
+$(_0x29f161(0x173))[_0x29f161(0x1cb)](_0x29f161(0x1f5)) && ($(_0x29f161(0x7d))['each'](
+        function() {
+            const _0xbdc119 = _0x29f161;
+            $(this)[_0xbdc119(0x10a)](_0xbdc119(0x9d), $(this)[_0xbdc119(0x1cb)](_0xbdc119(0x14a)));
+        }),
+    $(_0x29f161(0x102))['each'](function() {
+        const _0x52ffd1 = _0x29f161;
+        $(this)[_0x52ffd1(0x10a)](_0x52ffd1(0xa7), $(this)[_0x52ffd1(0x1cb)](_0x52ffd1(0x158)));
+    }));
 
 function resetFormly() {
-  const _0x1677c6 = _0x270fbf;
-  $("[data-form=\x22multistep\x22]")[_0x1677c6(0xc7)](_0x1677c6(0x11c)),
-    $(_0x1677c6(0x1d8))[_0x1677c6(0x10d)]()["find"](".w-form-done")["hide"](),
-    (x = 0x0),
-    updateStep(),
-    $(_0x1677c6(0x1d8))[_0x1677c6(0x180)](),
-    $(_0x1677c6(0x1f9))["text"](oldSubmitText),
-    $(_0x1677c6(0x1f9))[_0x1677c6(0x16c)](oldSubmitText),
-    $("[data-text=\x22current-step\x22]")[_0x1677c6(0x18b)](0x1),
-    $("[data-form=\x22multistep\x22]")
-      [_0x1677c6(0x1a4)](_0x1677c6(0x1ea))
-      [_0x1677c6(0x102)](_0x1677c6(0x1b8))
-      [_0x1677c6(0x159)](_0x1677c6(0x1d6));
+    const _0x575377 = _0x29f161;
+    $('[data-form=\x22multistep\x22]')[_0x575377(0x1af)](_0x575377(0x17f)), $(
+        '[data-form=\x22multistep\x22]')[_0x575377(0x180)]()[_0x575377(0x95)](_0x575377(0x1ca))[
+        _0x575377(0x104)](), x = 0x0, updateStep(), $(_0x575377(0x173))[_0x575377(0x1ef)](), $(
+        _0x575377(0x129))[_0x575377(0x1b7)](oldSubmitText), $(_0x575377(0x129))[_0x575377(0x137)](
+        oldSubmitText), $(_0x575377(0xe3))[_0x575377(0x1b7)](0x1), $(_0x575377(0x173))[_0x575377(
+        0x95)](_0x575377(0x1c0))['siblings'](_0x575377(0x1bd))['removeClass'](_0x575377(0x1ed));
 }
-$(document)[_0x270fbf(0x214)](function (_0x21b42a, _0x296fc5, _0x93cca4) {
-  const _0x25c821 = _0x270fbf;
-  if (_0x93cca4[_0x25c821(0x141)]["includes"](_0x25c821(0x110))) {
-    const _0x3b3dbe = _0x296fc5["status"] === 0xc8,
-      _0x59a7ee = _0x25c821(0x12e);
-    redirectTo &&
-      _0x3b3dbe &&
-      (newTab
-        ? window[_0x25c821(0xf0)](redirectTo, "_blank")
-        : setTimeout(() => {
-            location["href"] = redirectTo;
-          }, redirectDelay)),
-      _0x3b3dbe &&
-        successCard !== "" &&
-        $(_0x25c821(0x1fa) + successCard + "\x22]")["fadeIn"](),
-      _0x3b3dbe &&
-        formReset &&
-        setTimeout(() => {
-          resetFormly();
-        }, resetDelay),
-      !_0x3b3dbe &&
-        ($(_0x25c821(0x1f9))[_0x25c821(0x16c)](_0x25c821(0x235)),
-        $(_0x25c821(0x1f9))[_0x25c821(0x18b)](_0x25c821(0x235)));
-  }
-}),
-  $(_0x270fbf(0xef))["on"]("click", function () {
-    const _0x522d10 = _0x270fbf;
-    var _0x14a4c1 = $(this)
-      [_0x522d10(0x163)]()
-      [_0x522d10(0x1a4)]("[data-input-field]")
-      [_0x522d10(0x21e)]("input-field");
-    setTimeout(function () {
-      const _0xf71081 = _0x522d10;
-      $(_0xf71081(0x167) + _0x14a4c1 + "\x22]")[_0xf71081(0x1a1)]();
-    }, 0x64),
-      (back = !![]),
-      (x = $(this)["data"]("edit-step") - 0x1),
-      updateStep(),
-      countCard
-        ? ((curStep = x + 0x1),
-          $("[data-text=\x22total-steps\x22]")["text"](steps[_0x522d10(0x225)]))
-        : $(steps[x])[_0x522d10(0x21e)](_0x522d10(0x19b))
-          ? (curStep = x + 0x0)
-          : (curStep = x + 0x1),
-      $(_0x522d10(0x153))[_0x522d10(0x18b)](curStep),
-      (back = ![]);
-  }),
-  $(_0x270fbf(0x148))["on"](_0x270fbf(0x1bd), function () {
-    const _0x5156ea = _0x270fbf;
-    $(_0x5156ea(0x1d8))[_0x5156ea(0xc7)](_0x5156ea(0x11c));
-    let _0x15db69 = $(this);
-    $(this)[_0x5156ea(0x18b)](_0x5156ea(0x235)),
-      setTimeout(function () {
-        const _0x37e0a7 = _0x5156ea;
-        $(_0x15db69)[_0x37e0a7(0x18b)](oldResetText),
-          $(_0x15db69)["parents"](_0x37e0a7(0x1dc))[_0x37e0a7(0x22a)](),
-          (x = 0x0),
-          updateStep(),
-          $(_0x37e0a7(0x1d8))["show"](),
-          $(_0x37e0a7(0x1f9))["text"](oldSubmitText),
-          $(_0x37e0a7(0x1f9))["val"](oldSubmitText),
-          $(_0x15db69)[_0x37e0a7(0x16c)](oldSubmitText),
-          $("[data-text=\x22current-step\x22]")["text"](0x1),
-          $(_0x37e0a7(0x1d8))
-            ["find"]("input:checkbox")
-            [_0x37e0a7(0x102)](_0x37e0a7(0x1b8))
-            [_0x37e0a7(0x159)](_0x37e0a7(0x1d6));
-      }, resetDelay);
-  }),
-  $(_0x270fbf(0x234))["on"]("keypress", function (_0x2e458a) {
-    const _0x220581 = _0x270fbf;
-    if (_0x2e458a["keyCode"] === 0xd) {
-      _0x2e458a[_0x220581(0x215)](), _0x2e458a[_0x220581(0x1f2)]();
-      if ($(steps[x])[_0x220581(0x1a4)](_0x220581(0x1aa))["is"](":focus"))
-        $(steps[x])
-          [_0x220581(0x1a4)](_0x220581(0x11e))
-          [_0x220581(0x16c)](
-            $(steps[x])
-              [_0x220581(0x1a4)](_0x220581(0x11e))
-              [_0x220581(0x16c)]() + "\x0a",
-          );
-      else
-        $(_0x220581(0x14a))["data"]("enter") &&
-          fill &&
-          totalSteps > curStep &&
-          $(_0x220581(0xe8))[0x0][_0x220581(0x1bd)]();
-    }
-  }),
-  $(_0x270fbf(0x234))[_0x270fbf(0x1e5)](function (_0x47804b) {
-    const _0x531612 = _0x270fbf;
-    (_0x47804b[_0x531612(0x1f7)] || _0x47804b["ctrlKey"]) &&
-      _0x47804b[_0x531612(0x18d)] == 0xd &&
-      (x >= steps["length"] - 0x1 && fill
-        ? $(steps[x])[_0x531612(0x1a4)](_0x531612(0x178))["click"]()
-        : (_0x47804b[_0x531612(0x215)](), _0x47804b[_0x531612(0x1f2)]()));
-  }),
-  $(_0x270fbf(0x1d8))
-    ["find"](_0x270fbf(0xd7))
-    ["on"](_0x270fbf(0x15b), function () {
-      const _0x284969 = _0x270fbf;
-      (all_data = all_data["filter"](
-        (_0x1b55f2) =>
-          _0x1b55f2[_0x284969(0x19d)] !== $(this)[_0x284969(0x164)]("name"),
-      )),
-        $(this)[_0x284969(0x164)](_0x284969(0x109)) === _0x284969(0x15e)
-          ? $(this)["is"](":checked")
-            ? all_data[_0x284969(0x172)]({
-                field: $(this)[_0x284969(0x164)](_0x284969(0x14b)),
-                value: $(this)["siblings"]("span")[_0x284969(0x18b)](),
-              })
-            : $(_0x284969(0x221) + $(this)[_0x284969(0x164)]("name") + "\x22]")[
-                _0x284969(0x22a)
-              ]()
-          : (all_data[_0x284969(0x172)]({
-              field: $(this)["attr"](_0x284969(0x14b)),
-              value: $(this)[_0x284969(0x16c)](),
-            }),
-            $(this)[_0x284969(0x16c)]() !== "" &&
-              resetInputErrorMessage(
-                $(this)[_0x284969(0x164)](_0x284969(0x14b)),
-              )),
-        all_data["forEach"](function (_0x4fcf5f) {
-          const _0x3fcda2 = _0x284969;
-          $(_0x3fcda2(0x221) + _0x4fcf5f["field"] + "\x22]")[
-            _0x3fcda2(0x180)
-          ](),
-            $(_0x3fcda2(0x221) + _0x4fcf5f["field"] + "\x22]")["text"](
-              _0x4fcf5f[_0x3fcda2(0x10b)],
+$(
+        document)[_0x29f161(0xff)](function(_0x2fa544, _0x5cff03, _0x52ad64) {
+        const _0x5154fe =
+            _0x29f161;
+        if (_0x52ad64[_0x5154fe(0x196)][_0x5154fe(0xbf)](
+                'https://webflow.com/api/v1/form/')) {
+            const _0x10a30d = _0x5cff03[_0x5154fe(0x191)] ===
+                0xc8,
+                _0x7cd181 = _0x5154fe(0x15f);
+            redirectTo && _0x10a30d && (newTab ? window[_0x5154fe(0xca)](redirectTo, _0x5154fe(0x12e)) :
+                    setTimeout(() => {
+                        const _0x24f200 = _0x5154fe;
+                        location[_0x24f200(0x146)] = redirectTo;
+                    }, redirectDelay)), _0x10a30d &&
+                successCard !== '' && $('[data-success-card=\x22' + successCard + '\x22]')['fadeIn'](),
+                _0x10a30d && formReset && setTimeout(() => { resetFormly(); }, resetDelay), !_0x10a30d &&
+                ($(_0x5154fe(0x129))[_0x5154fe(0x137)]('Please\x20wait...'), $(_0x5154fe(0x129))[
+                    _0x5154fe(0x1b7)](_0x5154fe(0x18d)));
+        }
+    }), $(_0x29f161(0x1cc))['on'](_0x29f161(0x145),
+        function() {
+            const _0x3acb2b = _0x29f161;
+            var _0x2d6617 = $(this)[_0x3acb2b(0x16a)]()[
+                _0x3acb2b(0x95)](_0x3acb2b(0x19c))[_0x3acb2b(0x1cb)]('input-field');
+            setTimeout(function() {
+                    const _0x1d3d08 = _0x3acb2b;
+                    $(_0x1d3d08(0x1a0) + _0x2d6617 + '\x22]')[_0x1d3d08(0x1f0)]();
+                }, 0x64), back = !![], x =
+                $(this)['data']('edit-step') - 0x1, updateStep(), countCard ? (curStep = x + 0x1, $(
+                    _0x3acb2b(0x1c2))[_0x3acb2b(0x1b7)](steps[_0x3acb2b(0x1bf)])) : $(steps[x])[_0x3acb2b(
+                    0x1cb)]('card') ? curStep = x + 0x0 : curStep = x + 0x1, $(_0x3acb2b(0xe3))[_0x3acb2b(
+                    0x1b7)](curStep), back = ![];
+        }), $(_0x29f161(0x164))['on'](_0x29f161(0x145),
+        function() {
+            const _0x68a666 = _0x29f161;
+            $('[data-form=\x22multistep\x22]')[_0x68a666(0x1af)]('reset');
+            let _0x198d17 = $(this);
+            $(this)[_0x68a666(0x1b7)](_0x68a666(0x18d)), setTimeout(function() {
+                const _0x4bc96a =
+                    _0x68a666;
+                $(_0x198d17)[_0x4bc96a(0x1b7)](oldResetText), $(_0x198d17)[_0x4bc96a(0x180)](_0x4bc96a(
+                    0x1ca))['hide'](), x = 0x0, updateStep(), $('[data-form=\x22multistep\x22]')[
+                    _0x4bc96a(0x1ef)](), $('[data-form=\x22submit-btn\x22]')['text'](oldSubmitText), $(
+                    '[data-form=\x22submit-btn\x22]')[_0x4bc96a(0x137)](oldSubmitText), $(_0x198d17)[
+                    _0x4bc96a(0x137)](oldSubmitText), $('[data-text=\x22current-step\x22]')['text'](
+                    0x1), $(_0x4bc96a(0x173))[_0x4bc96a(0x95)](_0x4bc96a(0x1c0))['siblings'](_0x4bc96a(
+                    0x1bd))[_0x4bc96a(0x181)]('w--redirected-checked');
+            }, resetDelay);
+        }), $(_0x29f161(
+        0x73))['on'](_0x29f161(0xa5), function(_0x51387e) {
+        const _0x160f67 = _0x29f161;
+        if (_0x51387e[
+                _0x160f67(0x12c)] === 0xd) {
+            _0x51387e[_0x160f67(0xed)](), _0x51387e[_0x160f67(0x178)]
+                ();
+            if ($(steps[x])[_0x160f67(0x95)]('textarea')['is'](_0x160f67(0x70))) $(steps[x])['find'](
+                'textarea:focus')[_0x160f67(0x137)]($(steps[x])['find']('textarea:focus')['val']() +
+                '\x0a');
+            else $(_0x160f67(0x1f3))[_0x160f67(0x1cb)](_0x160f67(0x1a5)) && fill && (totalSteps >
+                curStep && $(_0x160f67(0x1da))[0x0][_0x160f67(0x145)]());
+        }
+    }), $(_0x29f161(0x73))[
+        'keydown'](function(_0x1534ba) {
+        const _0x38c2e9 = _0x29f161;
+        (_0x1534ba[_0x38c2e9(0xaf)] || _0x1534ba[_0x38c2e9(0x1d7)]) && _0x1534ba[_0x38c2e9(0x12c)] ==
+            0xd && (x >= steps[_0x38c2e9(0x1bf)] - 0x1 && fill ? $(steps[x])[_0x38c2e9(0x95)](_0x38c2e9(
+                0x157))['click']() : (_0x1534ba[_0x38c2e9(0xed)](), _0x1534ba[_0x38c2e9(0x178)]()));
+    }), $(
+        '[data-form=\x22multistep\x22]')[_0x29f161(0x95)](_0x29f161(0x126))['on'](_0x29f161(0x169),
+        function() {
+            const _0x5347af = _0x29f161;
+            all_data = all_data['filter'](_0x519891 => _0x519891['field'] !== $(this)[_0x5347af(0xb6)](
+                _0x5347af(0x122))), $(this)['attr'](_0x5347af(0x1d4)) === _0x5347af(0x9b) ? $(this)['is'](
+                _0x5347af(0x1d6)) ? all_data[_0x5347af(0xb5)]({
+                'field': $(this)[_0x5347af(0xb6)](
+                    _0x5347af(0x122)),
+                'value': $(this)[_0x5347af(0xcb)](_0x5347af(0x1d0))[_0x5347af(
+                    0x1b7)]()
+            }) : $(_0x5347af(0x83) + $(this)[_0x5347af(0xb6)](_0x5347af(0x122)) +
+                '\x22]')[_0x5347af(0x104)]() : (all_data[_0x5347af(0xb5)]({
+                'field': $(this)[_0x5347af(
+                    0xb6)](_0x5347af(0x122)),
+                'value': $(this)[_0x5347af(0x137)]()
+            }), $(this)[_0x5347af(
+                0x137)]() !== '' && resetInputErrorMessage($(this)[_0x5347af(0xb6)]('name'))), all_data[
+                _0x5347af(0x1e8)](function(_0x5ba18a) {
+                const _0x5a8980 = _0x5347af;
+                $(_0x5a8980(0x83) + _0x5ba18a[_0x5a8980(0xea)] + '\x22]')[_0x5a8980(0x1ef)](), $(
+                    _0x5a8980(0x83) + _0x5ba18a[_0x5a8980(0xea)] + '\x22]')[_0x5a8980(0x1b7)](_0x5ba18a[
+                    _0x5a8980(0x150)]);
+            });
+        }), $(_0x29f161(0x173))[_0x29f161(0x95)](_0x29f161(0x130))['on']
+    ('change', function() {
+        const _0x404da0 = _0x29f161;
+        $(this)['val']() !== '' && resetInputErrorMessage($(this)[_0x404da0(0xb6)]('name')),
+            all_data = all_data[_0x404da0(0x11c)](_0x24f331 => _0x24f331['field'] !== $(this)['attr'](
+                _0x404da0(0x122))), all_data[_0x404da0(0xb5)]({
+                'field': $(this)[_0x404da0(0xb6)](
+                    _0x404da0(0x122)),
+                'value': $(this)[_0x404da0(0x137)]()
+            }), all_data[_0x404da0(0x1e8)](
+                function(_0x26a992) {
+                    const _0x41e87c = _0x404da0;
+                    $('[data-input-field=\x22' + _0x26a992['field'] + '\x22]')[_0x41e87c(0x1ef)](), $(
+                        _0x41e87c(0x83) + _0x26a992[_0x41e87c(0xea)] + '\x22]')['text'](_0x26a992['value']);
+                }
             );
+    }), $(_0x29f161(0x173))[_0x29f161(0x95)](_0x29f161(0xf4))['on'](_0x29f161(0x169),
+        function() {
+            const _0x27bb55 = _0x29f161;
+            $(this)[_0x27bb55(0x137)]() !== '' && resetInputErrorMessage($(this)[_0x27bb55(0xb6)](
+                _0x27bb55(0x122)));
+            var _0x475790 = $(this)['data'](_0x27bb55(0xfb));
+            all_data = all_data['filter'](_0x2163b2 => _0x2163b2[_0x27bb55(0xea)] !== $(this)[_0x27bb55(
+                0xb6)](_0x27bb55(0x122))), all_data[_0x27bb55(0xb5)]({
+                'field': $(this)['attr'](_0x27bb55(
+                    0x122)),
+                'value': _0x475790 ? $(this)[_0x27bb55(0x95)](_0x27bb55(0xf3))[_0x27bb55(
+                    0x1b7)]() : $(this)['val']()
+            }), all_data[_0x27bb55(0x1e8)](function(_0x5b8951) {
+                const
+                    _0x121e2e = _0x27bb55;
+                $(_0x121e2e(0x83) + _0x5b8951[_0x121e2e(0xea)] + '\x22]')[_0x121e2e(0x1ef)](), $(
+                    _0x121e2e(0x83) + _0x5b8951[_0x121e2e(0xea)] + '\x22]')[_0x121e2e(0x1b7)](_0x5b8951[
+                    _0x121e2e(0x150)]);
+            });
+        }), updateStep(), triggerInputAllData(), $(_0x29f161(0x1f2))[
+        _0x29f161(0x1c3)](function() {
+        const _0x3f122c = _0x29f161,
+            _0x42d8e5 = $(this)[_0x3f122c(0x95)](_0x3f122c(0x168)),
+            _0x4f15fb = [];
+        _0x42d8e5['each'](function() {
+            const _0x2c9d0b = _0x3f122c;
+            _0x4f15fb[_0x2c9d0b(0xb5)]($(this)[_0x2c9d0b(0x1b7)]()['trim']());
         });
-    }),
-  $(_0x270fbf(0x1d8))
-    [_0x270fbf(0x1a4)](_0x270fbf(0x1aa))
-    ["on"](_0x270fbf(0x15b), function () {
-      const _0x5a290e = _0x270fbf;
-      $(this)[_0x5a290e(0x16c)]() !== "" &&
-        resetInputErrorMessage($(this)[_0x5a290e(0x164)](_0x5a290e(0x14b))),
-        (all_data = all_data[_0x5a290e(0x150)](
-          (_0x52a5b8) =>
-            _0x52a5b8[_0x5a290e(0x19d)] !==
-            $(this)[_0x5a290e(0x164)](_0x5a290e(0x14b)),
-        )),
-        all_data[_0x5a290e(0x172)]({
-          field: $(this)[_0x5a290e(0x164)](_0x5a290e(0x14b)),
-          value: $(this)[_0x5a290e(0x16c)](),
-        }),
-        all_data["forEach"](function (_0x5575db) {
-          const _0x24e660 = _0x5a290e;
-          $("[data-input-field=\x22" + _0x5575db[_0x24e660(0x19d)] + "\x22]")[
-            _0x24e660(0x180)
-          ](),
-            $("[data-input-field=\x22" + _0x5575db["field"] + "\x22]")[
-              _0x24e660(0x18b)
-            ](_0x5575db[_0x24e660(0x10b)]);
+        const _0x4d5330 = $(
+            this)[_0x3f122c(0xcb)](_0x3f122c(0x1ae));
+        $['each'](_0x4f15fb, function(_0x3979e7, _0x5f3c2d) {
+            const _0x162fca = _0x3f122c,
+                _0x2fb561 = $('<option>')[_0x162fca(0x137)](_0x5f3c2d)[_0x162fca(0x1b7)](_0x5f3c2d);
+            _0x4d5330[_0x162fca(0x10a)](_0x2fb561);
         });
-    }),
-  $("[data-form=\x22multistep\x22]")
-    ["find"](_0x270fbf(0x191))
-    ["on"](_0x270fbf(0x15b), function () {
-      const _0x1712c8 = _0x270fbf;
-      $(this)[_0x1712c8(0x16c)]() !== "" &&
-        resetInputErrorMessage($(this)["attr"](_0x1712c8(0x14b)));
-      var _0x1efeef = $(this)[_0x1712c8(0x21e)](_0x1712c8(0x1e3));
-      (all_data = all_data[_0x1712c8(0x150)](
-        (_0x9067ae) =>
-          _0x9067ae[_0x1712c8(0x19d)] !==
-          $(this)[_0x1712c8(0x164)](_0x1712c8(0x14b)),
-      )),
-        all_data["push"]({
-          field: $(this)[_0x1712c8(0x164)](_0x1712c8(0x14b)),
-          value: _0x1efeef
-            ? $(this)[_0x1712c8(0x1a4)](_0x1712c8(0x241))[_0x1712c8(0x18b)]()
-            : $(this)[_0x1712c8(0x16c)](),
-        }),
-        all_data[_0x1712c8(0x143)](function (_0x38c945) {
-          const _0x2828d1 = _0x1712c8;
-          $(_0x2828d1(0x221) + _0x38c945[_0x2828d1(0x19d)] + "\x22]")[
-            _0x2828d1(0x180)
-          ](),
-            $("[data-input-field=\x22" + _0x38c945[_0x2828d1(0x19d)] + "\x22]")[
-              _0x2828d1(0x18b)
-            ](_0x38c945[_0x2828d1(0x10b)]);
-        });
-    }),
-  updateStep(),
-  triggerInputAllData(),
-  $("[data-cms-select=cms]")[_0x270fbf(0x194)](function () {
-    const _0x2bf508 = _0x270fbf,
-      _0x43fbfa = $(this)["find"](_0x2bf508(0xed)),
-      _0x2544c3 = [];
-    _0x43fbfa[_0x2bf508(0x194)](function () {
-      const _0x1a616a = _0x2bf508;
-      _0x2544c3[_0x1a616a(0x172)](
-        $(this)[_0x1a616a(0x18b)]()[_0x1a616a(0x20d)](),
-      );
     });
-    const _0xda9792 = $(this)[_0x2bf508(0x102)]("[data-cms-select=input]");
-    $[_0x2bf508(0x194)](_0x2544c3, function (_0x972ac6, _0x3edc3b) {
-      const _0x22c6ae = _0x2bf508,
-        _0x2b9d45 = $("<option>")
-          [_0x22c6ae(0x16c)](_0x3edc3b)
-          [_0x22c6ae(0x18b)](_0x3edc3b);
-      _0xda9792[_0x22c6ae(0x12b)](_0x2b9d45);
-    });
-  });
 
 function cloneRemove() {
-  const _0x2878e5 = _0x270fbf;
-  $(_0x2878e5(0x238))[_0x2878e5(0x194)](function () {
-    const _0x476cb7 = _0x2878e5;
-    $(this)[_0x476cb7(0x1a4)](_0x476cb7(0x200))["length"] < 0x2
-      ? $(this)[_0x476cb7(0x1a4)](_0x476cb7(0x1be))[_0x476cb7(0x22a)]()
-      : $(this)[_0x476cb7(0x1a4)](_0x476cb7(0x1be))[_0x476cb7(0x180)]();
-  });
+    const _0x49593e = _0x29f161;
+    $(_0x49593e(0x1e5))['each'](function() {
+        const _0x43177c = _0x49593e;
+        $(this)[_0x43177c(0x95)](_0x43177c(0x1ce))[_0x43177c(0x1bf)] < 0x2 ? $(this)['find'](
+            _0x43177c(0xce))[_0x43177c(0x104)]() : $(this)[_0x43177c(0x95)](
+            '[data-form=\x22remove-clone\x22]')['show']();
+    });
 }
 
 function cloneRemoveInput() {
-  const _0x45707d = _0x270fbf;
-  $("[data-clone-input-wrapper]")[_0x45707d(0x194)](function () {
-    const _0x4d1a30 = _0x45707d;
-    console[_0x4d1a30(0xe3)](
-      $(this)[_0x4d1a30(0x1a4)](_0x4d1a30(0x218))[_0x4d1a30(0x225)],
-    ),
-      $(this)["find"]("[data-clone-input]")[_0x4d1a30(0x225)] < 0x2
-        ? $(this)
-            [_0x4d1a30(0x1a4)]("[data-form=\x22remove-input-clone\x22]")
-            ["hide"]()
-        : $(this)
-            ["find"]("[data-form=\x22remove-input-clone\x22]")
-            [_0x4d1a30(0x180)]();
-  });
+    const _0x3f2b6d = _0x29f161;
+    $(_0x3f2b6d(0x8b))[_0x3f2b6d(0x1c3)](function() {
+        const _0x40daff = _0x3f2b6d;
+        console[_0x40daff(0xcc)]($(this)[_0x40daff(0x95)](_0x40daff(0x13e))['length']), $(this)[
+            'find'](_0x40daff(0x13e))['length'] < 0x2 ? $(this)['find'](_0x40daff(0xb1))[_0x40daff(
+            0x104)]() : $(this)[_0x40daff(0x95)]('[data-form=\x22remove-input-clone\x22]')[
+            _0x40daff(0x1ef)]();
+    });
 }
-$("[data-form=\x22remove-clone\x22]")["on"](_0x270fbf(0x1bd), function () {
-  const _0x433c53 = _0x270fbf,
-    _0x5293b2 =
-      $(this)[_0x433c53(0x10d)](_0x433c53(0x200))[_0x433c53(0x225)] > 0x0
-        ? $(this)["parents"](_0x433c53(0x200))[_0x433c53(0x20f)]()
-        : $(this)[_0x433c53(0x10d)](_0x433c53(0x107))[_0x433c53(0x20f)](),
-    _0x37aa87 =
-      $(this)["parents"](_0x433c53(0x200))["length"] > 0x0
-        ? $(this)[_0x433c53(0x10d)]("[data-clone]")[_0x433c53(0x21e)]("clone")
-        : $(this)
-            [_0x433c53(0x10d)](_0x433c53(0x107))
-            [_0x433c53(0x21e)](_0x433c53(0xd0));
-  $(_0x433c53(0x173) + _0x37aa87 + "\x22]")
-    ["eq"](_0x5293b2)
-    ["remove"](),
-    $("[data-display=\x22" + _0x37aa87 + "\x22]")
-      ["eq"](_0x5293b2)
-      [_0x433c53(0x199)](),
-    cloneRemove();
-  let _0x1d14c5 = $(_0x433c53(0x1a0) + _0x37aa87 + "\x22]")[_0x433c53(0x21e)](
-      "add-new-limit",
-    ),
-    _0x4cb0d3 = $(_0x433c53(0x173) + _0x37aa87 + "\x22]")[_0x433c53(0x225)];
-  console[_0x433c53(0xe3)](_0x4cb0d3, _0x1d14c5),
-    _0x4cb0d3 < _0x1d14c5 &&
-      (console[_0x433c53(0xe3)](_0x433c53(0x180)),
-      $(_0x433c53(0x1a0) + _0x37aa87 + "\x22]")[_0x433c53(0x180)]()),
-    validation();
-}),
-  $("[data-form=\x22remove-input-clone\x22]")["on"](
-    _0x270fbf(0x1bd),
-    function () {
-      const _0x40fdd9 = _0x270fbf;
-      let _0x2030c7 = $(this)
-          [_0x40fdd9(0x102)]()
-          [_0x40fdd9(0x164)](_0x40fdd9(0x14b)),
-        _0x24059f = $(this)
-          ["parents"](_0x40fdd9(0x218))
-          [_0x40fdd9(0x21e)](_0x40fdd9(0xf9));
-      $(this)[_0x40fdd9(0x163)](_0x40fdd9(0x218))[_0x40fdd9(0x199)](),
-        $(_0x40fdd9(0x221) + _0x2030c7 + "\x22]")
-          [_0x40fdd9(0x163)](_0x40fdd9(0x121))
-          [_0x40fdd9(0x199)]();
-      let _0x40bce4 = $(_0x40fdd9(0x23e) + _0x24059f + "\x22]")[
-          _0x40fdd9(0x21e)
-        ](_0x40fdd9(0x1ec)),
-        _0x198f2a = $(_0x40fdd9(0x1fd) + _0x24059f + "\x22]")["length"];
-      _0x198f2a < _0x40bce4 &&
-        $(_0x40fdd9(0x23e) + _0x24059f + "\x22]")["show"](),
-        validation();
-    },
-  ),
-  $(_0x270fbf(0x16b))["on"]("click", function () {
-    const _0x5c02f0 = _0x270fbf;
-    let _0x1b6369 = $(this)["data"](_0x5c02f0(0x155)),
-      _0x309cde = $(this)[_0x5c02f0(0x21e)](_0x5c02f0(0x104));
-    var _0x553840 = $(_0x5c02f0(0x173) + _0x1b6369 + "\x22]")
-        ["eq"](0x0)
-        [_0x5c02f0(0x160)](!![]),
-      _0x4acfd8 = $(_0x5c02f0(0x206) + _0x1b6369 + "\x22]")
-        ["eq"](0x0)
-        ["clone"](!![]);
-    let _0x924980 = "";
-    $(this)["find"](_0x5c02f0(0x1be))[_0x5c02f0(0x180)](),
-      cloneRemove(),
-      _0x553840[_0x5c02f0(0x1a4)]("[data-clone-input]")
-        [_0x5c02f0(0x1a4)](_0x5c02f0(0x17a))
-        [_0x5c02f0(0x16c)](""),
-      _0x553840[_0x5c02f0(0x1a4)](_0x5c02f0(0x218))
-        ["find"](_0x5c02f0(0x191))
-        [_0x5c02f0(0x16c)](""),
-      _0x553840[_0x5c02f0(0x1a4)](_0x5c02f0(0x218))
-        [_0x5c02f0(0x1a4)](_0x5c02f0(0x1aa))
-        [_0x5c02f0(0x16c)](""),
-      _0x553840["find"]("[data-clone-input]")
-        [_0x5c02f0(0x1b9)](":first")
-        [_0x5c02f0(0x199)](),
-      _0x553840[_0x5c02f0(0x1a4)](_0x5c02f0(0x218))
-        [_0x5c02f0(0x1a4)](_0x5c02f0(0x175))
-        ["click"](),
-      _0x4acfd8[_0x5c02f0(0x1a4)](_0x5c02f0(0x121))
-        ["not"](_0x5c02f0(0x17c))
-        [_0x5c02f0(0x199)](),
-      _0x553840[_0x5c02f0(0x1a4)](_0x5c02f0(0x17a))["each"](function () {
-        const _0x50384d = _0x5c02f0;
-        if (
-          $(this)[_0x50384d(0x1bb)](_0x50384d(0x218))[_0x50384d(0x225)] > 0x0
-        ) {
-          let _0x5a5b2d = 0x0;
-          const _0x4a6b8a = $(this)
-            [_0x50384d(0x1bb)](_0x50384d(0x218))
-            [_0x50384d(0x21e)](_0x50384d(0xf9));
-          $(_0x50384d(0x1fd) + _0x4a6b8a + _0x50384d(0x131))[_0x50384d(0x194)](
-            function () {
-              const _0xd9868b = _0x50384d,
-                _0x556d7f = $(this)[_0xd9868b(0x164)](_0xd9868b(0x14b));
-              if (_0x556d7f && _0x556d7f["startsWith"](_0xd9868b(0xd2))) {
-                const _0xaede20 = parseInt(
-                  _0x556d7f[_0xd9868b(0x228)]("-")[0x1],
-                );
-                !isNaN(_0xaede20) &&
-                  _0xaede20 > _0x5a5b2d &&
-                  (_0x5a5b2d = _0xaede20);
-              }
-            },
-          ),
-            _0x5a5b2d++,
-            (_0x924980 = this["name"] + "-" + _0x5a5b2d);
-        } else
-          _0x924980 =
-            this[_0x50384d(0x14b)] +
-            "-" +
-            (parseInt(
-              $("[data-clone=\x22" + _0x1b6369 + "\x22]")
-                [_0x50384d(0x201)]()
-                [_0x50384d(0x20f)](),
-            ) +
-              0x1);
-        $(this)["val"](""),
-          $(this)[_0x50384d(0x164)](_0x50384d(0x14b), _0x924980),
-          $(this)[_0x50384d(0x164)](_0x50384d(0x183), _0x924980);
-      }),
-      _0x553840["find"](_0x5c02f0(0x1aa))[_0x5c02f0(0x194)](function () {
-        const _0x1c5f58 = _0x5c02f0;
-        if (
-          $(this)[_0x1c5f58(0x1bb)]("[data-clone-input]")[_0x1c5f58(0x225)] >
-          0x0
-        ) {
-          let _0x44868f = 0x0;
-          const _0x3d5506 = $(this)
-            ["closest"](_0x1c5f58(0x218))
-            [_0x1c5f58(0x21e)](_0x1c5f58(0xf9));
-          $(_0x1c5f58(0x1fd) + _0x3d5506 + "\x22]\x20textarea")[
-            _0x1c5f58(0x194)
-          ](function () {
-            const _0x4b915f = _0x1c5f58,
-              _0x361da8 = $(this)["attr"]("name");
-            if (_0x361da8 && _0x361da8[_0x4b915f(0xe9)]("relationship-")) {
-              const _0x107a97 = parseInt(_0x361da8["split"]("-")[0x1]);
-              !isNaN(_0x107a97) &&
-                _0x107a97 > _0x44868f &&
-                (_0x44868f = _0x107a97);
+$('[data-form=\x22remove-clone\x22]')['on'](_0x29f161(0x145),
+    function() {
+        const _0x5b9abe = _0x29f161,
+            _0x235890 = $(this)[_0x5b9abe(0x180)](_0x5b9abe(0x1ce))['length'] > 0x0 ? $(this)['parents']
+            ('[data-clone]')[_0x5b9abe(0x103)]() : $(this)[_0x5b9abe(0x180)](_0x5b9abe(0x1a3))[
+                _0x5b9abe(0x103)](),
+            _0xfd6523 = $(this)[_0x5b9abe(0x180)]('[data-clone]')['length'] > 0x0 ? $(this)[_0x5b9abe(
+                0x180)]('[data-clone]')[_0x5b9abe(0x1cb)]('clone') : $(this)[_0x5b9abe(0x180)](
+                '[data-display]')[_0x5b9abe(0x1cb)](_0x5b9abe(0xa0));
+        $(_0x5b9abe(0x1e9) + _0xfd6523 + '\x22]')['eq'](_0x235890)[_0x5b9abe(0x167)](), $(_0x5b9abe(
+            0xd2) + _0xfd6523 + '\x22]')['eq'](_0x235890)['remove'](), cloneRemove();
+        let _0x11b136 = $(
+                '[data-add-new=\x22' + _0xfd6523 + '\x22]')[_0x5b9abe(0x1cb)]('add-new-limit'),
+            _0x3d47c7 = $(_0x5b9abe(0x1e9) + _0xfd6523 + '\x22]')[_0x5b9abe(0x1bf)];
+        console[_0x5b9abe(0xcc)](_0x3d47c7, _0x11b136), _0x3d47c7 < _0x11b136 && (console[_0x5b9abe(
+                0xcc)](_0x5b9abe(0x1ef)), $(_0x5b9abe(0x15d) + _0xfd6523 + '\x22]')[_0x5b9abe(0x1ef)]()),
+            validation();
+    }), $('[data-form=\x22remove-input-clone\x22]')['on'](_0x29f161(0x145),
+    function() {
+        const _0x50c023 = _0x29f161;
+        let _0x91dab6 = $(this)['siblings']()['attr'](
+                _0x50c023(0x122)),
+            _0x48ba88 = $(this)['parents'](_0x50c023(0x13e))[_0x50c023(0x1cb)](_0x50c023(0x16c));
+        $(this)[_0x50c023(0x16a)](_0x50c023(0x13e))[_0x50c023(0x167)](), $('[data-input-field=\x22' +
+            _0x91dab6 + '\x22]')[_0x50c023(0x16a)](_0x50c023(0x1fc))['remove']();
+        let _0x5b494b = $(
+                _0x50c023(0x1a8) + _0x48ba88 + '\x22]')[_0x50c023(0x1cb)](_0x50c023(0x189)),
+            _0x34c9f7 = $(_0x50c023(0x192) + _0x48ba88 + '\x22]')[_0x50c023(0x1bf)];
+        _0x34c9f7 < _0x5b494b && $(_0x50c023(0x1a8) + _0x48ba88 + '\x22]')[_0x50c023(0x1ef)](),
+            validation();
+    }), $(_0x29f161(0x81))['on']('click', function() {
+    const _0x3049bf =
+        _0x29f161;
+    let _0x446d8e = $(this)[_0x3049bf(0x1cb)](_0x3049bf(0x188)),
+        _0x45ae71 = $(this)['data'](_0x3049bf(0x1c7));
+    var _0x2c286f = $(_0x3049bf(0x1e9) +
+            _0x446d8e + '\x22]')['eq'](0x0)[_0x3049bf(0xc9)](!![]),
+        _0x224389 = $(_0x3049bf(0xd2) + _0x446d8e + '\x22]')['eq'](0x0)[_0x3049bf(0xc9)](!![]);
+    let
+        _0x4869f0 = '';
+    $(this)[_0x3049bf(0x95)](_0x3049bf(0xce))[_0x3049bf(0x1ef)](), cloneRemove(), _0x2c286f[
+            _0x3049bf(0x95)](_0x3049bf(0x13e))['find'](_0x3049bf(0x16d))['val'](''), _0x2c286f[
+            _0x3049bf(0x95)](_0x3049bf(0x13e))[_0x3049bf(0x95)](_0x3049bf(0xf4))['val'](''),
+        _0x2c286f['find']('[data-clone-input]')[_0x3049bf(0x95)](_0x3049bf(0x130))['val'](''),
+        _0x2c286f['find'](_0x3049bf(0x13e))['not'](':first')['remove'](), _0x2c286f[_0x3049bf(0x95)]
+        ('[data-clone-input]')[_0x3049bf(0x95)](_0x3049bf(0xe1))[_0x3049bf(0x145)](), _0x224389[
+            _0x3049bf(0x95)]('[data-display-input]')[_0x3049bf(0xc8)](':first')[_0x3049bf(0x167)](),
+        _0x2c286f[_0x3049bf(0x95)]('input')[_0x3049bf(0x1c3)](function() {
+            const _0x45995d =
+                _0x3049bf;
+            if ($(this)['closest'](_0x45995d(0x13e))[_0x45995d(0x1bf)] > 0x0) {
+                let
+                    _0x487ba1 = 0x0;
+                const _0x16aa65 = $(this)[_0x45995d(0xa8)](_0x45995d(0x13e))[
+                    _0x45995d(0x1cb)]('clone-input');
+                $('[data-clone-input=\x22' + _0x16aa65 + _0x45995d(0x7e))[_0x45995d(0x1c3)](
+                    function() {
+                        const _0x135e12 = _0x45995d,
+                            _0x3bdbb2 = $(this)[_0x135e12(0xb6)]('name');
+                        if (_0x3bdbb2 && _0x3bdbb2[
+                                _0x135e12(0xab)](_0x135e12(0x117))) {
+                            const _0x139194 = parseInt(_0x3bdbb2[
+                                _0x135e12(0x90)]('-')[0x1]);
+                            !isNaN(_0x139194) && _0x139194 > _0x487ba1 && (
+                                _0x487ba1 = _0x139194);
+                        }
+                    }), _0x487ba1++, _0x4869f0 = this[_0x45995d(
+                    0x122)] + '-' + _0x487ba1;
+            } else _0x4869f0 = this['name'] + '-' + (parseInt($(
+                _0x45995d(0x1e9) + _0x446d8e + '\x22]')[_0x45995d(0x106)]()['index']()) + 0x1);
+            $(this)[_0x45995d(0x137)](''), $(this)[_0x45995d(0xb6)](_0x45995d(0x122), _0x4869f0), $(
+                this)[_0x45995d(0xb6)](_0x45995d(0x11f), _0x4869f0);
+        }), _0x2c286f['find'](_0x3049bf(
+            0x130))[_0x3049bf(0x1c3)](function() {
+            const _0x2d7a70 = _0x3049bf;
+            if ($(this)[
+                    _0x2d7a70(0xa8)]('[data-clone-input]')['length'] > 0x0) {
+                let _0x3f64f2 = 0x0;
+                const
+                    _0x5e9241 = $(this)[_0x2d7a70(0xa8)](_0x2d7a70(0x13e))[_0x2d7a70(0x1cb)](_0x2d7a70(
+                        0x16c));
+                $('[data-clone-input=\x22' + _0x5e9241 + _0x2d7a70(0x115))['each'](function() {
+                    const
+                        _0x40a8cf = _0x2d7a70,
+                        _0x139de7 = $(this)[_0x40a8cf(0xb6)]('name');
+                    if (_0x139de7 && _0x139de7[
+                            _0x40a8cf(0xab)](_0x40a8cf(0x117))) {
+                        const _0x2fadfc = parseInt(_0x139de7[
+                            _0x40a8cf(0x90)]('-')[0x1]);
+                        !isNaN(_0x2fadfc) && _0x2fadfc > _0x3f64f2 && (
+                            _0x3f64f2 = _0x2fadfc);
+                    }
+                }), _0x3f64f2++, _0x4869f0 = this[_0x2d7a70(
+                    0x122)] + '-' + _0x3f64f2;
+            } else _0x4869f0 = this[_0x2d7a70(0x122)] + '-' + (
+                parseInt($(_0x2d7a70(0x1e9) + _0x446d8e + '\x22]')[_0x2d7a70(0x106)]()[_0x2d7a70(
+                    0x103)]()) + 0x1);
+            $(this)[_0x2d7a70(0x137)](''), $(this)[_0x2d7a70(0xb6)](_0x2d7a70(0x122), _0x4869f0), $(
+                this)[_0x2d7a70(0xb6)](_0x2d7a70(0x11f), _0x4869f0);
+        }), _0x2c286f[_0x3049bf(0x95)](
+            _0x3049bf(0xf4))['each'](function() {
+            const _0x3061ff = _0x3049bf;
+            if ($(this)['closest']
+                (_0x3061ff(0x13e))[_0x3061ff(0x1bf)] > 0x0) {
+                let _0x717b14 = 0x0;
+                const _0x1b2261 =
+                    $(this)[_0x3061ff(0xa8)](_0x3061ff(0x13e))[_0x3061ff(0x1cb)]('clone-input');
+                $(_0x3061ff(0x192) + _0x1b2261 + _0x3061ff(0x7b))[_0x3061ff(0x1c3)](
+                    function() {
+                        const _0x208d7c = _0x3061ff,
+                            _0x195b76 = $(this)[_0x208d7c(0xb6)](_0x208d7c(0x122));
+                        if (_0x195b76 &&
+                            _0x195b76[_0x208d7c(0xab)](_0x208d7c(0x117))) {
+                            const _0x269f3b = parseInt(
+                                _0x195b76[_0x208d7c(0x90)]('-')[0x1]);
+                            !isNaN(_0x269f3b) && _0x269f3b >
+                                _0x717b14 && (_0x717b14 = _0x269f3b);
+                        }
+                    }), _0x717b14++, _0x4869f0 = this[
+                    _0x3061ff(0x122)] + '-' + _0x717b14;
+            } else _0x4869f0 = this[_0x3061ff(0x122)] +
+                '-' + (parseInt($(_0x3061ff(0x1e9) + _0x446d8e + '\x22]')[_0x3061ff(0x106)]()['index']
+                    ()) + 0x1);
+            $(this)[_0x3061ff(0x137)](''), $(this)[_0x3061ff(0xb6)]('name', _0x4869f0), $(this)[
+                _0x3061ff(0xb6)](_0x3061ff(0x11f), _0x4869f0);
+        }), _0x224389['find'](_0x3049bf(0x19c))[
+            _0x3049bf(0x1c3)](function() {
+            const _0x6ccce7 = _0x3049bf;
+            if ($(this)['data'](
+                    _0x6ccce7(0x1bb))) {
+                let _0x1b1b2a = 0x0;
+                const _0x4c264e = $(this)[_0x6ccce7(
+                    0x1cb)](_0x6ccce7(0x1bb))[_0x6ccce7(0x90)]('-')[0x0];
+                $(_0x6ccce7(0xd2) + _0x446d8e + _0x6ccce7(0x1d2) + _0x4c264e + '\x22]')[_0x6ccce7(
+                        0x1c3)](function() {
+                        const _0x5efe87 = _0x6ccce7,
+                            _0x115d83 = $(this)['attr']('data-input-field'),
+                            _0x3088d0 = parseInt(_0x115d83[_0x5efe87(0x90)]('-')[0x1]);
+                        !isNaN(
+                            _0x3088d0) && _0x3088d0 > _0x1b1b2a && (_0x1b1b2a = _0x3088d0);
+                    }),
+                    _0x1b1b2a++;
+                const _0x49a5a4 = _0x4c264e + '-' + _0x1b1b2a;
+                $(this)['attr'](_0x6ccce7(0x1e3), _0x49a5a4);
             }
-          }),
-            _0x44868f++,
-            (_0x924980 = this[_0x1c5f58(0x14b)] + "-" + _0x44868f);
-        } else
-          _0x924980 =
-            this[_0x1c5f58(0x14b)] +
-            "-" +
-            (parseInt(
-              $("[data-clone=\x22" + _0x1b6369 + "\x22]")
-                [_0x1c5f58(0x201)]()
-                ["index"](),
-            ) +
-              0x1);
-        $(this)[_0x1c5f58(0x16c)](""),
-          $(this)["attr"](_0x1c5f58(0x14b), _0x924980),
-          $(this)[_0x1c5f58(0x164)]("data-name", _0x924980);
-      }),
-      _0x553840[_0x5c02f0(0x1a4)](_0x5c02f0(0x191))["each"](function () {
-        const _0x16952b = _0x5c02f0;
-        if (
-          $(this)[_0x16952b(0x1bb)]("[data-clone-input]")[_0x16952b(0x225)] >
-          0x0
-        ) {
-          let _0x1b21f3 = 0x0;
-          const _0x289aa6 = $(this)
-            [_0x16952b(0x1bb)](_0x16952b(0x218))
-            [_0x16952b(0x21e)]("clone-input");
-          $("[data-clone-input=\x22" + _0x289aa6 + "\x22]\x20select")[
-            _0x16952b(0x194)
-          ](function () {
-            const _0x5425af = _0x16952b,
-              _0x425c2b = $(this)["attr"](_0x5425af(0x14b));
-            if (_0x425c2b && _0x425c2b[_0x5425af(0xe9)](_0x5425af(0xd2))) {
-              const _0xd97249 = parseInt(_0x425c2b["split"]("-")[0x1]);
-              !isNaN(_0xd97249) &&
-                _0xd97249 > _0x1b21f3 &&
-                (_0x1b21f3 = _0xd97249);
+        }), $('[data-clone-wrapper=\x22' +
+            _0x446d8e + '\x22]')['append'](_0x2c286f), $(_0x3049bf(0x112) + _0x446d8e + '\x22]')[
+            _0x3049bf(0x10a)](_0x224389), $('[data-index=\x22' + _0x446d8e + '\x22]')[_0x3049bf(
+            0x1c3)](function() {
+            const _0x53940c = _0x3049bf;
+            $(this)['text']($(this)[_0x53940c(0x180)](_0x53940c(0x1e9) + _0x446d8e + '\x22]')[
+                _0x53940c(0x103)]() + 0x1);
+        }), $(_0x3049bf(0x134) + _0x446d8e + '\x22]')['each'](
+            function() {
+                const _0x38880a = _0x3049bf;
+                $(this)[_0x38880a(0x1b7)]($(this)[_0x38880a(0x180)]('[data-display=\x22' + _0x446d8e +
+                    '\x22]')[_0x38880a(0x103)]() + 0x1);
+            });
+    let _0x3a2a7a = $(
+        '[data-clone-wrapper=\x22' + _0x446d8e + _0x3049bf(0x17a) + _0x446d8e + '\x22]')[
+        _0x3049bf(0x1bf)];
+    if (_0x3a2a7a >= _0x45ae71) { $(this)[_0x3049bf(0x104)](); return; }
+    $(
+        this)['show'](), validation();
+}), $('[data-add-new-input]')['on'](_0x29f161(0x145),
+    function() {
+        const _0x3c6850 = _0x29f161,
+            _0x562ade = $(this)[_0x3c6850(0x180)](_0x3c6850(0x1ce))[_0x3c6850(0x103)]();
+        let _0x1411b6 =
+            $(this)[_0x3c6850(0x1cb)](_0x3c6850(0x1ff));
+        var _0x5a8bb6 = $(_0x3c6850(0x192) +
+                _0x1411b6 + '\x22]')['eq'](0x0)[_0x3c6850(0xc9)](!![]),
+            _0x9fa158 = $('[data-display-input=\x22' + _0x1411b6 + '\x22]')['eq'](0x0)['clone'](!
+                ![]);
+        let _0x49864a = $(this)[_0x3c6850(0x1cb)](_0x3c6850(0x189)),
+            _0x43d5e4 = 0x0;
+        $(_0x3c6850(0x192) + _0x1411b6 + '\x22]\x20input')['each'](function() {
+            const _0x29ab9a =
+                _0x3c6850,
+                _0x3e472d = $(this)[_0x29ab9a(0xb6)]('name');
+            if (_0x3e472d) {
+                const _0x47c750 =
+                    parseInt(_0x3e472d[_0x29ab9a(0x90)]('-')[0x1]);
+                !isNaN(_0x47c750) && _0x47c750 >
+                    _0x43d5e4 && (_0x43d5e4 = _0x47c750);
             }
-          }),
-            _0x1b21f3++,
-            (_0x924980 = this[_0x16952b(0x14b)] + "-" + _0x1b21f3);
-        } else
-          _0x924980 =
-            this[_0x16952b(0x14b)] +
-            "-" +
-            (parseInt(
-              $("[data-clone=\x22" + _0x1b6369 + "\x22]")
-                [_0x16952b(0x201)]()
-                [_0x16952b(0x20f)](),
-            ) +
-              0x1);
-        $(this)[_0x16952b(0x16c)](""),
-          $(this)["attr"](_0x16952b(0x14b), _0x924980),
-          $(this)[_0x16952b(0x164)](_0x16952b(0x183), _0x924980);
-      }),
-      _0x4acfd8[_0x5c02f0(0x1a4)](_0x5c02f0(0x202))[_0x5c02f0(0x194)](
-        function () {
-          const _0x39e92c = _0x5c02f0;
-          if ($(this)[_0x39e92c(0x21e)](_0x39e92c(0x20e))) {
-            let _0x250922 = 0x0;
-            const _0x5a894a = $(this)
-              [_0x39e92c(0x21e)](_0x39e92c(0x20e))
-              [_0x39e92c(0x228)]("-")[0x0];
-            $(
-              _0x39e92c(0x206) +
-                _0x1b6369 +
-                _0x39e92c(0x15d) +
-                _0x5a894a +
-                "\x22]",
-            )[_0x39e92c(0x194)](function () {
-              const _0x53a03f = _0x39e92c,
-                _0x3471af = $(this)["attr"](_0x53a03f(0xcc)),
-                _0x855ce2 = parseInt(_0x3471af[_0x53a03f(0x228)]("-")[0x1]);
-              !isNaN(_0x855ce2) &&
-                _0x855ce2 > _0x250922 &&
-                (_0x250922 = _0x855ce2);
-            }),
-              _0x250922++;
-            const _0x31941b = _0x5a894a + "-" + _0x250922;
-            $(this)[_0x39e92c(0x164)](_0x39e92c(0xcc), _0x31941b);
-          }
-        },
-      ),
-      $("[data-clone-wrapper=\x22" + _0x1b6369 + "\x22]")[_0x5c02f0(0x12b)](
-        _0x553840,
-      ),
-      $(_0x5c02f0(0xee) + _0x1b6369 + "\x22]")["append"](_0x4acfd8),
-      $("[data-index=\x22" + _0x1b6369 + "\x22]")["each"](function () {
-        const _0x5b45b6 = _0x5c02f0;
-        $(this)[_0x5b45b6(0x18b)](
-          $(this)
-            [_0x5b45b6(0x10d)](_0x5b45b6(0x173) + _0x1b6369 + "\x22]")
-            [_0x5b45b6(0x20f)]() + 0x1,
-        );
-      }),
-      $(_0x5c02f0(0xe5) + _0x1b6369 + "\x22]")["each"](function () {
-        const _0x137e21 = _0x5c02f0;
-        $(this)[_0x137e21(0x18b)](
-          $(this)
-            ["parents"](_0x137e21(0x206) + _0x1b6369 + "\x22]")
-            [_0x137e21(0x20f)]() + 0x1,
-        );
-      });
-    let _0x30a4f1 = $(
-      _0x5c02f0(0x1c2) + _0x1b6369 + _0x5c02f0(0x1ba) + _0x1b6369 + "\x22]",
-    )[_0x5c02f0(0x225)];
-    if (_0x30a4f1 >= _0x309cde) {
-      $(this)["hide"]();
-      return;
-    }
-    $(this)["show"](), validation();
-  }),
-  $(_0x270fbf(0x154))["on"](_0x270fbf(0x1bd), function () {
-    const _0x4919bd = _0x270fbf,
-      _0x5ea66d = $(this)
-        [_0x4919bd(0x10d)](_0x4919bd(0x200))
-        [_0x4919bd(0x20f)]();
-    let _0x4fe739 = $(this)["data"](_0x4919bd(0x13b));
-    var _0x199f82 = $(_0x4919bd(0x1fd) + _0x4fe739 + "\x22]")
-        ["eq"](0x0)
-        ["clone"](!![]),
-      _0x574119 = $(_0x4919bd(0x142) + _0x4fe739 + "\x22]")
-        ["eq"](0x0)
-        [_0x4919bd(0x160)](!![]);
-    let _0x4a4ad8 = $(this)["data"](_0x4919bd(0x1ec)),
-      _0x1a39f4 = 0x0;
-    $(_0x4919bd(0x1fd) + _0x4fe739 + _0x4919bd(0x131))["each"](function () {
-      const _0x4306b8 = $(this)["attr"]("name");
-      if (_0x4306b8) {
-        const _0x3106dc = parseInt(_0x4306b8["split"]("-")[0x1]);
-        !isNaN(_0x3106dc) && _0x3106dc > _0x1a39f4 && (_0x1a39f4 = _0x3106dc);
-      }
-    }),
-      $("[data-clone-input=\x22" + _0x4fe739 + _0x4919bd(0x21b))[
-        _0x4919bd(0x194)
-      ](function () {
-        const _0x432843 = _0x4919bd,
-          _0x3630fc = $(this)[_0x432843(0x164)](_0x432843(0x14b));
-        if (_0x3630fc) {
-          const _0x357047 = parseInt(_0x3630fc[_0x432843(0x228)]("-")[0x1]);
-          !isNaN(_0x357047) && _0x357047 > _0x1a39f4 && (_0x1a39f4 = _0x357047);
-        }
-      }),
-      $(_0x4919bd(0x1fd) + _0x4fe739 + _0x4919bd(0x11d))[_0x4919bd(0x194)](
-        function () {
-          const _0x390231 = _0x4919bd,
-            _0x339dd8 = $(this)[_0x390231(0x164)](_0x390231(0x14b));
-          if (_0x339dd8) {
-            const _0x359a73 = parseInt(_0x339dd8["split"]("-")[0x1]);
-            !isNaN(_0x359a73) &&
-              _0x359a73 > _0x1a39f4 &&
-              (_0x1a39f4 = _0x359a73);
-          }
-        },
-      ),
-      _0x1a39f4++,
-      _0x199f82[_0x4919bd(0x1a4)](_0x4919bd(0x17a))["each"](function () {
-        const _0x339253 = _0x4919bd,
-          _0x41d407 = $(this)[_0x339253(0x164)](_0x339253(0x14b));
-        let _0x1cc80c = _0x41d407 + "-" + _0x1a39f4;
-        $(this)[_0x339253(0x16c)](""),
-          $(this)[_0x339253(0x164)](_0x339253(0x14b), _0x1cc80c),
-          $(this)["attr"](_0x339253(0x183), _0x1cc80c);
-      }),
-      _0x199f82["find"](_0x4919bd(0x191))[_0x4919bd(0x194)](function () {
-        const _0x5f2b11 = _0x4919bd,
-          _0x1881ed = $(this)[_0x5f2b11(0x164)](_0x5f2b11(0x14b));
-        let _0x42db1b = _0x1881ed + "-" + _0x1a39f4;
-        $(this)[_0x5f2b11(0x16c)](""),
-          $(this)["attr"](_0x5f2b11(0x14b), _0x42db1b),
-          $(this)["attr"](_0x5f2b11(0x183), _0x42db1b);
-      }),
-      _0x199f82["find"](_0x4919bd(0x1aa))[_0x4919bd(0x194)](function () {
-        const _0x333a6b = _0x4919bd,
-          _0x7b5d5 = $(this)[_0x333a6b(0x164)]("name");
-        let _0xb1c7bd = _0x7b5d5 + "-" + _0x1a39f4;
-        $(this)[_0x333a6b(0x16c)](""),
-          $(this)[_0x333a6b(0x164)](_0x333a6b(0x14b), _0xb1c7bd),
-          $(this)[_0x333a6b(0x164)](_0x333a6b(0x183), _0xb1c7bd);
-      }),
-      _0x574119[_0x4919bd(0x1a4)]("[data-input-field]")[_0x4919bd(0x194)](
-        function () {
-          const _0x316026 = _0x4919bd;
-          $(this)[_0x316026(0x164)](
-            "data-input-field",
-            "relationship-" + _0x1a39f4,
-          );
-        },
-      ),
-      $(this)
-        [_0x4919bd(0x102)](_0x4919bd(0x1a8) + _0x4fe739 + "\x22]")
-        ["append"](_0x199f82),
-      $(_0x4919bd(0x107))
-        ["eq"](_0x5ea66d)
-        [_0x4919bd(0x1a4)](_0x4919bd(0xdf) + _0x4fe739 + "\x22]")
-        ["append"](_0x574119),
-      $(_0x4919bd(0x1df) + _0x4fe739 + "\x22]")["each"](function () {
-        const _0xd5d6cb = _0x4919bd;
-        $(this)[_0xd5d6cb(0x18b)](
-          $(this)
-            ["parents"](_0xd5d6cb(0x1fd) + _0x4fe739 + "\x22]")
-            [_0xd5d6cb(0x20f)]() + 0x1,
-        );
-      }),
-      $(_0x4919bd(0x1b7) + _0x4fe739 + "\x22]")["each"](function () {
-        const _0x4052af = _0x4919bd;
-        $(this)["text"](
-          $(this)
-            [_0x4052af(0x10d)]("[data-display-input=\x22" + _0x4fe739 + "\x22]")
-            [_0x4052af(0x20f)]() + 0x1,
-        );
-      });
-    let _0xc539c3 = $(
-      "[data-clone-input-wrapper=\x22" +
-        _0x4fe739 +
-        _0x4919bd(0x189) +
-        _0x4fe739 +
-        "\x22]",
-    )[_0x4919bd(0x225)];
-    if (_0xc539c3 >= _0x4a4ad8) {
-      $(this)[_0x4919bd(0x22a)]();
-      return;
-    }
-    $(this)[_0x4919bd(0x180)](), cloneRemoveInput(), validation();
-  }),
-  $(_0x270fbf(0x181))["on"](_0x270fbf(0x1bd), function () {
-    const _0x166d3a = _0x270fbf,
-      _0x1ac166 = $(this)[_0x166d3a(0x21e)](_0x166d3a(0xd9));
-    $(_0x166d3a(0x167) + _0x1ac166 + "\x22]")["val"](""), validation();
-  });
+        }), $(_0x3c6850(0x192) + _0x1411b6 +
+            '\x22]\x20select')[_0x3c6850(0x1c3)](function() {
+            const _0x387091 = _0x3c6850,
+                _0x470ced = $(this)['attr'](_0x387091(0x122));
+            if (_0x470ced) {
+                const _0x1cdcac =
+                    parseInt(_0x470ced[_0x387091(0x90)]('-')[0x1]);
+                !isNaN(_0x1cdcac) && _0x1cdcac >
+                    _0x43d5e4 && (_0x43d5e4 = _0x1cdcac);
+            }
+        }), $('[data-clone-input=\x22' + _0x1411b6 +
+            _0x3c6850(0x115))['each'](function() {
+            const _0x3aff28 = _0x3c6850,
+                _0x3748d8 = $(this)[_0x3aff28(0xb6)](_0x3aff28(0x122));
+            if (_0x3748d8) {
+                const
+                    _0x51513f = parseInt(_0x3748d8[_0x3aff28(0x90)]('-')[0x1]);
+                !isNaN(_0x51513f) &&
+                    _0x51513f > _0x43d5e4 && (_0x43d5e4 = _0x51513f);
+            }
+        }), _0x43d5e4++, _0x5a8bb6[
+            _0x3c6850(0x95)]('input')['each'](function() {
+            const _0x21412e = _0x3c6850,
+                _0xa3cda8 = $(this)[_0x21412e(0xb6)](_0x21412e(0x122));
+            let _0x1211b7 = _0xa3cda8 +
+                '-' + _0x43d5e4;
+            $(this)[_0x21412e(0x137)](''), $(this)[_0x21412e(0xb6)]('name', _0x1211b7), $(this)[
+                _0x21412e(0xb6)](_0x21412e(0x11f), _0x1211b7);
+        }), _0x5a8bb6[_0x3c6850(0x95)]('select')[
+            'each'](function() {
+            const _0xfbff80 = _0x3c6850,
+                _0x54c894 = $(this)[_0xfbff80(0xb6)](_0xfbff80(0x122));
+            let _0x5355cd = _0x54c894 +
+                '-' + _0x43d5e4;
+            $(this)[_0xfbff80(0x137)](''), $(this)[_0xfbff80(0xb6)]('name', _0x5355cd), $(this)[
+                _0xfbff80(0xb6)](_0xfbff80(0x11f), _0x5355cd);
+        }), _0x5a8bb6[_0x3c6850(0x95)](
+            'textarea')[_0x3c6850(0x1c3)](function() {
+            const _0x32dbaf = _0x3c6850,
+                _0x1b853e = $(this)[_0x32dbaf(0xb6)](_0x32dbaf(0x122));
+            let _0x534db4 = _0x1b853e +
+                '-' + _0x43d5e4;
+            $(this)[_0x32dbaf(0x137)](''), $(this)[_0x32dbaf(0xb6)](_0x32dbaf(0x122), _0x534db4), $(
+                this)[_0x32dbaf(0xb6)](_0x32dbaf(0x11f), _0x534db4);
+        }), _0x9fa158['find'](_0x3c6850(
+            0x19c))['each'](function() {
+            const _0x999c91 = _0x3c6850;
+            $(this)[_0x999c91(0xb6)]('data-input-field', _0x999c91(0x117) + _0x43d5e4);
+        }), $(this)[
+            _0x3c6850(0xcb)](_0x3c6850(0x113) + _0x1411b6 + '\x22]')['append'](_0x5a8bb6), $(
+            _0x3c6850(0x1a3))['eq'](_0x562ade)['find']('[data-display-input-wrapper=\x22' +
+            _0x1411b6 + '\x22]')[_0x3c6850(0x10a)](_0x9fa158), $('[data-input-index=\x22' +
+            _0x1411b6 + '\x22]')['each'](function() {
+            const _0x44eb4f = _0x3c6850;
+            $(this)[_0x44eb4f(0x1b7)]($(this)[_0x44eb4f(0x180)]('[data-clone-input=\x22' +
+                _0x1411b6 + '\x22]')[_0x44eb4f(0x103)]() + 0x1);
+        }), $(_0x3c6850(0xa6) + _0x1411b6 +
+            '\x22]')[_0x3c6850(0x1c3)](function() {
+            const _0x42a1cb = _0x3c6850;
+            $(this)[_0x42a1cb(0x1b7)]($(this)[_0x42a1cb(0x180)](_0x42a1cb(0x1ba) + _0x1411b6 +
+                '\x22]')[_0x42a1cb(0x103)]() + 0x1);
+        });
+        let _0x5ac726 = $(
+            '[data-clone-input-wrapper=\x22' + _0x1411b6 + _0x3c6850(0x99) + _0x1411b6 + '\x22]')[
+            _0x3c6850(0x1bf)];
+        if (_0x5ac726 >= _0x49864a) { $(this)[_0x3c6850(0x104)](); return; }
+        $(
+            this)[_0x3c6850(0x1ef)](), cloneRemoveInput(), validation();
+    }), $(_0x29f161(0x9e))['on'](
+    _0x29f161(0x145),
+    function() {
+        const _0x2792bb = _0x29f161,
+            _0x79e715 = $(this)[_0x2792bb(0x1cb)](_0x2792bb(0x1a7));
+        $(_0x2792bb(0x1a0) + _0x79e715 + '\x22]')[_0x2792bb(0x137)](''), validation();
+    });
 
 function andLogic() {
-  const _0x1f7ac6 = _0x270fbf;
-  conditionalResult &&
-    (steps["eq"](x)[_0x1f7ac6(0x1a4)](_0x1f7ac6(0x17d))[_0x1f7ac6(0x22a)](),
-    steps["eq"](x)
-      ["find"]("[data-show-if]")
-      [_0x1f7ac6(0x194)](function () {
-        const _0x4b26aa = _0x1f7ac6;
+    const _0x5393d5 = _0x29f161;
+    conditionalResult && (steps['eq'](x)[_0x5393d5(0x95)](_0x5393d5(0x13d))[_0x5393d5(0x104)](),
+        steps['eq'](x)[_0x5393d5(0x95)](_0x5393d5(0x13d))[_0x5393d5(0x1c3)](function() {
+            function _0x3bbd04(_0x4a3349) {
+                const _0x133afc = _0x4852,
+                    _0x4da089 = _0x4a3349[_0x133afc(0x90)]('&'),
+                    _0x1a5a3e = [];
+                return _0x4da089[_0x133afc(0x1e8)](_0x1b13eb => {
+                    const _0x2cb1e7 =
+                        _0x133afc,
+                        [_0x3cbfff, _0x4fbb9d] = _0x1b13eb[_0x2cb1e7(0x90)]('=');
+                    _0x1a5a3e['push']({ 'field': _0x3cbfff, 'value': _0x4fbb9d });
+                }), _0x1a5a3e;
+            }
+            const
+                _0xc36de0 = $(this)['attr']('data-show-if'),
+                _0x7bcb89 = _0x3bbd04(_0xc36de0);
 
-        function _0x577de0(_0x416694) {
-          const _0x26f1cf = _0x2393,
-            _0x47371e = _0x416694[_0x26f1cf(0x228)]("&"),
-            _0xcce9e5 = [];
-          return (
-            _0x47371e[_0x26f1cf(0x143)]((_0x23b6e8) => {
-              const _0x27de75 = _0x26f1cf,
-                [_0x3e59d0, _0x485b70] = _0x23b6e8[_0x27de75(0x228)]("=");
-              _0xcce9e5[_0x27de75(0x172)]({
-                field: _0x3e59d0,
-                value: _0x485b70,
-              });
-            }),
-            _0xcce9e5
-          );
-        }
-        const _0x12384c = $(this)[_0x4b26aa(0x164)](_0x4b26aa(0x207)),
-          _0x24303f = _0x577de0(_0x12384c);
-
-        function _0x36a4a8(_0x35517a, _0x154660) {
-          const _0x1c9381 = _0x4b26aa;
-          return _0x154660[_0x1c9381(0x1e8)]((_0x45079b, _0x2c80d5) => {
-            const _0x373279 = _0x1c9381;
-            if (
-              _0x35517a[0x0] &&
-              _0x45079b[_0x373279(0x19d)] === _0x35517a[0x0][_0x373279(0x19d)]
-            )
-              return _0x35517a[_0x373279(0x1c9)](
-                (_0x4b3e6a, _0x5add03) =>
-                  _0x154660[_0x2c80d5 + _0x5add03] &&
-                  _0x154660[_0x2c80d5 + _0x5add03][_0x373279(0x19d)] ===
-                    _0x4b3e6a[_0x373279(0x19d)] &&
-                  _0x154660[_0x2c80d5 + _0x5add03][_0x373279(0x10b)] ===
-                    _0x4b3e6a[_0x373279(0x10b)],
-              );
-            return ![];
-          });
-        }
-        const _0x302f22 = _0x36a4a8(_0x24303f, all_data);
-        _0x302f22 ? $(this)["show"]() : $(this)[_0x4b26aa(0x22a)]();
-      }));
+            function _0x39488b(_0x2ae49a, _0x370ac0) {
+                const _0x4af17b = _0x4852;
+                return _0x370ac0[
+                    _0x4af17b(0x201)]((_0x1c1c78, _0x33a724) => {
+                    const _0x3a7c52 = _0x4af17b;
+                    if (
+                        _0x2ae49a[0x0] && _0x1c1c78[_0x3a7c52(0xea)] === _0x2ae49a[0x0][_0x3a7c52(0xea)]
+                    ) return _0x2ae49a[_0x3a7c52(0xe7)]((_0x2e58d0, _0x28c38a) => _0x370ac0[
+                        _0x33a724 + _0x28c38a] && _0x370ac0[_0x33a724 + _0x28c38a][_0x3a7c52(
+                        0xea)] === _0x2e58d0[_0x3a7c52(0xea)] && _0x370ac0[_0x33a724 + _0x28c38a][
+                        _0x3a7c52(0x150)
+                    ] === _0x2e58d0[_0x3a7c52(0x150)]);
+                    return ![];
+                });
+            }
+            const _0x380821 = _0x39488b(
+                _0x7bcb89, all_data);
+            _0x380821 ? $(this)['show']() : $(this)['hide']();
+        }));
 }
-$(_0x270fbf(0x108))[_0x270fbf(0xce)](_0x270fbf(0x22a)),
-  $(_0x270fbf(0xe1))["on"](_0x270fbf(0x17a), function () {
-    const _0x199d59 = _0x270fbf,
-      _0x3492cc = $(this)["data"]("progressive-input"),
-      _0x42a586 = $(this)["val"](),
-      _0x54e134 = $(_0x199d59(0x196) + _0x3492cc + "\x22]")[_0x199d59(0x21e)](
-        "progressive-input-value",
-      );
-    let _0x581102 = $(
-        _0x199d59(0x196) + _0x3492cc + _0x199d59(0x22e) + _0x42a586 + "\x22]",
-      ),
-      _0x27d9c1 = $(
-        _0x199d59(0x196) +
-          _0x3492cc +
-          "\x22][data-progressive-input-value=\x22*\x22]",
-      );
-    $(_0x199d59(0x196) + _0x3492cc + "\x22]")[_0x199d59(0xce)](
-      _0x199d59(0x22a),
-    ),
-      $(_0x199d59(0x196) + _0x3492cc + "\x22]")["removeClass"]("show");
-    _0x42a586 !== "" &&
-      (_0x54e134 === "*" && _0x42a586 !== ""
-        ? (_0x27d9c1[_0x199d59(0x159)](_0x199d59(0x22a)),
-          _0x27d9c1[_0x199d59(0xce)](_0x199d59(0x180)))
-        : (_0x581102[_0x199d59(0x159)](_0x199d59(0x22a)),
-          _0x581102[_0x199d59(0xce)]("show")));
+progressiveTarget[_0x29f161(0x142)](
+    _0x29f161(0x104)), progressiveInput['on'](_0x29f161(0x16d), function() {
+    const _0xb534f4 =
+        _0x29f161,
+        _0x1b17bb = $(this)[_0xb534f4(0x1cb)](_0xb534f4(0x18b)),
+        _0x1fa616 = $(this)[_0xb534f4(0x137)](),
+        _0x1ca69e = $(_0xb534f4(0x173))[_0xb534f4(0x95)](_0xb534f4(0x18f) + _0x1b17bb + '\x22]')[
+            _0xb534f4(0x1cb)](_0xb534f4(0xc0));
+    let _0xf02ac0 = $(_0xb534f4(0x173))[_0xb534f4(0x95)](
+            _0xb534f4(0x18f) + _0x1b17bb + _0xb534f4(0xdf) + _0x1fa616 + '\x22]'),
+        _0x24b9eb = $(_0xb534f4(0x173))[_0xb534f4(0x95)](_0xb534f4(0x18f) + _0x1b17bb + _0xb534f4(
+            0x107));
+    $(_0xb534f4(0x173))[_0xb534f4(0x95)]('[data-progressive-target=\x22' + _0x1b17bb + '\x22]')[
+        _0xb534f4(0x142)](_0xb534f4(0x104)), $(_0xb534f4(0x173))[_0xb534f4(0x95)](_0xb534f4(
+        0x18f) + _0x1b17bb + '\x22]')['removeClass']('show');
+    _0x1fa616 !== '' && (_0x1ca69e === '*' && _0x1fa616 !== '' ? (_0x24b9eb[_0xb534f4(0x181)](
+        'hide'), _0x24b9eb['addClass']('show')) : (_0xf02ac0['removeClass']('hide'), _0xf02ac0[
+        _0xb534f4(0x142)]('show')));
 
-    function _0x1aeb91(_0x1424df) {
-      const _0x40c4d5 = _0x199d59;
-      _0x1424df &&
-        $("[data-progressive-input=\x22" + _0x1424df + "\x22]")[
-          _0x40c4d5(0x16c)
-        ]() !== "" &&
-        $("[data-progressive-input=\x22" + _0x1424df + "\x22]")[
-          _0x40c4d5(0xc7)
-        ](_0x40c4d5(0x17a));
+    function _0x4a706e(_0x3be2ca) {
+        const _0x38624a = _0xb534f4;
+        _0x3be2ca && ($(_0x38624a(0x173))[_0x38624a(0x95)](_0x38624a(0xe0) + _0x3be2ca + '\x22]')[
+            'val']() !== '' && $('[data-form=\x22multistep\x22]')[_0x38624a(0x95)](
+            '[data-progressive-input=\x22' + _0x3be2ca + '\x22]')[_0x38624a(0x1af)]('input'));
     }
-    let _0x8ad13a = $("[data-progressive-target=\x22" + _0x3492cc + "\x22]")
-      ["find"](_0x199d59(0xe1))
-      [_0x199d59(0x21e)]("progressive-input");
-    _0x1aeb91(_0x8ad13a),
-      $(_0x199d59(0x127))["each"](function () {
-        const _0x1131c9 = _0x199d59,
-          _0x25a105 = $(this)[_0x1131c9(0x21e)](_0x1131c9(0x117));
-        $(_0x1131c9(0x196) + _0x25a105 + "\x22]")[_0x1131c9(0x159)](
-          _0x1131c9(0x180),
-        ),
-          $("[data-progressive-target=\x22" + _0x25a105 + "\x22]")[
-            _0x1131c9(0xce)
-          ](_0x1131c9(0x22a));
-      });
-  });
+    let
+        _0x1c882a = $('[data-form=\x22multistep\x22]')[_0xb534f4(0x95)](
+            '[data-progressive-target=\x22' + _0x1b17bb + '\x22]')['find'](
+            '[data-progressive-input]')[_0xb534f4(0x1cb)](_0xb534f4(0x18b));
+    _0x4a706e(_0x1c882a), $(_0xb534f4(0x173))[_0xb534f4(0x95)](_0xb534f4(0x1c8))[_0xb534f4(0x1c3)]
+        (function() {
+            const _0x1ec873 = _0xb534f4,
+                _0x5008e8 = $(_0x1ec873(0x173))[_0x1ec873(0x95)](this)[_0x1ec873(0x1cb)](
+                    'progressive-input');
+            $('[data-form=\x22multistep\x22]')[_0x1ec873(0x95)](_0x1ec873(0x18f) + _0x5008e8 +
+                '\x22]')[_0x1ec873(0x181)]('show'), $(_0x1ec873(0x173))[_0x1ec873(0x95)](_0x1ec873(
+                0x18f) + _0x5008e8 + '\x22]')[_0x1ec873(0x142)](_0x1ec873(0x104));
+        });
+});
 
 function addClickClass() {
-  const _0x117ec8 = _0x270fbf,
-    _0x4f0639 = $(this)[_0x117ec8(0x21e)]("click-addclass"),
-    _0x309114 = $(this)[_0x117ec8(0x164)](_0x117ec8(0x14b));
-  $(_0x117ec8(0x167) + _0x309114 + "\x22]")
-    [_0x117ec8(0x163)]()
-    [_0x117ec8(0x159)](_0x4f0639),
-    $(this)["is"](_0x117ec8(0x132)) &&
-      $(this)[_0x117ec8(0x163)]()[_0x117ec8(0xce)](_0x4f0639);
+    const _0x1ca7f3 = _0x29f161,
+        _0x41ef50 = $(this)[_0x1ca7f3(0x1cb)](_0x1ca7f3(0xd3)),
+        _0x4245cb = $(this)[_0x1ca7f3(0xb6)]('name');
+    $('input[name=\x22' + _0x4245cb + '\x22]')[_0x1ca7f3(0x16a)]()['removeClass'](_0x41ef50), $(this)[
+        'is'](':checked') && $(this)[_0x1ca7f3(0x16a)]()[_0x1ca7f3(0x142)](_0x41ef50);
 }
-$("[data-click-addclass]")["on"](_0x270fbf(0x15b), addClickClass);
-const GET_COUNTER_URL = _0x270fbf(0x1e4),
-  UPDATE_COUNTER_URL = _0x270fbf(0x1e4),
-  GET_LIVE_COUNTER_URL =
-    "https://x8ki-letl-twmt.n7.xano.io/api:EbCCRNhB/counter/2",
-  UPDATE_LIVE_COUNTER_URL = _0x270fbf(0x219);
+$(_0x29f161(
+    0xd5))['on'](_0x29f161(0x169), addClickClass);
 
-function getCounter() {
-  const _0x3f97a2 = _0x270fbf;
-  $[_0x3f97a2(0xc8)](GET_COUNTER_URL, function (_0x55f66b) {
-    const _0x487b18 = _0x3f97a2;
-    if (_0x55f66b) {
-      const _0x2b7109 = _0x55f66b[_0x487b18(0x1b2)];
-      updateCounter(_0x2b7109 + 0x1);
-    } else console[_0x487b18(0x233)](_0x487b18(0x12f));
-  });
-}
-
-function updateCounter(_0x12d159) {
-  const _0x183e24 = _0x270fbf;
-  var _0x1b74bd = new Date(),
-    _0x4cf3a8 = _0x1b74bd["getMonth"](),
-    _0x4b336a = btoa(_0x183e24(0x140)),
-    _0x4571fc = btoa(_0x4cf3a8[_0x183e24(0x134)]()),
-    _0x43a4dd = getCookie(_0x4b336a);
-  if (!_0x43a4dd || _0x43a4dd !== _0x4571fc)
-    $["ajax"]({
-      url: UPDATE_COUNTER_URL,
-      type: _0x183e24(0x118),
-      contentType: _0x183e24(0x1f3),
-      data: JSON[_0x183e24(0x12d)]({ Total: _0x12d159 }),
-      success: function (_0x4938f4) {
-        const _0xeacde3 = _0x183e24;
-        document[_0xeacde3(0x13a)] = _0x4b336a + "=" + _0x4571fc;
-      },
-      error: function (_0x5291ae, _0xa70e0d, _0xa2f065) {},
-    });
-  else {
-  }
+function updateCounter(_0x484329) {
+    const _0x3e52d2 = _0x29f161;
+    var _0x201b28 = new Date(),
+        _0x2a8f48 = _0x201b28[_0x3e52d2(0x109)](),
+        _0x205298 = btoa(_0x3e52d2(0x14e)),
+        _0x3e5941 = btoa(_0x2a8f48[_0x3e52d2(0x1c6)]()),
+        _0x3159b5 = getCookie(_0x205298);
+    !_0x3159b5 || _0x3159b5 !== _0x3e5941 ? $[_0x3e52d2(0x89)](
+        'https://videsigns-staging.co.uk/formly-counter',
+        function() {
+            const _0x253863 = _0x3e52d2;
+            console['log'](_0x253863(0x1f1)), document[_0x253863(0xf2)] = _0x205298 + '=' + _0x3e5941;
+        }
+    )[_0x3e52d2(0x172)](function(_0x221bd8, _0x1493ec, _0x39ee4) {
+        const _0x310081 = _0x3e52d2;
+        console[_0x310081(0x1e7)]('Failed\x20to\x20update\x20counter:', _0x39ee4);
+    }) : console[
+        _0x3e52d2(0xcc)]('Counter\x20already\x20updated\x20for\x20this\x20month.');
 }
 
-function getCookie(_0x7186ee) {
-  const _0x3aa71c = _0x270fbf;
-  var _0x303cc = null;
-  if (document[_0x3aa71c(0x13a)] && document["cookie"] !== "") {
-    var _0x1279fa = document[_0x3aa71c(0x13a)]["split"](";");
-    for (
-      var _0x4a6055 = 0x0;
-      _0x4a6055 < _0x1279fa[_0x3aa71c(0x225)];
-      _0x4a6055++
-    ) {
-      var _0x103dce = _0x1279fa[_0x4a6055][_0x3aa71c(0x20d)]();
-      if (
-        _0x103dce[_0x3aa71c(0x190)](0x0, _0x7186ee[_0x3aa71c(0x225)] + 0x1) ===
-        _0x7186ee + "="
-      ) {
-        _0x303cc = decodeURIComponent(
-          _0x103dce[_0x3aa71c(0x190)](_0x7186ee[_0x3aa71c(0x225)] + 0x1),
-        );
-        break;
-      }
+function getCookie(_0x117fe4) {
+    const _0x1d82d3 = _0x29f161;
+    var _0x2d1fd8 = null;
+    if (document[
+            _0x1d82d3(0xf2)] && document[_0x1d82d3(0xf2)] !== '') {
+        var _0x355f63 = document[_0x1d82d3(
+            0xf2)]['split'](';');
+        for (var _0x59623b = 0x0; _0x59623b < _0x355f63[
+                'length']; _0x59623b++) {
+            var _0x10b0f3 = _0x355f63[_0x59623b][_0x1d82d3(0x1ec)]();
+            if (
+                _0x10b0f3[_0x1d82d3(0x159)](0x0, _0x117fe4[_0x1d82d3(0x1bf)] + 0x1) === _0x117fe4 + '='
+            ) {
+                _0x2d1fd8 = decodeURIComponent(_0x10b0f3['substring'](_0x117fe4['length'] +
+                    0x1));
+                break;
+            }
+        }
     }
-  }
-  return _0x303cc;
+    return _0x2d1fd8;
 }
-getCounter(), scrollTop(), cloneRemove(), cloneRemoveInput();
-const formlyUrlParams = new URLSearchParams(
-    window[_0x270fbf(0x18c)][_0x270fbf(0x1c6)],
-  ),
-  formlySupportParam = formlyUrlParams[_0x270fbf(0xc8)](_0x270fbf(0x220)),
-  showButton = formlySupportParam === _0x270fbf(0x1b4),
-  passIcon = _0x270fbf(0x1e0),
-  failIcon = _0x270fbf(0x20b);
+updateCounter(), scrollTop(), cloneRemove(),
+    cloneRemoveInput();
+const formlyUrlParams = new URLSearchParams(window[_0x29f161(0x84)][_0x29f161(0x19a)]),
+    formlySupportParam = formlyUrlParams[_0x29f161(0xe2)](_0x29f161(0x197)),
+    showButton = formlySupportParam === _0x29f161(0x65),
+    passIcon = _0x29f161(0x186),
+    failIcon = _0x29f161(0xf5);
 let isScriptLoaded = !![],
-  scriptLocation = "head",
-  isMultistepAttributePresent = !![],
-  isMultistepOnFormElement = !![],
-  areButtonsPresent = !![],
-  isNextBtnOnSubmit = ![],
-  isSubmitBtnOnSubmit = !![],
-  isBackBtnOnSubmit = ![],
-  formType = logicExtra ? _0x270fbf(0x23d) : _0x270fbf(0x166),
-  resultStatus = _0x270fbf(0x1d5),
-  scriptSrcAdded = "";
+    scriptLocation = _0x29f161(0xb8),
+    isMultistepAttributePresent = !![],
+    isMultistepOnFormElement = !![],
+    areButtonsPresent = !![],
+    isNextBtnOnSubmit = ![],
+    isSubmitBtnOnSubmit = !![],
+    isBackBtnOnSubmit = ![],
+    formType = logicExtra ? _0x29f161(0x155) : _0x29f161(0xde),
+    resultStatus = _0x29f161(0x1e1),
+    scriptSrcAdded = '';
 
-function isElementPresent(_0x4b8d69, _0x2ad3ab) {
-  const _0x4866b1 = _0x270fbf;
-  return (
-    document[_0x4866b1(0x1a5)](
-      "[" + _0x2ad3ab + "=\x22" + _0x4b8d69 + "\x22]",
-    ) !== null
-  );
+function isElementPresent(_0x26c916, _0x137946) {
+    const _0x3b3f17 = _0x29f161;
+    return document[
+            _0x3b3f17(0x16f)]('[' + _0x137946 + '=\x22' + _0x26c916 + '\x22]') !==
+        null;
 }
-isMultistepAttributePresent = isElementPresent(
-  _0x270fbf(0x1ff),
-  _0x270fbf(0x161),
-);
-const multistepForm = document[_0x270fbf(0x1a5)](
-    "form[data-form=\x22multistep\x22]",
-  ),
-  formStepLength = multistepForm[_0x270fbf(0x232)](_0x270fbf(0x13d))[
-    _0x270fbf(0x225)
-  ];
+isMultistepAttributePresent = isElementPresent('multistep', 'data-form');
+const multistepForm = document[_0x29f161(0x16f)](_0x29f161(0x1ab)),
+    formStepLength = multistepForm[_0x29f161(0x198)](_0x29f161(0x119))[_0x29f161(0x1bf)];
 isMultistepOnFormElement = multistepForm !== null;
-const multistepContainer = document[_0x270fbf(0x1a5)](_0x270fbf(0x1d8)),
-  nextBtnExist = multistepContainer[_0x270fbf(0x1a5)](
-    "[data-form=\x22next-btn\x22]",
-  ),
-  backBtnExist = multistepContainer[_0x270fbf(0x1a5)](_0x270fbf(0x147)),
-  submitBtnExist = multistepContainer["querySelector"](
-    "[data-form=\x22submit-btn\x22]",
-  );
-(areButtonsPresent =
-  nextBtnExist !== null && backBtnExist !== null && submitBtnExist !== null),
-  (isNextBtnOnSubmit =
-    nextBtnExist &&
-    nextBtnExist[_0x270fbf(0x1e9)]["toLowerCase"]() === _0x270fbf(0x17a)),
-  (isSubmitBtnOnSubmit =
-    submitBtnExist &&
-    submitBtnExist[_0x270fbf(0x1e9)][_0x270fbf(0x1fb)]() === _0x270fbf(0x17a) &&
-    submitBtnExist["type"][_0x270fbf(0x1fb)]() === _0x270fbf(0x130)),
-  (isBackBtnOnSubmit =
-    backBtnExist &&
-    backBtnExist[_0x270fbf(0x1e9)][_0x270fbf(0x1fb)]() === _0x270fbf(0x17a));
+const multistepContainer = document['querySelector'](_0x29f161(0x173)),
+    nextBtnExist = multistepContainer[_0x29f161(0x16f)](_0x29f161(0x1da)),
+    backBtnExist = multistepContainer[_0x29f161(0x16f)](_0x29f161(0x93)),
+    submitBtnExist = multistepContainer[_0x29f161(0x16f)](_0x29f161(0x129));
+areButtonsPresent = nextBtnExist !== null && backBtnExist !== null && submitBtnExist !== null,
+    isNextBtnOnSubmit = nextBtnExist && nextBtnExist[_0x29f161(0x105)][_0x29f161(0x19d)]() ===
+    _0x29f161(0x16d), isSubmitBtnOnSubmit = submitBtnExist && submitBtnExist[_0x29f161(0x105)][
+        _0x29f161(0x19d)
+    ]() === _0x29f161(0x16d) && submitBtnExist['type']['toLowerCase']() === 'submit',
+    isBackBtnOnSubmit = backBtnExist && backBtnExist[_0x29f161(0x105)][_0x29f161(0x19d)]() ===
+    'input';
+const checkPowerup = _0x47e02c => document[_0x29f161(0x16f)](_0x47e02c) !== null,
+    progressBarAttr = checkPowerup(_0x29f161(0x182)),
+    progressIndicatorAttr = checkPowerup('[data-form=\x22progress-indicator\x22]'),
+    customProgressAttr = checkPowerup(_0x29f161(0xe6)),
+    cardDivAttr = checkPowerup('[data-card=\x22true\x22]'),
+    currentStepAttr = checkPowerup(_0x29f161(0xe3)),
+    totalStepAttr = checkPowerup(_0x29f161(0x1c2)),
+    enterAttr = checkPowerup(_0x29f161(0x92)),
+    submitAttr = checkPowerup(_0x29f161(0x183)),
+    radioSkipAttr = checkPowerup('[data-radio-skip=\x22true\x22]'),
+    customCheckboxAttr = checkPowerup(_0x29f161(0x14f)),
+    recapatchaAttr = checkPowerup(_0x29f161(0x14b));
+(!isScriptLoaded || scriptLocation !== _0x29f161(0xb8) || !isMultistepAttributePresent || !
+    isMultistepOnFormElement || !areButtonsPresent || isNextBtnOnSubmit || !isSubmitBtnOnSubmit ||
+    isBackBtnOnSubmit) && (resultStatus = _0x29f161(0x1f6));
 
-function _0x289b() {
-  const _0x52b555 = [
-    "select-multiple",
-    "[data-form=\x22step\x22]",
-    "f-mySidenav",
-    "selected",
-    "counter",
-    "url",
-    "[data-display-input=\x22",
-    "forEach",
-    ":input[type=\x22time\x22][required]",
-    "</strong>",
-    "slice",
-    "[data-form=\x22back-btn\x22]",
-    "[data-btn=\x22reset\x22]",
-    "[type=\x22submit\x22]",
-    "[data-enter]",
-    "name",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Submit\x20button\x20attribute\x20IS\x20on\x20Form\x20Submit\x20Button\x0a\x20\x20\x20\x20\x20\x20\x20\x20",
-    "input[type=\x22email\x22]:visible",
-    "input[type=\x22checkbox\x22]:visible",
-    "children",
-    "filter",
-    "FAIL",
-    "<strong\x20class=\x22f-text-white\x22>Checkboxes\x20",
-    "[data-text=\x22current-step\x22]",
-    "[data-add-new-input]",
-    "add-new",
-    "go-to",
-    "auto",
-    "submit-show",
-    "removeClass",
-    "select[required]",
-    "change",
-    "appendChild",
-    "\x22]\x20[data-input-field^=\x22",
-    "checkbox",
-    "1424832ViPYcQ",
-    "clone",
-    "data-form",
-    "input[type=\x22radio\x22][name=\x22",
-    "parent",
-    "attr",
-    "[data-radio-skip]:visible",
-    "Basic\x20(No\x20Formly\x20Logic)",
-    "input[name=\x22",
-    ":input[type=\x22password\x22]",
-    "innerHTML",
-    "input[autofocus]",
-    "[data-add-new]",
-    "val",
-    "min-character",
-    "1809355hNpazj",
-    "[data-selection-weight]",
-    "form[data-form=\x22multistep\x22]\x20:input",
-    "1glXyEi",
-    "push",
-    "[data-clone=\x22",
-    "<strong\x20class=\x22f-text-white\x22>Automatic\x20Progress\x20Indicators\x20",
-    "[aria-label=\x22Remove\x20file\x22]",
-    ":input[type=\x22file\x22][required]",
-    ":input[type=\x22checkbox\x22][required]:checked",
-    "[data-form=\x22submit-btn\x22]:visible",
-    "<div\x20data-range=\x22selection\x22\x20style=\x22display:none\x20!important\x22>",
-    "input",
-    "<strong\x20class=\x22f-text-white\x22>Press\x20\x22Enter\x22\x20To\x20Progress\x20",
-    ":first",
-    "[data-show-if]",
-    "[data-form=\x22progress-indicator\x22]",
-    "css",
-    "show",
-    "[data-remove-upload]",
-    "memory",
-    "data-name",
-    "[data-answer][data-radio-skip]:visible",
-    ":input[type=\x22number\x22]",
-    "[data-radio-skip=\x22true\x22]",
-    "filledInput",
-    "[data-form=\x22custom-progress-indicator\x22]",
-    "\x22]\x20[data-clone-input=\x22",
-    "click-addclass",
-    "text",
-    "location",
-    "keyCode",
-    "answer",
-    "formlyLastStep",
-    "substring",
-    "select",
-    ":input[type=\x22tel\x22]",
-    ":input[type=\x22date\x22]",
-    "each",
-    "[data-selected]:checked",
-    "[data-progressive-target=\x22",
-    "query-param",
-    "data-radio-delay",
-    "remove",
-    "1900848vkgAVU",
-    "card",
-    "div",
-    "field",
-    "parse",
-    "[data-query-param]",
-    "[data-add-new=\x22",
-    "focus",
-    "\x0a\x20\x20<button\x20class=\x22f-openbtn\x22\x20onclick=\x22openNav()\x22>\x0a\x20\x20\x20\x20<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--ic\x22\x20width=\x2220px\x22\x20height=\x2220px\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2024\x2024\x22>\x0a\x20\x20\x20\x20\x20\x20<path\x20fill=\x22currentColor\x22\x20d=\x22M11\x2021h-1l1-7H7.5c-.88\x200-.33-.75-.31-.78C8.48\x2010.94\x2010.42\x207.54\x2013.01\x203h1l-1\x207h3.51c.4\x200\x20.62.19.4.66C12.97\x2017.55\x2011\x2021\x2011\x2021\x22></path>\x0a\x20\x20\x20\x20</svg>\x20Check\x20Form\x0a\x20\x20</button>\x0a\x20\x20<div\x20id=\x22f-mySidenav\x22\x20class=\x22f-sidenav\x22>\x0a\x20\x20\x20\x20<a\x20href=\x22javascript:void(0)\x22\x20class=\x22f-closebtn\x22\x20onclick=\x22closeNav()\x22>&times;</a>\x0a\x20\x20\x20\x20<div\x20class=\x22f-fc-main-content\x22>\x0a\x20\x20\x20\x20\x20\x20<h4\x20class=\x22f-text-header\x22>Formly\x20Support</h4>\x0a\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20If\x20you\x20have\x20spotted\x20a\x20bug\x20or\x20require\x20extra\x20support,\x20please\x20reach\x20out\x20to\x20us\x20via\x20Slack\x20or\x20email\x20us\x20at\x20developer@videsigns.uk.\x0a\x20\x20\x20\x20\x20\x20</p>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Form\x20Type</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>",
-    "[data-skip-to]",
-    "find",
-    "querySelector",
-    "[data-last-step]",
-    "required",
-    "[data-clone-input-wrapper=\x22",
-    "prop",
-    "textarea",
-    "head",
-    "data-go-to",
-    "checked",
-    "data-radio-skip",
-    "href",
-    "AND",
-    "ix2",
-    "Total",
-    "input[type=\x22checkbox\x22][name=\x22",
-    "true",
-    "dispatchEvent",
-    "success",
-    "[data-display-input-index=\x22",
-    ".w-checkbox-input",
-    "not",
-    "\x22]\x20[data-clone=\x22",
-    "closest",
-    "textarea[required]",
-    "click",
-    "[data-form=\x22remove-clone\x22]",
-    ":input[type=\x22checkbox\x22]:checked",
-    "removeItem",
-    ":input[type=\x22tel\x22][required]",
-    "[data-clone-wrapper=\x22",
-    "getElementsByTagName",
-    "<strong\x20class=\x22f-text-white\x22>ReCAPTCHA\x20",
-    "scroll-top",
-    "search",
-    ":input[type=\x22checkbox\x22]",
-    "radio",
-    "every",
-    "none",
-    "logic-extra",
-    "wait",
-    "</div>",
-    "[data-btn=\x22check\x22]",
-    "skipTo",
-    "videsigns",
-    "\x0a\x20\x20\x20\x20\x20\x20\x20\x20",
-    "[data-text=\x22total-weight\x22]",
-    "slow",
-    "No\x20Formly\x20script\x20added\x20to\x20the\x20page!",
-    "PASS",
-    "w--redirected-checked",
-    "novalidate",
-    "[data-form=\x22multistep\x22]",
-    "getElementById",
-    "fadeIn",
-    "[data-form=\x22progress\x22]",
-    ".w-form-done",
-    "35%",
-    "\x22][value=\x22",
-    "[data-input-index=\x22",
-    "<span\x20class=\x22f-icon-embed-xxsmall\x20w-embed\x22><svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--ic\x22\x20width=\x22100%\x22\x20height=\x22100%\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20fill=\x22currentColor\x22\x20d=\x22M12\x202C6.48\x202\x202\x206.48\x202\x2012s4.48\x2010\x2010\x2010s10-4.48\x2010-10S17.52\x202\x2012\x202m-2\x2015l-5-5l1.41-1.41L10\x2014.17l7.59-7.59L19\x208z\x22></path></svg></span>",
-    ":input[type=\x22text\x22]",
-    "phone-validation",
-    "ms-field",
-    "https://x8ki-letl-twmt.n7.xano.io/api:EbCCRNhB/counter/1",
-    "keydown",
-    "Before\x20&lt;/body&gt;\x20tag",
-    "scroll-top-offset",
-    "some",
-    "tagName",
-    "input:checkbox",
-    "select[required]:visible",
-    "add-new-input-limit",
-    "redirect-delay",
-    "[data-checkbox]",
-    "radio-delay",
-    ":input[type=\x22number\x22][required]",
-    "[data-form-ms=\x22submit-btn\x22]",
-    "stopPropagation",
-    "application/json",
-    "last-step",
-    "[data-answer]",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>3.\x20Next\x20Buttons:\x20data-form=back-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Next\x20button\x20present?\x20",
-    "metaKey",
-    "current",
-    "[data-form=\x22submit-btn\x22]",
-    "[data-success-card=\x22",
-    "toLowerCase",
-    "[data-memory]",
-    "[data-clone-input=\x22",
-    "[data-go-to]",
-    "multistep",
-    "[data-clone]",
-    "last",
-    "[data-input-field]",
-    "weighted-selection-range",
-    "\x22]:checked",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>Script\x20Location:</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>",
-    "[data-display=\x22",
-    "data-show-if",
-    "input[type=\x22radio\x22]",
-    "data-skip-to",
-    "[data-clickable]",
-    "<span\x20class=\x22f-icon-embed-xxsmall-2\x20w-embed\x22><svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--carbon\x22\x20width=\x22100%\x22\x20height=\x22100%\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2032\x2032\x22><path\x20fill=\x22currentColor\x22\x20d=\x22M16\x202C8.2\x202\x202\x208.2\x202\x2016s6.2\x2014\x2014\x2014s14-6.2\x2014-14S23.8\x202\x2016\x202m5.4\x2021L16\x2017.6L10.6\x2023L9\x2021.4l5.4-5.4L9\x2010.6L10.6\x209l5.4\x205.4L21.4\x209l1.6\x201.6l-5.4\x205.4l5.4\x205.4z\x22></path></svg></span>",
-    "offset",
-    "trim",
-    "input-field",
-    "index",
-    "active-answer-card",
-    "new-tab",
-    "skip-to",
-    "Webflow",
-    "ajaxComplete",
-    "preventDefault",
-    "[data-text=\x22error-message\x22]",
-    "block-domain",
-    "[data-clone-input]",
-    "https://x8ki-letl-twmt.n7.xano.io/api:EbCCRNhB/counter/2",
-    ":input[type=\x22url\x22]",
-    "\x22]\x20select",
-    "step",
-    "debug-mode",
-    "data",
-    "[data-form=\x22next-btn\x22][data-submit-show]",
-    "formly-support",
-    "[data-input-field=\x22",
-    "[data-success-card]",
-    "input[type=\x22radio\x22]:checked",
-    "getItem",
-    "length",
-    "key",
-    "option[value=\x22",
-    "split",
-    "[data-card=\x22true\x22]",
-    "hide",
-    "[data-selection=\x22",
-    "[data-answer=\x22",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Next\x20button\x20attribute\x20is\x20NOT\x20on\x20Form\x20Submit\x20Button\x20",
-    "\x22][data-progressive-input-value=\x22",
-    "494464QMehuP",
-    "backTo",
-    "<strong\x20class=\x22f-text-white\x22>Total\x20Step\x20Text\x20",
-    "querySelectorAll",
-    "error",
-    "body",
-    "Please\x20wait...",
-    "conditional-result",
-    "textarea[autofocus]",
-    "[data-clone-wrapper]",
-    "radio-skip",
-    "\x22]:not([data-prefill=\x22false\x22])",
-    "<strong\x20class=\x22f-text-white\x22>Custom\x20Progress\x20Indicators\x20",
-    "formlyLastStepAnswer",
-    "FormlyLogic\x20enabled",
-    "[data-add-new-input=\x22",
-    "<strong\x20class=\x22f-text-white\x22>Radio\x20Inputs\x20",
-    "test",
-    "option[value=\x22$(this).val()\x22]",
-    "button",
-    "findIndex",
-    "[data-conditional-result]",
-    "trigger",
-    "get",
-    "<br>Data\x20Go\x20To\x20=\x20",
-    "reset-delay",
-    "textarea[name=\x22",
-    "data-input-field",
-    ":input[type=\x22radio\x22]",
-    "addClass",
-    "style",
-    "display",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Formly\x20Script\x20Info</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>Script\x20URL:</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>",
-    "relationship-",
-    "[data-custom-error-message]",
-    "select:not([data-prefill=\x22false\x22])",
-    "</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Number\x20of\x20steps:\x20",
-    "animate",
-    ":input",
-    "includes",
-    "remove-upload",
-    "selection",
-    ":input[type=\x22email\x22]",
-    "1687422ssYzBR",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>4.\x20Back\x20Buttons:\x20data-form=next-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Back\x20button\x20present?\x20",
-    "[data-form=\x22step\x22][data-card]",
-    "[data-display-input-wrapper=\x22",
-    "readystatechange",
-    "[data-progressive-input]",
-    "clickable-all",
-    "log",
-    "[data-form=\x22submit\x22]:visible",
-    "[data-display-index=\x22",
-    "\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a",
-    ".active-answer-card",
-    "[data-form=\x22next-btn\x22]",
-    "startsWith",
-    "input[type=\x22text\x22][required]:visible",
-    "select[name=\x22",
-    ".w-radio-input",
-    "[data-cms-select=text]",
-    "[data-display-wrapper=\x22",
-    "[data-btn=\x22edit\x22]",
-    "open",
-    "[data-redirect-delay]",
-    ":input[type=\x22email\x22][required]",
-    "0px",
-    "5993334zfsCHT",
-    "[data-text=\x22total-steps\x22]",
-    ":input[required]",
-    "6329898xuCsny",
-    "0.4",
-    "clone-input",
-    "count-card",
-    "html,\x20body",
-    "BODY",
-    ":input[type=\x22text\x22][required]",
-    "7CTpeMM",
-    "replace",
-    "phone-autoformat",
-    "[data-selection=\x22other\x22]",
-    "siblings",
-    "padding",
-    "add-new-limit",
-    "input:radio[required]",
-    "inputName",
-    "[data-display]",
-    "[data-progressive-target]",
-    "type",
-    ":input[type=\x22password\x22][required]",
-    "value",
-    "[data-range]:contains(",
-    "parents",
-    "[data-selection]",
-    ":input[type=\x22checkbox\x22][required]:not(:checked)",
-    "https://webflow.com/api/v1/form/",
-    "[type=\x22radio\x22]",
-    "div.g-recaptcha",
-    "parentNode",
-    "<strong\x20class=\x22f-text-white\x22>Current\x20Step\x20Text\x20",
-    "formly",
-    "redirect",
-    "progressive-input",
-    "PATCH",
-    "join",
-    "width",
-    "reinit",
-    "reset",
-    "\x22]\x20textarea",
-    "textarea:focus",
-    "clickable",
-    "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Powerups</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20",
-    "[data-display-input]",
-    "disabled",
-    "[type=\x22checkbox\x22]",
-    "require",
-    "sfte",
-    ".w-form-formradioinput",
-    "[data-progressive-input]:not(:visible)",
-    ":input[type=\x22checkbox\x22][required]",
-    "[data-reset-delay]",
-    "searchParams",
-    "append",
-    "<strong\x20class=\x22f-text-white\x22>Press\x20\x22⌘\x20+\x20Enter\x20\x22\x20To\x20Submit\x20",
-    "stringify",
-    "redirect-form-hehexd",
-    "Failed\x20to\x20get\x20counter\x20value",
-    "submit",
-    "\x22]\x20input",
-    ":checked",
-    "file",
-    "toString",
-    "quiz",
-    "setItem",
-    "[data-radio-delay]",
-    "[data-reinit]",
-    "[data-count-card]",
-    "cookie",
-    "add-new-input",
-  ];
-  _0x289b = function () {
-    return _0x52b555;
-  };
-  return _0x289b();
+function isScriptUrlMatch(_0x31fe3e, _0x1fc133) {
+    const _0x30ba04 = _0x29f161;
+    for (var _0x3cb77d =
+            0x0; _0x3cb77d < _0x1fc133[_0x30ba04(0x1bf)]; _0x3cb77d++) {
+        if (_0x31fe3e[_0x30ba04(0xbf)](
+                _0x1fc133[_0x3cb77d])) return !![];
+    }
+    return ![];
 }
-const checkPowerup = (_0x2e5784) =>
-    document[_0x270fbf(0x1a5)](_0x2e5784) !== null,
-  progressBarAttr = checkPowerup(_0x270fbf(0x1db)),
-  progressIndicatorAttr = checkPowerup(
-    "[data-form=\x22progress-indicator\x22]",
-  ),
-  customProgressAttr = checkPowerup("[data-form=\x22progress-indicator\x22]"),
-  cardDivAttr = checkPowerup(_0x270fbf(0x229)),
-  currentStepAttr = checkPowerup(_0x270fbf(0x153)),
-  totalStepAttr = checkPowerup(_0x270fbf(0xf5)),
-  enterAttr = checkPowerup("[data-enter=\x22true\x22]"),
-  submitAttr = checkPowerup("[data-submit=\x22true\x22]"),
-  radioSkipAttr = checkPowerup(_0x270fbf(0x186)),
-  customCheckboxAttr = checkPowerup(_0x270fbf(0x1ee)),
-  recapatchaAttr = checkPowerup("[data-callback=\x22recaptcha\x22]");
-(!isScriptLoaded ||
-  scriptLocation !== _0x270fbf(0x1ab) ||
-  !isMultistepAttributePresent ||
-  !isMultistepOnFormElement ||
-  !areButtonsPresent ||
-  isNextBtnOnSubmit ||
-  !isSubmitBtnOnSubmit ||
-  isBackBtnOnSubmit) &&
-  (resultStatus = _0x270fbf(0x151));
+var keywordsToCheck = [_0x29f161(0xf6), _0x29f161(0xf1)],
+    scripts = document[_0x29f161(0xf7)](_0x29f161(0x1c9)),
+    matchedScripts = [];
 
-function isScriptUrlMatch(_0x10ccae, _0x335115) {
-  const _0x58f852 = _0x270fbf;
-  for (
-    var _0x3f82b0 = 0x0;
-    _0x3f82b0 < _0x335115[_0x58f852(0x225)];
-    _0x3f82b0++
-  ) {
-    if (_0x10ccae[_0x58f852(0xd8)](_0x335115[_0x3f82b0])) return !![];
-  }
-  return ![];
+function _0x1d56() {
+    const _0x3f22a3 = [
+        '</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Multistep\x20form\x20attribute\x20is\x20on\x20Form\x20element\x20and\x20not\x20on\x20Form\x20Block\x20element\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>2.\x20Form\x20Steps:\x20data-form=step\x0a\x20\x20\x20\x20\x20\x20\x20\x20',
+        'body', 'input[type=\x22checkbox\x22]:not(:checked)',
+        ':input[type=\x22checkbox\x22][required]:checked', '[data-input-reveal]',
+        'form[data-form=\x22multistep\x22]\x20:input', '[data-clickable]', 'timeZone',
+        '8963310awetYg', '\x22]\x20select', 'require', '[data-go-to]', '\x22]\x20input', 'none',
+        'Before\x20&lt;/body&gt;\x20tag', '[data-add-new]', '[data-skip-to]',
+        '[data-input-field=\x22', 'location', '3WLQDOv', 'submit', '[data-reset-delay]',
+        ':input[type=\x22text\x22]', 'post', 'phone-validation', '[data-clone-input-wrapper]',
+        'redirect-delay', 'slow', '[data-query-param]', 'width', 'split', 'selection',
+        '[data-enter=\x22true\x22]', '[data-form=\x22back-btn\x22]', '[data-hidden-input=\x22',
+        'find', 'style', ':input[type=\x22file\x22][required]', 'auto',
+        '\x22]\x20[data-clone-input=\x22', '[data-range]:contains(', 'checkbox', 'clickable-all',
+        '<br>Data\x20Go\x20To\x20=\x20', '[data-remove-upload]', 'join', 'display', 'radio-skip',
+        '\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a',
+        'select[name=\x22', '\x22][value=\x22', 'keypress', '[data-display-input-index=\x22',
+        '<br>Data\x20Answer\x20=\x20', 'closest', 'scroll-top', 'input[autofocus]', 'startsWith',
+        '3KRHvaw', ':input[type=\x27radio\x27]:checked', 'appendChild', 'metaKey', 'prop',
+        '[data-form=\x22remove-input-clone\x22]', '[data-selected]:checked', 'resolvedOptions',
+        'input:radio[name=\x22', 'push', 'attr', 'active-answer-card', 'head', 'select[required]',
+        ':input[type=\x22file\x22]', '<strong\x20class=\x22f-text-white\x22>ReCAPTCHA\x20',
+        'getResponse', 'key', 'dispatchEvent', 'includes', 'progressive-input-value',
+        ':input[type=\x22password\x22][required]', 'ix2', 'click-path', ':input[type=\x22email\x22]',
+        'quiz', 'success', 'findIndex', 'not', 'clone', 'open', 'siblings', 'log', 'BODY',
+        '[data-form=\x22remove-clone\x22]', '[data-max-checkbox]', '6373664PdIFOL',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>3.\x20Next\x20Buttons:\x20data-form=back-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Next\x20button\x20present?\x20',
+        '[data-display=\x22', 'click-addclass',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Back\x20button\x20attribute\x20is\x20NOT\x20on\x20Form\x20Submit\x20Button',
+        '[data-click-addclass]', 'input[type=\x22text\x22][required]:visible', '.w-radio-input',
+        '[data-count-card]', 'data-go-to', '[data-reinit]', 'card', 'novalidate', 'redirect',
+        'Basic\x20(No\x20Formly\x20Logic)', '\x22][data-progressive-input-value=\x22',
+        '[data-progressive-input=\x22', '[aria-label=\x22Remove\x20file\x22]', 'get',
+        '[data-text=\x22current-step\x22]', 'input[type=\x22radio\x22]:checked',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Powerups</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20',
+        '[data-form=\x22progress-indicator\x22]', 'every', '18cWytmk', '3573632djvVyT', 'field',
+        'data-radio-delay', 'radio', 'preventDefault', '.active-answer-card', '0px',
+        ':input[type=\x22checkbox\x22]', 'formly', 'cookie', 'option[value=\x22$(this).val()\x22]',
+        'select',
+        '<span\x20class=\x22f-icon-embed-xxsmall-2\x20w-embed\x22><svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--carbon\x22\x20width=\x22100%\x22\x20height=\x22100%\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2032\x2032\x22><path\x20fill=\x22currentColor\x22\x20d=\x22M16\x202C8.2\x202\x202\x208.2\x202\x2016s6.2\x2014\x2014\x2014s14-6.2\x2014-14S23.8\x202\x2016\x202m5.4\x2021L16\x2017.6L10.6\x2023L9\x2021.4l5.4-5.4L9\x2010.6L10.6\x209l5.4\x205.4L21.4\x209l1.6\x201.6l-5.4\x205.4l5.4\x205.4z\x22></path></svg></span>',
+        'videsigns', 'getElementsByTagName', '[data-last-step]', '35%', 'init', 'ms-field',
+        '.w-form-formradioinput', '<strong\x20class=\x22f-text-white\x22>Radio\x20Inputs\x20',
+        'textarea[required]', 'ajaxComplete', ':input[type=\x22date\x22]', 'textarea[name=\x22',
+        '[data-answer]', 'index', 'hide', 'tagName', 'last',
+        '\x22][data-progressive-input-value=\x22*\x22]', '[data-radio-skip]', 'getMonth', 'append',
+        'query-param', 'param-analytics', 'new-tab', '[data-selection=\x22',
+        'select:not([data-prefill=\x22false\x22])', 'removeItem', 'data-skip-to',
+        '[data-display-wrapper=\x22', '[data-clone-input-wrapper=\x22',
+        ':input[type=\x22tel\x22][required]', '\x22]\x20textarea', '[data-memory]', 'relationship-',
+        ':input[type=\x22date\x22][required]', '[data-form=\x22step\x22]', '1504195cuHSPs',
+        'block-domain', 'filter', '[required]', 'userAgent', 'data-name', '0.4', 'select-multiple',
+        'name', 'setItem', '[data-select-multiple]', 'f-mySidenav', ':input', 'destroy',
+        ':input[type=\x22time\x22]', '[data-form=\x22submit-btn\x22]',
+        '<strong\x20class=\x22f-text-white\x22>Custom\x20Progress\x20Indicators\x20', 'replace',
+        'keyCode',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>4.\x20Back\x20Buttons:\x20data-form=next-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Back\x20button\x20present?\x20',
+        '_blank', 'AND', 'textarea', 'input[type=\x22checkbox\x22]:visible', 'step',
+        '[data-weighted-selection]', '[data-display-index=\x22', ':input[required]', 'now', 'val',
+        'select[required]:visible', 'parse', '[data-selection]', 'option[value=\x22', 'reset-delay',
+        '[data-show-if]', '[data-clone-input]', ':input[type=\x22checkbox\x22]:checked',
+        '[data-success-card]', 'submit-show', 'addClass', 'input:radio[required]', 'test', 'click',
+        'href', '54BquDiu',
+        '\x0a\x20\x20<button\x20class=\x22f-openbtn\x22\x20onclick=\x22openNav()\x22>\x0a\x20\x20\x20\x20<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--ic\x22\x20width=\x2220px\x22\x20height=\x2220px\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2024\x2024\x22>\x0a\x20\x20\x20\x20\x20\x20<path\x20fill=\x22currentColor\x22\x20d=\x22M11\x2021h-1l1-7H7.5c-.88\x200-.33-.75-.31-.78C8.48\x2010.94\x2010.42\x207.54\x2013.01\x203h1l-1\x207h3.51c.4\x200\x20.62.19.4.66C12.97\x2017.55\x2011\x2021\x2011\x2021\x22></path>\x0a\x20\x20\x20\x20</svg>\x20Check\x20Form\x0a\x20\x20</button>\x0a\x20\x20<div\x20id=\x22f-mySidenav\x22\x20class=\x22f-sidenav\x22>\x0a\x20\x20\x20\x20<a\x20href=\x22javascript:void(0)\x22\x20class=\x22f-closebtn\x22\x20onclick=\x22closeNav()\x22>&times;</a>\x0a\x20\x20\x20\x20<div\x20class=\x22f-fc-main-content\x22>\x0a\x20\x20\x20\x20\x20\x20<h4\x20class=\x22f-text-header\x22>Formly\x20Support</h4>\x0a\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20If\x20you\x20have\x20spotted\x20a\x20bug\x20or\x20require\x20extra\x20support,\x20please\x20reach\x20out\x20to\x20us\x20via\x20Slack\x20or\x20email\x20us\x20at\x20developer@videsigns.uk.\x0a\x20\x20\x20\x20\x20\x20</p>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Form\x20Type</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>',
+        'max-checkbox', 'go-to', '[data-callback=\x22recaptcha\x22]',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Attributes</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>1.\x20Form:\x20data-form=multistep\x20',
+        'getElementById', 'counter', '[data-checkbox]', 'value', '[data-text=\x22error-message\x22]',
+        'min-character', 'pageLoadTime',
+        '<strong\x20class=\x22f-text-white\x22>Current\x20Step\x20Text\x20', 'FormlyLogic\x20enabled',
+        'innerHTML', '[data-form=\x22submit-btn\x22]:visible', 'answer', 'substring', 'createElement',
+        'checked', 'timestamp', '[data-add-new=\x22', '[data-radio-delay]', 'redirect-form-hehexd',
+        'label', 'html,\x20body', 'input[type=\x22radio\x22][name=\x22', '671158vRwOqk',
+        '[data-btn=\x22reset\x22]', 'inputName', 'conditional-result', 'remove',
+        '[data-cms-select=text]', 'change', 'parent', 'offset', 'clone-input', 'input',
+        '[data-redirect-delay]', 'querySelector', 'set', 'clickable', 'fail',
+        '[data-form=\x22multistep\x22]', 'animate',
+        '<strong\x20class=\x22f-text-white\x22>Checkboxes\x20',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Next\x20button\x20attribute\x20is\x20NOT\x20on\x20Form\x20Submit\x20Button\x20',
+        ':input[type=\x22text\x22][required]', 'stopPropagation', 'history',
+        '\x22]\x20[data-clone=\x22', 'stringify', 'time-zone', 'padding',
+        '[data-selection=\x22other\x22]', 'reset', 'parents', 'removeClass',
+        '[data-form=\x22progress\x22]', '[data-submit=\x22true\x22]', 'fadeIn',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>5.\x20Submit\x20Buttons:\x20data-form=next-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Submit\x20button\x20present?\x20',
+        '<span\x20class=\x22f-icon-embed-xxsmall\x20w-embed\x22><svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20xmlns:xlink=\x22http://www.w3.org/1999/xlink\x22\x20aria-hidden=\x22true\x22\x20role=\x22img\x22\x20class=\x22iconify\x20iconify--ic\x22\x20width=\x22100%\x22\x20height=\x22100%\x22\x20preserveAspectRatio=\x22xMidYMid\x20meet\x22\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20fill=\x22currentColor\x22\x20d=\x22M12\x202C6.48\x202\x202\x206.48\x202\x2012s4.48\x2010\x2010\x2010s10-4.48\x2010-10S17.52\x202\x2012\x202m-2\x2015l-5-5l1.41-1.41L10\x2014.17l7.59-7.59L19\x208z\x22></path></svg></span>',
+        'backTo', 'add-new', 'add-new-input-limit', '[data-form=\x22submit\x22]:visible',
+        'progressive-input', 'input[type=\x22checkbox\x22]', 'Please\x20wait...', 'current',
+        '[data-progressive-target=\x22', 'script[src=\x22', 'status', '[data-clone-input=\x22',
+        '[data-answer=\x22', 'slice', ':input[type=\x22email\x22][required]', 'url', 'formly-support',
+        'querySelectorAll', '[data-form-ms=\x22submit-btn\x22]', 'search',
+        ':input[type=\x22checkbox\x22][required]', '[data-input-field]', 'toLowerCase',
+        '<strong\x20class=\x22f-text-white\x22>Total\x20Step\x20Text\x20',
+        '[data-form=\x22step\x22]:not([data-card=\x22true\x22])', 'input[name=\x22',
+        'input[type=\x22radio\x22]', ':input[type=\x22number\x22]', '[data-display]',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Formly\x20Script\x20Info</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>Script\x20URL:</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>',
+        'enter', '\x22]:not([data-prefill=\x22false\x22])', 'remove-upload',
+        '[data-add-new-input=\x22', 'file', '[data-selection-weight]',
+        'form[data-form=\x22multistep\x22]',
+        '<div\x20data-range=\x22selection\x22\x20style=\x22display:none\x20!important\x22>',
+        'readystatechange', '[data-cms-select=input]', 'trigger', '[data-input-target]',
+        '\x0a\x20\x20\x20\x20\x20\x20\x20\x20', 'input[type=\x22email\x22]:visible',
+        '[data-answer][data-radio-skip]:visible', 'children', 'count-card', 'referrer', 'text',
+        ':input[type=\x22url\x22][required]', 'skip-to', '[data-display-input=\x22', 'input-field',
+        '[data-form=\x22custom-progress-indicator\x22]', '.w-checkbox-input',
+        '[data-form=\x22next-btn\x22][data-submit-show]', 'length', 'input:checkbox',
+        '[data-form=\x22step\x22][data-card]', '[data-text=\x22total-steps\x22]', 'each',
+        'radio-delay',
+        '<strong\x20class=\x22f-text-white\x22>Automatic\x20Progress\x20Indicators\x20', 'toString',
+        'add-new-limit', '[data-progressive-input]:not(:visible)', 'script', '.w-form-done', 'data',
+        '[data-btn=\x22edit\x22]', 'required', '[data-clone]', '[data-clickable-all]', 'span',
+        ':input[type=\x22time\x22][required]', '\x22]\x20[data-input-field^=\x22',
+        '[data-weighted-selection-range]', 'type', 'skipTo', ':checked', 'ctrlKey',
+        '[data-custom-error-message]', '[data-radio-skip]:visible', '[data-form=\x22next-btn\x22]',
+        'N/A', 'wait', 'css', '1497712znGLMI', 'first', '</strong>', 'PASS',
+        ':input[type=\x22url\x22]', 'data-input-field', 'searchParams', '[data-clone-wrapper]',
+        'selected', 'error', 'forEach', '[data-clone=\x22', 'disabled', 'last-step', 'trim',
+        'w--redirected-checked', ':input[type=\x22number\x22][required]', 'show', 'focus',
+        'Counter\x20updated\x20successfully.', '[data-cms-select=cms]', '[data-enter]', 'screen',
+        'debug-mode', 'FAIL', '\x22]:checked', 'scroll-top-offset', 'filledInput', 'phone-autoformat',
+        ':input[type=\x22radio\x22]', '[data-display-input]', 'Webflow',
+        'input[type=\x22checkbox\x22][name=\x22', 'add-new-input', '4529714aenAkN', 'some', 'true',
+        '\x0a\x20\x20.f-icon-embed-xxsmall-2\x20{\x0a\x20\x20\x20\x20width:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20height:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20color:\x20#ff3232\x20!important;\x0a\x20\x20\x20\x20flex-direction:\x20column\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20center\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20}\x0a\x20\x20.f-icon-embed-xxsmall\x20{\x0a\x20\x20\x20\x20width:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20height:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20color:\x20#57ff4b\x20!important;\x0a\x20\x20\x20\x20flex-direction:\x20column\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20center\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20{\x0a\x20\x20\x20\x20height:\x20100%\x20!important;\x0a\x20\x20\x20\x20width:\x200;\x0a\x20\x20\x20\x20position:\x20fixed\x20!important;\x0a\x20\x20\x20\x20z-index:\x20999999999999\x20!important;\x0a\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20background-color:\x20#081019\x20!important;\x0a\x20\x20\x20\x20overflow-x:\x20hidden\x20!important;\x0a\x20\x20\x20\x20padding-top:\x2060px\x20!important;\x0a\x20\x20\x20\x20transition:\x200.5s\x20!important;\x0a\x20\x20\x20\x20font-size:\x2015px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73)\x20!important;\x0a\x20\x20\x20\x20font-family:system-ui\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-section-title-text,\x20.f-support-text,\x20.f-openbtn{\x0a\x20\x20\x20\x20font-size:\x2015px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73);\x0a\x20\x20\x20\x20font-family:system-ui\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20p,\x20.f-sidenav\x20strong\x20{\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20space-between\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x204px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73);\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20.f-closebtn\x20{\x0a\x20\x20\x20\x20position:\x20absolute\x20!important;\x0a\x20\x20\x20\x20top:\x2025px\x20!important;\x0a\x20\x20\x20\x20right:\x2025px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2036px\x20!important;\x0a\x20\x20\x20\x20margin-left:\x2050px\x20!important;\x0a\x20\x20\x20\x20text-decoration:\x20none\x20!important;\x0a\x20\x20\x20\x20color:\x20#e7e7e7\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-core-setup\x20{\x0a\x20\x20\x20\x20padding:\x2012px\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x2011px\x20!important;\x0a\x20\x20\x20\x20border-radius:\x206px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20#f-main\x20{\x0a\x20\x20\x20\x20transition:\x20margin-left\x20.5s\x20!important;\x0a\x20\x20\x20\x20padding:\x2020px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-main-content\x20{\x0a\x20\x20\x20\x20transition:\x20margin-left\x20.5s\x20!important;\x0a\x20\x20\x20\x20padding:\x2020px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-form-step\x20{\x0a\x20\x20\x20\x20padding-left:\x2010px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-openbtn\x20{\x0a\x20\x20\x20\x20white-space:\x20nowrap\x20!important;\x0a\x20\x20\x20\x20cursor:\x20pointer\x20!important;\x0a\x20\x20\x20\x20box-shadow:\x200\x200\x200\x201px\x20rgba(0,\x200,\x200,\x20.1),\x200\x201px\x203px\x20rgba(0,\x200,\x200,\x20.1)\x20!important;\x0a\x20\x20\x20\x20visibility:\x20visible\x20!important;\x0a\x20\x20\x20\x20z-index:\x2099\x20!important;\x0a\x20\x20\x20\x20color:\x20#e7e7e7\x20!important;\x0a\x20\x20\x20\x20opacity:\x201\x20!important;\x0a\x20\x20\x20\x20width:\x20auto\x20!important;\x0a\x20\x20\x20\x20height:\x20auto\x20!important;\x0a\x20\x20\x20\x20background-color:\x20#1e1e1e\x20!important;\x0a\x20\x20\x20\x20border-radius:\x203px\x20!important;\x0a\x20\x20\x20\x20margin:\x200\x20!important;\x0a\x20\x20\x20\x20padding:\x206px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2013px\x20!important;\x0a\x20\x20\x20\x20line-height:\x2014px\x20!important;\x0a\x20\x20\x20\x20text-decoration:\x20none\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20\x20\x20position:\x20fixed\x20!important;\x0a\x20\x20\x20\x20top:\x20auto\x20!important;\x0a\x20\x20\x20\x20bottom:\x2012px\x20!important;\x0a\x20\x20\x20\x20left:\x2012px\x20!important;\x0a\x20\x20\x20\x20right:\x20auto\x20!important;\x0a\x20\x20\x20\x20overflow:\x20visible\x20!important;\x0a\x20\x20\x20\x20transform:\x20none\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-text-header{\x0a\x20\x20\x20\x20color:\x20#fff\x20!important;\x0a\x20\x20\x20\x20font-size:\x201.8rem\x20!important;\x0a\x20\x20\x20\x20font-weight:\x20600\x20!important;\x0a\x20\x20\x20\x20line-height:\x201.2\x20!important;\x0a\x20\x20\x20\x20margin-bottom:4px\x0a\x20\x20}\x0a\x0a\x20\x20@media\x20screen\x20and\x20(max-height:\x20450px)\x20{\x0a\x20\x20\x20\x20.sidenav\x20{\x20padding-top:\x2015px\x20!important;\x20}\x0a\x20\x20\x20\x20.sidenav\x20a\x20{\x20font-size:\x2018px\x20!important;\x20}\x0a\x20\x20}\x0a\x0a\x20\x20.f-section-title-text{\x0a\x20\x20\x20\x20color:\x20#fff\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x2010px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2018px\x20!important;\x0a\x20\x20\x20\x20font-weight:\x20700\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-div-support-section{\x0a\x20\x20\x20\x20padding-top:1rem\x20!important;\x0a\x20\x20\x20\x20padding-bottom:1rem\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-text-white{\x0a\x20\x20\x20\x20color:\x20white\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-spacer{\x0a\x20\x20\x20\x20padding-top:8px\x20!important;\x0a\x20\x20}\x0a',
+        'screen-resolution',
+        '<strong\x20class=\x22f-text-white\x22>Press\x20\x22⌘\x20+\x20Enter\x20\x22\x20To\x20Submit\x20',
+        'formlyLastStep', 'weighted-selection', 'getItem', 'input[type=\x22submit\x22]',
+        'No\x20Formly\x20script\x20added\x20to\x20the\x20page!', 'textarea[autofocus]',
+        '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Submit\x20button\x20attribute\x20IS\x20on\x20Form\x20Submit\x20Button\x0a\x20\x20\x20\x20\x20\x20\x20\x20',
+        ':focus', 'formlyLastStepAnswer'
+    ];
+    _0x1d56 = function() { return _0x3f22a3; };
+    return _0x1d56();
 }
-var keywordsToCheck = [_0x270fbf(0x1d0), _0x270fbf(0x115)],
-  scripts = document[_0x270fbf(0x1c3)]("script"),
-  matchedScripts = [];
-
-function _0x2393(_0x586be5, _0x1b47ec) {
-  const _0x289b88 = _0x289b();
-  return (
-    (_0x2393 = function (_0x2393ec, _0x3151cf) {
-      _0x2393ec = _0x2393ec - 0xc5;
-      let _0x46f8b6 = _0x289b88[_0x2393ec];
-      return _0x46f8b6;
-    }),
-    _0x2393(_0x586be5, _0x1b47ec)
-  );
+for (var i = 0x0; i < scripts[_0x29f161(0x1bf)]; i++) {
+    var scriptSrcs = scripts[i]['src'];
+    isScriptUrlMatch(scriptSrcs, keywordsToCheck) && matchedScripts[_0x29f161(0xb5)](scriptSrcs);
 }
-for (var i = 0x0; i < scripts[_0x270fbf(0x225)]; i++) {
-  var scriptSrcs = scripts[i]["src"];
-  isScriptUrlMatch(scriptSrcs, keywordsToCheck) &&
-    matchedScripts[_0x270fbf(0x172)](scriptSrcs);
-}
-if (matchedScripts[_0x270fbf(0x225)] > 0x0) {
-  scriptSrcAdded = matchedScripts;
-  const script = document["querySelector"](
-    "script[src=\x22" + scriptSrcAdded + "\x22]",
-  );
-  script &&
-    (scriptLocation =
-      script[_0x270fbf(0x113)][_0x270fbf(0x1e9)] === _0x270fbf(0xfc)
-        ? _0x270fbf(0x1e6)
-        : "Inside\x20<head>\x20tag");
-} else scriptSrcAdded = _0x270fbf(0x1d4) + failIcon;
-const newElement = document["createElement"](_0x270fbf(0x19c)),
-  newStyle = document["createElement"](_0x270fbf(0xcf));
-(newStyle[_0x270fbf(0x169)] =
-  "\x0a\x20\x20.f-icon-embed-xxsmall-2\x20{\x0a\x20\x20\x20\x20width:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20height:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20color:\x20#ff3232\x20!important;\x0a\x20\x20\x20\x20flex-direction:\x20column\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20center\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20}\x0a\x20\x20.f-icon-embed-xxsmall\x20{\x0a\x20\x20\x20\x20width:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20height:\x201.3rem\x20!important;\x0a\x20\x20\x20\x20color:\x20#57ff4b\x20!important;\x0a\x20\x20\x20\x20flex-direction:\x20column\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20center\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20{\x0a\x20\x20\x20\x20height:\x20100%\x20!important;\x0a\x20\x20\x20\x20width:\x200;\x0a\x20\x20\x20\x20position:\x20fixed\x20!important;\x0a\x20\x20\x20\x20z-index:\x20999999999999\x20!important;\x0a\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20background-color:\x20#081019\x20!important;\x0a\x20\x20\x20\x20overflow-x:\x20hidden\x20!important;\x0a\x20\x20\x20\x20padding-top:\x2060px\x20!important;\x0a\x20\x20\x20\x20transition:\x200.5s\x20!important;\x0a\x20\x20\x20\x20font-size:\x2015px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73)\x20!important;\x0a\x20\x20\x20\x20font-family:system-ui\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-section-title-text,\x20.f-support-text,\x20.f-openbtn{\x0a\x20\x20\x20\x20font-size:\x2015px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73);\x0a\x20\x20\x20\x20font-family:system-ui\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20p,\x20.f-sidenav\x20strong\x20{\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20\x20\x20justify-content:\x20space-between\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x204px\x20!important;\x0a\x20\x20\x20\x20color:\x20rgba(255,\x20255,\x20255,\x20.73);\x0a\x20\x20}\x0a\x0a\x20\x20.f-sidenav\x20.f-closebtn\x20{\x0a\x20\x20\x20\x20position:\x20absolute\x20!important;\x0a\x20\x20\x20\x20top:\x2025px\x20!important;\x0a\x20\x20\x20\x20right:\x2025px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2036px\x20!important;\x0a\x20\x20\x20\x20margin-left:\x2050px\x20!important;\x0a\x20\x20\x20\x20text-decoration:\x20none\x20!important;\x0a\x20\x20\x20\x20color:\x20#e7e7e7\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-core-setup\x20{\x0a\x20\x20\x20\x20padding:\x2012px\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x2011px\x20!important;\x0a\x20\x20\x20\x20border-radius:\x206px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20#f-main\x20{\x0a\x20\x20\x20\x20transition:\x20margin-left\x20.5s\x20!important;\x0a\x20\x20\x20\x20padding:\x2020px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-main-content\x20{\x0a\x20\x20\x20\x20transition:\x20margin-left\x20.5s\x20!important;\x0a\x20\x20\x20\x20padding:\x2020px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-fc-form-step\x20{\x0a\x20\x20\x20\x20padding-left:\x2010px\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-openbtn\x20{\x0a\x20\x20\x20\x20white-space:\x20nowrap\x20!important;\x0a\x20\x20\x20\x20cursor:\x20pointer\x20!important;\x0a\x20\x20\x20\x20box-shadow:\x200\x200\x200\x201px\x20rgba(0,\x200,\x200,\x20.1),\x200\x201px\x203px\x20rgba(0,\x200,\x200,\x20.1)\x20!important;\x0a\x20\x20\x20\x20visibility:\x20visible\x20!important;\x0a\x20\x20\x20\x20z-index:\x2099\x20!important;\x0a\x20\x20\x20\x20color:\x20#e7e7e7\x20!important;\x0a\x20\x20\x20\x20opacity:\x201\x20!important;\x0a\x20\x20\x20\x20width:\x20auto\x20!important;\x0a\x20\x20\x20\x20height:\x20auto\x20!important;\x0a\x20\x20\x20\x20background-color:\x20#1e1e1e\x20!important;\x0a\x20\x20\x20\x20border-radius:\x203px\x20!important;\x0a\x20\x20\x20\x20margin:\x200\x20!important;\x0a\x20\x20\x20\x20padding:\x206px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2013px\x20!important;\x0a\x20\x20\x20\x20line-height:\x2014px\x20!important;\x0a\x20\x20\x20\x20text-decoration:\x20none\x20!important;\x0a\x20\x20\x20\x20display:\x20flex\x20!important;\x0a\x20\x20\x20\x20position:\x20fixed\x20!important;\x0a\x20\x20\x20\x20top:\x20auto\x20!important;\x0a\x20\x20\x20\x20bottom:\x2012px\x20!important;\x0a\x20\x20\x20\x20left:\x2012px\x20!important;\x0a\x20\x20\x20\x20right:\x20auto\x20!important;\x0a\x20\x20\x20\x20overflow:\x20visible\x20!important;\x0a\x20\x20\x20\x20transform:\x20none\x20!important;\x0a\x20\x20\x20\x20align-items:\x20center\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-text-header{\x0a\x20\x20\x20\x20color:\x20#fff\x20!important;\x0a\x20\x20\x20\x20font-size:\x201.8rem\x20!important;\x0a\x20\x20\x20\x20font-weight:\x20600\x20!important;\x0a\x20\x20\x20\x20line-height:\x201.2\x20!important;\x0a\x20\x20\x20\x20margin-bottom:4px\x0a\x20\x20}\x0a\x0a\x20\x20@media\x20screen\x20and\x20(max-height:\x20450px)\x20{\x0a\x20\x20\x20\x20.sidenav\x20{\x20padding-top:\x2015px\x20!important;\x20}\x0a\x20\x20\x20\x20.sidenav\x20a\x20{\x20font-size:\x2018px\x20!important;\x20}\x0a\x20\x20}\x0a\x0a\x20\x20.f-section-title-text{\x0a\x20\x20\x20\x20color:\x20#fff\x20!important;\x0a\x20\x20\x20\x20margin-bottom:\x2010px\x20!important;\x0a\x20\x20\x20\x20font-size:\x2018px\x20!important;\x0a\x20\x20\x20\x20font-weight:\x20700\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-div-support-section{\x0a\x20\x20\x20\x20padding-top:1rem\x20!important;\x0a\x20\x20\x20\x20padding-bottom:1rem\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-text-white{\x0a\x20\x20\x20\x20color:\x20white\x20!important;\x0a\x20\x20}\x0a\x0a\x20\x20.f-spacer{\x0a\x20\x20\x20\x20padding-top:8px\x20!important;\x0a\x20\x20}\x0a"),
-  document[_0x270fbf(0x1ab)][_0x270fbf(0x15c)](newStyle);
-showButton && document[_0x270fbf(0x234)]["appendChild"](newElement);
-newElement[_0x270fbf(0x169)] =
-  _0x270fbf(0x1a2) +
-  formType +
-  _0x270fbf(0xd1) +
-  scriptSrcAdded +
-  _0x270fbf(0x205) +
-  scriptLocation +
-  "</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-div-support-section\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-section-title-text\x22>Attributes</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>1.\x20Form:\x20data-form=multistep\x20" +
-  (isMultistepOnFormElement ? passIcon : failIcon) +
-  "</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Multistep\x20form\x20attribute\x20is\x20on\x20Form\x20element\x20and\x20not\x20on\x20Form\x20Block\x20element\x0a\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>2.\x20Form\x20Steps:\x20data-form=step\x0a\x20\x20\x20\x20\x20\x20\x20\x20" +
-  (formStepLength > 0x0 ? passIcon : failIcon) +
-  _0x270fbf(0xd5) +
-  formStepLength +
-  _0x270fbf(0x1f6) +
-  (nextBtnExist ? passIcon : failIcon) +
-  _0x270fbf(0x22d) +
-  (isNextBtnOnSubmit ? failIcon : passIcon) +
-  _0x270fbf(0xdd) +
-  (backBtnExist ? passIcon : failIcon) +
-  "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Back\x20button\x20attribute\x20is\x20NOT\x20on\x20Form\x20Submit\x20Button" +
-  (isBackBtnOnSubmit ? failIcon : passIcon) +
-  "</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>5.\x20Submit\x20Buttons:\x20data-form=next-btn</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Submit\x20button\x20present?\x20" +
-  (backBtnExist ? passIcon : failIcon) +
-  _0x270fbf(0x14c) +
-  (isSubmitBtnOnSubmit ? passIcon : failIcon) +
-  _0x270fbf(0x120) +
-  (progressBarAttr && progressIndicatorAttr
-    ? _0x270fbf(0x174) + passIcon + "</strong>"
-    : "") +
-  "\x0a\x20\x20\x20\x20\x20\x20\x20\x20" +
-  (customProgressAttr ? _0x270fbf(0x23b) + passIcon + _0x270fbf(0x145) : "") +
-  _0x270fbf(0x1d1) +
-  (cardDivAttr
-    ? "<strong\x20class=\x22f-text-white\x22>Intro\x20Cards\x20Or\x20Steps\x20Without\x20Inputs\x20" +
-      passIcon +
-      _0x270fbf(0x145)
-    : "") +
-  _0x270fbf(0x1d1) +
-  (currentStepAttr ? _0x270fbf(0x114) + passIcon + _0x270fbf(0x145) : "") +
-  _0x270fbf(0x1d1) +
-  (totalStepAttr ? _0x270fbf(0x231) + passIcon + _0x270fbf(0x145) : "") +
-  _0x270fbf(0x1d1) +
-  (enterAttr ? _0x270fbf(0x17b) + passIcon + _0x270fbf(0x145) : "") +
-  _0x270fbf(0x1d1) +
-  (submitAttr ? _0x270fbf(0x12c) + passIcon + "</strong>" : "") +
-  _0x270fbf(0x1d1) +
-  (radioSkipAttr ? _0x270fbf(0x23f) + passIcon + "</strong>" : "") +
-  _0x270fbf(0x1d1) +
-  (customCheckboxAttr ? _0x270fbf(0x152) + passIcon + "</strong>" : "") +
-  _0x270fbf(0x1d1) +
-  (recapatchaAttr ? _0x270fbf(0x1c4) + passIcon + _0x270fbf(0x145) : "") +
-  _0x270fbf(0xe6);
+if (matchedScripts[_0x29f161(0x1bf)] > 0x0) {
+    scriptSrcAdded = matchedScripts;
+    const script =
+        document[_0x29f161(0x16f)](_0x29f161(0x190) + scriptSrcAdded + '\x22]');
+    script && (scriptLocation = script['parentNode'][_0x29f161(0x105)] === _0x29f161(0xcd) ?
+        _0x29f161(0x80) : 'Inside\x20<head>\x20tag');
+} else scriptSrcAdded = _0x29f161(0x6d) +
+    failIcon;
+const newElement = document[_0x29f161(0x15a)]('div'),
+    newStyle = document[_0x29f161(0x15a)](_0x29f161(0x96));
+newStyle['innerHTML'] = _0x29f161(0x66), document[_0x29f161(0xb8)]['appendChild'](newStyle);
+showButton && document[_0x29f161(0x73)][_0x29f161(0xae)](newElement);
+newElement[_0x29f161(0x156)] = _0x29f161(0x148) + formType + _0x29f161(0x1a4) + scriptSrcAdded +
+    '</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22f-spacer\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<strong\x20class=\x22f-text-white\x22>Script\x20Location:</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>' +
+    scriptLocation + _0x29f161(0x14c) + (isMultistepOnFormElement ? passIcon : failIcon) + _0x29f161(
+        0x72) + (formStepLength > 0x0 ? passIcon : failIcon) +
+    '</strong>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22f-support-text\x22>Number\x20of\x20steps:\x20' +
+    formStepLength + _0x29f161(0xd1) + (nextBtnExist ? passIcon : failIcon) + _0x29f161(0x176) + (
+        isNextBtnOnSubmit ? failIcon : passIcon) + _0x29f161(0x12d) + (backBtnExist ? passIcon :
+        failIcon) + _0x29f161(0xd4) + (isBackBtnOnSubmit ? failIcon : passIcon) + _0x29f161(0x185) + (
+        backBtnExist ? passIcon : failIcon) + _0x29f161(0x6f) + (isSubmitBtnOnSubmit ? passIcon :
+        failIcon) + _0x29f161(0xe5) + (progressBarAttr && progressIndicatorAttr ? _0x29f161(0x1c5) +
+        passIcon + '</strong>' : '') + _0x29f161(0x1b1) + (customProgressAttr ? _0x29f161(0x12a) +
+        passIcon + _0x29f161(0x1e0) : '') + _0x29f161(0x1b1) + (cardDivAttr ?
+        '<strong\x20class=\x22f-text-white\x22>Intro\x20Cards\x20Or\x20Steps\x20Without\x20Inputs\x20' +
+        passIcon + '</strong>' : '') + _0x29f161(0x1b1) + (currentStepAttr ? _0x29f161(0x154) +
+        passIcon + _0x29f161(0x1e0) : '') + _0x29f161(0x1b1) + (totalStepAttr ? _0x29f161(0x19e) +
+        passIcon + _0x29f161(0x1e0) : '') + _0x29f161(0x1b1) + (enterAttr ?
+        '<strong\x20class=\x22f-text-white\x22>Press\x20\x22Enter\x22\x20To\x20Progress\x20' +
+        passIcon + '</strong>' : '') + _0x29f161(0x1b1) + (submitAttr ? _0x29f161(0x68) + passIcon +
+        '</strong>' : '') + '\x0a\x20\x20\x20\x20\x20\x20\x20\x20' + (radioSkipAttr ? _0x29f161(0xfd) +
+        passIcon + _0x29f161(0x1e0) : '') + _0x29f161(0x1b1) + (customCheckboxAttr ? _0x29f161(0x175) +
+        passIcon + '</strong>' : '') + _0x29f161(0x1b1) + (recapatchaAttr ? _0x29f161(0xbb) + passIcon +
+        '</strong>' : '') + _0x29f161(0xa2);
 
 function openNav() {
-  const _0x1e4e7d = _0x270fbf;
-  (document[_0x1e4e7d(0x1d9)](_0x1e4e7d(0x13e))["style"][_0x1e4e7d(0x11a)] =
-    _0x1e4e7d(0x1dd)),
-    (document[_0x1e4e7d(0x1d9)](_0x1e4e7d(0x13e))[_0x1e4e7d(0xcf)][
-      _0x1e4e7d(0x103)
-    ] = "12px");
+    const _0x5c1e35 = _0x29f161;
+    document[_0x5c1e35(0x14d)](_0x5c1e35(0x125))[_0x5c1e35(0x96)]['width'] = _0x5c1e35(0xf9),
+        document[_0x5c1e35(0x14d)](_0x5c1e35(0x125))[_0x5c1e35(0x96)][_0x5c1e35(0x17d)] = '12px';
 }
 
 function closeNav() {
-  const _0x45764c = _0x270fbf;
-  (document[_0x45764c(0x1d9)](_0x45764c(0x13e))[_0x45764c(0xcf)][
-    _0x45764c(0x11a)
-  ] = "0"),
-    (document["getElementById"](_0x45764c(0x13e))[_0x45764c(0xcf)][
-      _0x45764c(0x103)
-    ] = _0x45764c(0xf3));
+    const _0x15a1b4 = _0x29f161;
+    document['getElementById'](_0x15a1b4(0x125))[_0x15a1b4(0x96)][_0x15a1b4(0x8f)] = '0', document[
+        _0x15a1b4(0x14d)]('f-mySidenav')['style'][_0x15a1b4(0x17d)] = _0x15a1b4(0xef);
 }
