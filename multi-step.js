@@ -1,4 +1,4 @@
-// 22/3/24 -- reverted on 5/4/24
+// 22/3/24 -- reverted on 6/4/24
 // Bug fixes
 // 1. Fixed issue with counter not working
 // 2. Troubleshooted min character issue on textarea
