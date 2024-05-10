@@ -1,4 +1,4 @@
-// 22/3/24 -- reverted on 10/5/24 -- force updated
+// -- reverted on 10/5/24 -- force updated
 //reason - checkbox issue
 //reverted bug: required checkbox validation wasn't working on the last step
 
