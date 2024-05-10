@@ -1,4 +1,7 @@
-// 22/3/24 -- reverted on 6/4/24 -- force update
+// 22/3/24 -- reverted on 10/5/24 -- force update 2
+//reason - checkbox issue
+//reverted bug: required checkbox validation wasn't working on the last step
+
 // Bug fixes
 // 1. Fixed issue with counter not working
 // 2. Troubleshooted min character issue on textarea
