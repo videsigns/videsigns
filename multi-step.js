@@ -395,7 +395,7 @@ function updateStep() {
       ? parseInt(getSafe(() => selection[0x0][_0xf046f(0x21f)]))
       : x);
   $("[data-answer]")[_0xf046f(0x1a6)](), steps[_0xf046f(0x1a6)]();
-  reinitIX === !![] && window[_0xf046f(0x1eb)][_0xf046f(0x12e)]();
+  //reinitIX === !![] && window[_0xf046f(0x1eb)][_0xf046f(0x12e)]();
   $(progressbar)["removeClass"](_0xf046f(0x257));
   for (i = 0x0; i <= x; i++) {
     countCard
